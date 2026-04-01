@@ -8,6 +8,9 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    /* Fix scroll que no corte los títulos */
+    html { scroll-padding-top: 80px; }
+
     :root {
       --black: #0e0e0e;
       --white: #f5f2ee;
@@ -42,7 +45,6 @@
       font-size: 2rem;
       letter-spacing: 0.08em;
       color: var(--white);
-      text-decoration: none;
     }
 
     .pm-logo span { color: var(--accent); }
@@ -65,7 +67,7 @@
 
     .pm-nav-links a:hover { color: var(--accent); }
 
-    /* HERO — nuevo layout: foto a la izquierda, texto + stats a la derecha */
+    /* HERO */
     .pm-hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -73,32 +75,12 @@
       border-bottom: 0.5px solid var(--border);
     }
 
-    /* FOTO — ocupa toda la altura del hero */
-    .pm-hero-img {
-      background: #1a1a1a;
-      overflow: hidden;
-      position: relative;
-      border-right: 0.5px solid var(--border);
-    }
-
-    .pm-hero-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 70% center;
-    }
-
-    /* LADO DERECHO: texto arriba, stats abajo */
-    .pm-hero-right {
-      display: grid;
-      grid-template-rows: 1fr auto;
-    }
-
     .pm-hero-left {
       padding: 5rem 2.5rem 4rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      border-right: 0.5px solid var(--border);
     }
 
     .pm-hero-tag {
@@ -143,8 +125,6 @@
       color: var(--white);
       cursor: pointer;
       transition: all 0.2s;
-      text-decoration: none;
-      display: inline-block;
     }
 
     .pm-btn:hover { background: var(--white); color: var(--black); }
@@ -158,21 +138,38 @@
 
     .pm-btn.accent:hover { background: var(--white); border-color: var(--white); }
 
-    /* STATS 2x2 */
+    .pm-hero-right {
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+
+    .pm-hero-img {
+      background: #1a1a1a;
+      overflow: hidden;
+      position: relative;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .pm-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 75% top;
+    }
+
     .pm-hero-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      border-top: 0.5px solid var(--border);
     }
 
     .pm-stat {
-      padding: 1.5rem;
+      padding: 2rem 1.5rem;
       border-right: 0.5px solid var(--border);
       border-bottom: 0.5px solid var(--border);
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.5rem;
     }
 
     .pm-stat:nth-child(2n) { border-right: none; }
@@ -180,17 +177,16 @@
 
     .pm-stat-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       color: var(--accent);
       line-height: 1;
     }
 
     .pm-stat-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gray);
-      line-height: 1.4;
     }
 
     /* SECTIONS */
@@ -289,7 +285,9 @@
       cursor: pointer;
     }
 
-    .pm-gallery-item:first-child { grid-row: 1 / 3; }
+    .pm-gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
 
     .pm-gallery-item img {
       width: 100%;
@@ -299,7 +297,9 @@
       display: block;
     }
 
-    .pm-gallery-item:hover img { transform: scale(1.04); }
+    .pm-gallery-item:hover img {
+      transform: scale(1.04);
+    }
 
     .pm-gallery-overlay {
       position: absolute;
@@ -380,7 +380,7 @@
       line-height: 1.4;
     }
 
-    .pm-timeline { display: flex; flex-direction: column; }
+    .pm-timeline { display: flex; flex-direction: column; gap: 0; }
 
     .pm-timeline-item {
       display: grid;
@@ -433,8 +433,10 @@
       background: #1a1a1a;
       border: 0.5px dashed rgba(212,255,0,0.2);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 0.5rem;
       color: rgba(212,255,0,0.3);
       font-size: 0.72rem;
       letter-spacing: 0.1em;
@@ -470,6 +472,7 @@
       color: var(--white);
       font-size: 0.85rem;
       transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
     }
 
     .pm-contact-link:hover { border-color: var(--accent); background: rgba(212,255,0,0.04); }
@@ -519,16 +522,13 @@
     }
 
     .pm-reveal.visible { opacity: 1; transform: none; }
-
-    /* Fix scroll que no corte los títulos */
-    html { scroll-padding-top: 80px; }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="pm-nav">
-    <a class="pm-logo" href="index.html">P<span>.</span>M</a>
+    <div class="pm-logo">P<span>.</span>M</div>
     <ul class="pm-nav-links">
       <li><a href="#about">Sobre mí</a></li>
       <li><a href="#foto">Fotografía</a></li>
@@ -538,26 +538,21 @@
     </ul>
   </nav>
 
-  <!-- HERO: foto izquierda | texto+stats derecha -->
+  <!-- HERO -->
   <section class="pm-hero">
-
-    <!-- FOTO — ocupa toda la columna izquierda -->
-    <div class="pm-hero-img">
-      <img src="https://github.com/user-attachments/assets/0459368a-bd3f-4a5f-a856-61efd34d952e" alt="Pilar Machado" />
-    </div>
-
-    <!-- DERECHA: texto arriba, stats abajo -->
-    <div class="pm-hero-right">
-      <div class="pm-hero-left">
-        <div class="pm-hero-tag">Portfolio — Comunicación & Fotografía</div>
-        <h1 class="pm-hero-name">Pilar<br><em>Machado</em></h1>
-        <p class="pm-hero-desc">Fotógrafa deportiva, gestora de redes y estudiante de Comunicación Digital. Capturo el momento exacto, dentro y fuera del campo.</p>
-        <div class="pm-hero-btns">
-          <a class="pm-btn accent" href="#proyecto">Ver proyectos</a>
-          <a class="pm-btn" href="#contacto">Contacto</a>
-        </div>
+    <div class="pm-hero-left">
+      <div class="pm-hero-tag">Portfolio — Comunicación & Fotografía</div>
+      <h1 class="pm-hero-name">Pilar<br><em>Machado</em></h1>
+      <p class="pm-hero-desc">Fotógrafa deportiva, gestora de redes y estudiante de Comunicación Digital. Capturo el momento exacto, dentro y fuera del campo.</p>
+      <div class="pm-hero-btns">
+        <button class="pm-btn accent" onclick="document.getElementById('proyecto').scrollIntoView({behavior:'smooth'})">Ver proyectos</button>
+        <button class="pm-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contacto</button>
       </div>
-
+    </div>
+    <div class="pm-hero-right">
+      <div class="pm-hero-img">
+        <img src="https://github.com/user-attachments/assets/0459368a-bd3f-4a5f-a856-61efd34d952e" alt="Pilar Machado" />
+      </div>
       <div class="pm-hero-stats">
         <div class="pm-stat">
           <span class="pm-stat-num">48h</span>
@@ -577,7 +572,6 @@
         </div>
       </div>
     </div>
-
   </section>
 
   <!-- SOBRE MÍ -->
@@ -588,10 +582,12 @@
       <div class="pm-section-line"></div>
     </div>
     <div class="pm-about-grid">
-      <div class="pm-about-text">
-        <p>Soy fotógrafa deportiva especializada en fútbol y estudiante de Comunicación Digital en Montevideo. Hace cinco años que hago fotografía deportiva y capturo esos instantes irrepetibles que, una vez que ocurren, solo quedan en la memoria. Desde tres años y medio que comencé mi formación en comunicación digital y me acompaña en ese camino, estoy a un año de recibirme.</p>
-        <p>Trabajo de forma metódica y organizada, con atención al detalle y ganas de innovar en cada proyecto. Combino fotografía, diseño y manejo de redes sociales para ofrecer una comunicación visual integral, coherente y pensada para llegar al público de manera auténtica.</p>
-        <p>Creo que las mejores campañas son las que nacen de entender qué le importa a la comunidad y cómo contarlo con lo que tenés a mano.</p>
+      <div>
+        <div class="pm-about-text">
+          <p>Soy fotógrafa deportiva especializada en fútbol y estudiante de Comunicación Digital en Montevideo. Hace cinco años que hago fotografía deportiva y capturo esos instantes irrepetibles que, una vez que ocurren, solo quedan en la memoria. Desde tres años y medio que comencé mi formación en comunicación digital y me acompaña en ese camino, estoy a un año de recibirme.</p>
+          <p>Trabajo de forma metódica y organizada, con atención al detalle y ganas de innovar en cada proyecto. Combino fotografía, diseño y manejo de redes sociales para ofrecer una comunicación visual integral, coherente y pensada para llegar al público de manera auténtica.</p>
+          <p>Creo que las mejores campañas son las que nacen de entender qué le importa a la comunidad y cómo contarlo con lo que tenés a mano.</p>
+        </div>
       </div>
       <div class="pm-skills-list">
         <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Fotografía deportiva</span></div>
@@ -613,26 +609,32 @@
     </div>
     <p class="pm-gallery-intro">Especializada en fútbol — la velocidad, el contacto, la emoción. Cada partido tiene su foto definitiva.</p>
     <div class="pm-gallery-grid">
+
       <div class="pm-gallery-item">
         <img src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="Grito de gol" />
         <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Grito de gol</span></div>
       </div>
+
       <div class="pm-gallery-item">
         <img src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="Campeón TFC" />
         <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Campeón TFC</span></div>
       </div>
+
       <div class="pm-gallery-item">
         <img src="https://github.com/user-attachments/assets/9e089098-e417-431f-bc22-b29830b67267" alt="La hinchada" />
         <div class="pm-gallery-overlay"><span class="pm-gallery-tag">La hinchada</span></div>
       </div>
+
       <div class="pm-gallery-item">
         <img src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="Campeón Sudamericana" />
         <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Campeón Sudamericana</span></div>
       </div>
+
       <div class="pm-gallery-item">
         <img src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="Nacional - Peñarol" />
         <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Nacional · Peñarol</span></div>
       </div>
+
     </div>
   </section>
 
@@ -773,8 +775,8 @@
     <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Scroll suave para todos los links internos
+  <script>
+    // Scroll suave para links del nav
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
@@ -784,4 +786,13 @@
     });
 
     // Reveal on scroll
-    const reveals = document.querySelectorAll('.pm-reveal')
+    const reveals = document.querySelectorAll('.pm-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+</body>
+</html>
