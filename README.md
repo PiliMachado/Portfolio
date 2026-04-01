@@ -3,4 +3,4 @@
 ![por3](https://github.com/user-attachments/assets/9e089098-e417-431f-bc22-b29830b67267)
 ![por2](https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12)
 ![por1](https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f)
-![_SA16855](https://github.com/user-attachments/assets/e84998d9-c81b-42d3-b84b-52d8e47a7d5d)
+<img width="958" height="1000" alt="_SA16855" src="https://github.com/user-attachments/assets/0459368a-bd3f-4a5f-a856-61efd34d952e" />
