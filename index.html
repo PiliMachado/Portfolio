@@ -75,12 +75,32 @@
       border-bottom: 0.5px solid var(--border);
     }
 
+    /* FOTO — columna izquierda, toda la altura */
+    .pm-hero-img {
+      background: #1a1a1a;
+      overflow: hidden;
+      position: relative;
+      border-right: 0.5px solid var(--border);
+    }
+
+    .pm-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% center;
+    }
+
+    /* DERECHA — texto arriba, stats abajo */
+    .pm-hero-right {
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+
     .pm-hero-left {
       padding: 5rem 2.5rem 4rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      border-right: 0.5px solid var(--border);
     }
 
     .pm-hero-tag {
@@ -138,29 +158,11 @@
 
     .pm-btn.accent:hover { background: var(--white); border-color: var(--white); }
 
-    .pm-hero-right {
-      display: grid;
-      grid-template-rows: 1fr auto;
-    }
-
-    .pm-hero-img {
-      background: #1a1a1a;
-      overflow: hidden;
-      position: relative;
-      border-bottom: 0.5px solid var(--border);
-    }
-
-    .pm-hero-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 75% top;
-    }
-
     .pm-hero-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
+      border-top: 0.5px solid var(--border);
     }
 
     .pm-stat {
@@ -538,20 +540,24 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO: foto izquierda | texto+stats derecha -->
   <section class="pm-hero">
-    <div class="pm-hero-left">
-      <div class="pm-hero-tag">Portfolio — Comunicación & Fotografía</div>
-      <h1 class="pm-hero-name">Pilar<br><em>Machado</em></h1>
-      <p class="pm-hero-desc">Fotógrafa deportiva, gestora de redes y estudiante de Comunicación Digital. Capturo el momento exacto, dentro y fuera del campo.</p>
-      <div class="pm-hero-btns">
-        <button class="pm-btn accent" onclick="document.getElementById('proyecto').scrollIntoView({behavior:'smooth'})">Ver proyectos</button>
-        <button class="pm-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contacto</button>
-      </div>
+
+    <!-- IZQUIERDA: foto -->
+    <div class="pm-hero-img">
+      <img src="https://github.com/user-attachments/assets/0459368a-bd3f-4a5f-a856-61efd34d952e" alt="Pilar Machado" />
     </div>
+
+    <!-- DERECHA: texto arriba, stats abajo -->
     <div class="pm-hero-right">
-      <div class="pm-hero-img">
-        <img src="https://github.com/user-attachments/assets/0459368a-bd3f-4a5f-a856-61efd34d952e" alt="Pilar Machado" />
+      <div class="pm-hero-left">
+        <div class="pm-hero-tag">Portfolio — Comunicación & Fotografía</div>
+        <h1 class="pm-hero-name">Pilar<br><em>Machado</em></h1>
+        <p class="pm-hero-desc">Fotógrafa deportiva, gestora de redes y estudiante de Comunicación Digital. Capturo el momento exacto, dentro y fuera del campo.</p>
+        <div class="pm-hero-btns">
+          <button class="pm-btn accent" onclick="document.getElementById('proyecto').scrollIntoView({behavior:'smooth'})">Ver proyectos</button>
+          <button class="pm-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contacto</button>
+        </div>
       </div>
       <div class="pm-hero-stats">
         <div class="pm-stat">
@@ -572,6 +578,7 @@
         </div>
       </div>
     </div>
+
   </section>
 
   <!-- SOBRE MÍ -->
