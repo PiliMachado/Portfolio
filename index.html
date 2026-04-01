@@ -2,166 +2,318 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilar Machado — Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+--black:#0e0e0e;
+--white:#f5f2ee;
+--accent:#d4ff00;
+--gray:#888;
+--border:rgba(255,255,255,0.08);
+}
+
+body{background:transparent;}
+
+.pm-root{
+background:var(--black);
+color:var(--white);
+font-family:'DM Sans',sans-serif;
+font-weight:300;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* NAV */
+.pm-nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:1.5rem 2.5rem;
+border-bottom:0.5px solid var(--border);
+position:sticky;
+top:0;
+background:rgba(14,14,14,0.95);
+backdrop-filter:blur(8px);
+z-index:100;
+}
+
+.pm-logo{
+font-family:'Bebas Neue';
+font-size:2rem;
+letter-spacing:0.08em;
+}
+
+.pm-logo span{color:var(--accent);}
+
+.pm-nav-links{
+display:flex;
+gap:2rem;
+list-style:none;
+}
+
+.pm-nav-links a{
+font-size:0.78rem;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:var(--gray);
+text-decoration:none;
+cursor:pointer;
+}
+
+.pm-nav-links a:hover{color:var(--accent);}
+
+/* HERO */
+.pm-hero{
+display:grid;
+grid-template-columns:1fr 1fr;
+min-height:85vh;
+border-bottom:0.5px solid var(--border);
+}
+
+.pm-hero-left{
+padding:2.5rem 2.5rem 2rem;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+border-right:0.5px solid var(--border);
+}
+
+.pm-hero-tag{
+font-size:0.72rem;
+letter-spacing:0.2em;
+text-transform:uppercase;
+color:var(--accent);
+margin-bottom:1rem;
+}
+
+.pm-hero-name{
+font-family:'Bebas Neue';
+font-size:clamp(4rem,8vw,7.5rem);
+margin-bottom:1rem;
+}
+
+.pm-hero-name em{color:var(--accent);font-style:normal;}
+
+.pm-hero-desc{
+font-size:1rem;
+color:rgba(245,242,238,0.6);
+max-width:360px;
+margin-bottom:2rem;
+}
+
+.pm-hero-btns{
+display:flex;
+gap:1rem;
+}
+
+.pm-btn{
+padding:0.75rem 1.75rem;
+font-size:0.8rem;
+letter-spacing:0.1em;
+text-transform:uppercase;
+border:0.5px solid var(--white);
+background:transparent;
+color:var(--white);
+cursor:pointer;
+}
+
+.pm-btn.accent{
+background:var(--accent);
+color:var(--black);
+}
+
+/* DERECHA */
+.pm-hero-right{
+display:grid;
+grid-template-rows:1fr auto;
+}
+
+.pm-hero-img{
+background:#1a1a1a;
+border-bottom:0.5px solid var(--border);
+position:relative;
+}
+
+/* 🔥 CUADRADOS */
+.pm-hero-stats{
+display:grid;
+grid-template-columns:1fr 1fr;
+}
+
+.pm-stat{
+aspect-ratio:1/1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+padding:1.5rem;
+border-right:0.5px solid var(--border);
+border-bottom:0.5px solid var(--border);
+}
+
+.pm-stat:nth-child(2n){border-right:none;}
+
+.pm-stat-num{
+font-family:'Bebas Neue';
+font-size:2.5rem;
+color:var(--accent);
+}
+
+.pm-stat-label{
+font-size:0.7rem;
+letter-spacing:0.1em;
+text-transform:uppercase;
+color:var(--gray);
+margin-top:0.4rem;
+}
+
+/* SECTIONS */
+.pm-section{
+padding:5rem 2.5rem;
+border-bottom:0.5px solid var(--border);
+}
+
+.pm-section-header{
+display:flex;
+gap:1.5rem;
+margin-bottom:3rem;
+}
+
+.pm-section-title{
+font-family:'Bebas Neue';
+font-size:3rem;
+}
+
+/* GALERÍA */
+.pm-gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+}
+
+.pm-gallery-item{
+background:#1a1a1a;
+height:200px;
+}
+
+/* CONTACTO */
+.pm-contact-link{
+border:0.5px solid var(--border);
+padding:1rem;
+margin-bottom:1rem;
+display:flex;
+justify-content:space-between;
+}
+</style>
 </head>
 
 <body>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --black: #0e0e0e;
-    --white: #f5f2ee;
-    --accent: #d4ff00;
-    --gray: #888;
-    --border: rgba(255,255,255,0.08);
-  }
-
-  body { background: transparent; }
-
-  .pm-root {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* HERO */
-  .pm-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 85vh; /* 🔥 menos alto */
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .pm-hero-left {
-    padding: 3rem 2.5rem 3rem; /* 🔥 menos espacio negro */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    border-right: 0.5px solid var(--border);
-  }
-
-  .pm-hero-tag {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-  }
-
-  .pm-hero-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4rem, 8vw, 7.5rem);
-    line-height: 0.92;
-    margin-bottom: 1.5rem;
-  }
-
-  .pm-hero-name em { color: var(--accent); }
-
-  .pm-hero-desc {
-    font-size: 1rem;
-    color: rgba(245,242,238,0.6);
-    max-width: 360px;
-    margin-bottom: 2rem;
-  }
-
-  .pm-hero-right {
-    display: grid;
-    grid-template-rows: 1fr auto;
-  }
-
-  .pm-hero-img {
-    background: #1a1a1a;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  /* 🔥 NUEVO SISTEMA DE BLOQUES */
-  .pm-hero-stats {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pm-stat {
-    padding: 1.2rem 1.5rem;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .pm-stat:last-child { border-bottom: none; }
-
-  .pm-stat-num {
-    font-family: 'Bebas Neue';
-    font-size: 1.8rem;
-    color: var(--accent);
-  }
-
-  .pm-stat-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-top: 0.3rem;
-  }
-</style>
 
 <div class="pm-root">
 
+<nav class="pm-nav">
+<div class="pm-logo">P<span>.</span>M</div>
+<ul class="pm-nav-links">
+<li><a onclick="scrollTo('about')">Sobre mí</a></li>
+<li><a href="gallery.html">Fotografía</a></li>
+<li><a onclick="scrollTo('proyecto')">Proyectos</a></li>
+<li><a onclick="scrollTo('contacto')">Contacto</a></li>
+</ul>
+</nav>
+
 <section class="pm-hero">
 
-  <div class="pm-hero-left">
-    <div class="pm-hero-tag">Portfolio — Comunicación & Fotografía</div>
-    <h1 class="pm-hero-name">Pilar<br><em>Machado</em></h1>
-    <p class="pm-hero-desc">
-      Fotógrafa deportiva, gestora de redes y estudiante de Comunicación Digital.
-      Capturo el momento exacto, dentro y fuera del campo.
-    </p>
-  </div>
+<div class="pm-hero-left">
+<div class="pm-hero-tag">Portfolio — Comunicación & Fotografía</div>
+<h1 class="pm-hero-name">Pilar<br><em>Machado</em></h1>
+<p class="pm-hero-desc">
+Fotógrafa deportiva, gestora de redes y estudiante de Comunicación Digital.
+</p>
+<div class="pm-hero-btns">
+<button class="pm-btn accent" onclick="scrollTo('proyecto')">Ver proyectos</button>
+<button class="pm-btn" onclick="scrollTo('contacto')">Contacto</button>
+</div>
+</div>
 
-  <div class="pm-hero-right">
+<div class="pm-hero-right">
 
-    <div class="pm-hero-img"></div>
+<div class="pm-hero-img"></div>
 
-    <!-- 🔥 BLOQUES NUEVOS -->
-    <div class="pm-hero-stats">
+<div class="pm-hero-stats">
 
-      <div class="pm-stat">
-        <div class="pm-stat-num">01</div>
-        <div class="pm-stat-label">
-          Campaña TFC — lanzamiento en 3 días
-        </div>
-      </div>
+<div class="pm-stat">
+<div class="pm-stat-num">01</div>
+<div class="pm-stat-label">Campaña TFC</div>
+</div>
 
-      <div class="pm-stat">
-        <div class="pm-stat-num">02</div>
-        <div class="pm-stat-label">
-          Fotografía deportiva
-        </div>
-      </div>
+<div class="pm-stat">
+<div class="pm-stat-num">02</div>
+<div class="pm-stat-label">Fotografía deportiva</div>
+</div>
 
-      <div class="pm-stat">
-        <div class="pm-stat-num">03</div>
-        <div class="pm-stat-label">
-          Branding artista musical — identidad / feed / patrones
-        </div>
-      </div>
+<div class="pm-stat">
+<div class="pm-stat-num">03</div>
+<div class="pm-stat-label">Branding artista</div>
+</div>
 
-      <div class="pm-stat">
-        <div class="pm-stat-num">04</div>
-        <div class="pm-stat-label">
-          Branding & métricas — 3 marcas trabajadas
-        </div>
-      </div>
+<div class="pm-stat">
+<div class="pm-stat-num">04</div>
+<div class="pm-stat-label">3 marcas & métricas</div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
+
+</section>
+
+<section id="about" class="pm-section">
+<h2 class="pm-section-title">Sobre mí</h2>
+</section>
+
+<section id="foto" class="pm-section">
+<h2 class="pm-section-title">Fotografía</h2>
+
+<div class="pm-gallery-grid">
+<div class="pm-gallery-item"></div>
+<div class="pm-gallery-item"></div>
+<div class="pm-gallery-item"></div>
+<div class="pm-gallery-item"></div>
+<div class="pm-gallery-item"></div>
+</div>
+
+</section>
+
+<section id="proyecto" class="pm-section">
+<h2 class="pm-section-title">Proyectos</h2>
+</section>
+
+<section id="contacto" class="pm-section">
+<h2 class="pm-section-title">Contacto</h2>
+
+<div class="pm-contact-link">
+<span>Instagram</span><span>@tu_usuario</span>
+</div>
+
+<div class="pm-contact-link">
+<span>Email</span><span>tu@mail.com</span>
+</div>
 
 </section>
 
 </div>
+
+<script>
+function scrollTo(id){
+const el=document.getElementById(id);
+if(el) el.scrollIntoView({behavior:'smooth'});
+}
+</script>
+
 </body>
 </html>
