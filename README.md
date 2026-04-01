@@ -3,4 +3,5 @@
 ![por3](https://github.com/user-attachments/assets/9e089098-e417-431f-bc22-b29830b67267)
 ![por2](https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12)
 ![por1](https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f)
-![foto-pilar](https://github.com/user-attachments/assets/28d882ce-e403-49eb-9068-6a769bfa1803)
+
+![foto-pilar](https://github.com/user-attachments/assets/a9a0c025-934a-48a0-9746-1295e2b48f43)
