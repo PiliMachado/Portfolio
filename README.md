@@ -4,4 +4,4 @@
 ![por2](https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12)
 ![por1](https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f)
 
-![foto-pilar](https://github.com/user-attachments/assets/a9a0c025-934a-48a0-9746-1295e2b48f43)
+![E9BD01DB-84F4-4F76-99A1-4EAF94122265_4_5005_c](https://github.com/user-attachments/assets/cb2d2558-b908-4a77-a75c-7ace915ca8ec)
