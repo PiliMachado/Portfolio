@@ -137,50 +137,40 @@
 
     .pm-hero-right {
       display: grid;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 1fr auto;
     }
 
     .pm-hero-img {
       background: #1a1a1a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 0.5px solid var(--border);
       overflow: hidden;
       position: relative;
+      border-bottom: 0.5px solid var(--border);
     }
 
-    /* =====================================================
-       FOTO PRINCIPAL DEL HERO
-       Para agregar tu foto: reemplazá el <svg> de abajo
-       por: <img src="tu-foto.jpg" style="width:100%;height:100%;object-fit:cover;" />
-    ====================================================== */
-    .pm-hero-img svg { width: 100%; height: 100%; opacity: 0.15; }
-
-    .pm-hero-img-label {
-      position: absolute;
-      bottom: 1rem;
-      right: 1.25rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gray);
+    .pm-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
     .pm-hero-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
     }
 
     .pm-stat {
       padding: 2rem 1.5rem;
       border-right: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
     }
 
-    .pm-stat:last-child { border-right: none; }
+    .pm-stat:nth-child(2n) { border-right: none; }
+    .pm-stat:nth-child(3), .pm-stat:nth-child(4) { border-bottom: none; }
 
     .pm-stat-num {
       font-family: 'Bebas Neue', sans-serif;
@@ -281,7 +271,7 @@
     .pm-gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 280px 180px;
+      grid-template-rows: 380px 240px;
       gap: 2px;
     }
 
@@ -289,64 +279,47 @@
       background: #1a1a1a;
       position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       cursor: pointer;
     }
 
-    /* =====================================================
-       GALERÍA DE FOTOS
-       Para agregar fotos reemplazá cada .pm-gallery-placeholder
-       por: <img src="foto.jpg" style="width:100%;height:100%;object-fit:cover;" />
-       El primer item ocupa doble altura (grid-row: 1 / 3)
-    ====================================================== */
-    .pm-gallery-item:first-child { grid-row: 1 / 3; }
-
-    .pm-gallery-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-      opacity: 0.2;
+    /* por6 ocupa las dos filas (vertical) */
+    .pm-gallery-item:first-child {
+      grid-row: 1 / 3;
     }
 
-    .pm-gallery-placeholder svg {
-      width: 32px; height: 32px;
-      stroke: var(--white); fill: none; stroke-width: 1;
+    .pm-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
     }
 
-    .pm-gallery-placeholder span {
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--white);
+    .pm-gallery-item:hover img {
+      transform: scale(1.04);
     }
 
     .pm-gallery-overlay {
-      position: absolute; inset: 0;
-      background: rgba(212,255,0,0);
-      display: flex; align-items: flex-end; padding: 1rem;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
       transition: background 0.3s;
     }
 
-    .pm-gallery-item:hover .pm-gallery-overlay { background: rgba(212,255,0,0.08); }
-
-    .pm-gallery-tag {
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(245,242,238,0.3);
+    .pm-gallery-item:hover .pm-gallery-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(212,255,0,0.04) 100%);
     }
 
-    .pm-upload-hint {
-      margin-top: 1.5rem;
-      padding: 1rem 1.25rem;
-      border: 0.5px dashed rgba(212,255,0,0.3);
-      font-size: 0.78rem;
-      color: rgba(212,255,0,0.5);
-      letter-spacing: 0.05em;
-      text-align: center;
+    .pm-gallery-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9);
     }
 
     /* CASO TFC */
@@ -409,7 +382,7 @@
 
     .pm-timeline-item {
       display: grid;
-      grid-template-columns: 80px 1fr;
+      grid-template-columns: 120px 1fr;
       gap: 2rem;
       padding: 1.5rem 0;
       border-bottom: 0.5px solid var(--border);
@@ -446,11 +419,6 @@
     }
 
     /* CAPTURAS TFC */
-    /* =====================================================
-       CAPTURAS DE REDES TFC
-       Agregá tus capturas de pantalla acá:
-       <img src="captura1.jpg" style="width:100%;border:0.5px solid var(--border);" />
-    ====================================================== */
     .pm-screenshots {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -570,7 +538,6 @@
   <!-- HERO -->
   <section class="pm-hero">
     <div class="pm-hero-left">
-      <!-- EDITAR: cambiá el texto del tag, la descripción y los botones -->
       <div class="pm-hero-tag">Portfolio — Comunicación & Fotografía</div>
       <h1 class="pm-hero-name">Pilar<br><em>Machado</em></h1>
       <p class="pm-hero-desc">Fotógrafa deportiva, gestora de redes y estudiante de Comunicación Digital. Capturo el momento exacto, dentro y fuera del campo.</p>
@@ -581,27 +548,24 @@
     </div>
     <div class="pm-hero-right">
       <div class="pm-hero-img">
-        <!-- EDITAR: reemplazá este SVG por tu foto:
-             <img src="tu-foto.jpg" style="width:100%;height:100%;object-fit:cover;" />
-        -->
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="200" cy="150" r="80" stroke="white" stroke-width="0.5" fill="none"/>
-          <circle cx="200" cy="150" r="5" fill="white"/>
-          <line x1="0" y1="150" x2="400" y2="150" stroke="white" stroke-width="0.3"/>
-          <line x1="200" y1="0" x2="200" y2="300" stroke="white" stroke-width="0.3"/>
-          <rect x="60" y="60" width="280" height="180" stroke="white" stroke-width="0.5" fill="none"/>
-        </svg>
-        <span class="pm-hero-img-label">Tu foto principal aquí</span>
+        <img src="https://github.com/user-attachments/assets/9af69c79-3366-4337-8492-7436733c9587" alt="Pilar Machado" />
       </div>
       <div class="pm-hero-stats">
-        <!-- EDITAR: cambiá los números/datos que quieras destacar -->
         <div class="pm-stat">
-          <span class="pm-stat-num">2</span>
-          <span class="pm-stat-label">Días · Campaña TFC</span>
+          <span class="pm-stat-num">48h</span>
+          <span class="pm-stat-label">Campaña lanzamiento camiseta TFC</span>
         </div>
         <div class="pm-stat">
           <span class="pm-stat-num">⚽</span>
           <span class="pm-stat-label">Fotografía deportiva</span>
+        </div>
+        <div class="pm-stat">
+          <span class="pm-stat-num">✦</span>
+          <span class="pm-stat-label">Branding & diseño para artistas</span>
+        </div>
+        <div class="pm-stat">
+          <span class="pm-stat-num">↑</span>
+          <span class="pm-stat-label">Branding & estadísticas para emprendimientos</span>
         </div>
       </div>
     </div>
@@ -616,15 +580,13 @@
     </div>
     <div class="pm-about-grid">
       <div>
-        <!-- EDITAR: tu texto de presentación -->
         <div class="pm-about-text">
-          <p>Soy fotógrafa deportiva especializada en fútbol y estudiante de Comunicación Digital en Montevideo. Hace cinco años que hago fotogarfía deportiva y capturo esos instantes irrepetibles que, una vez que ocurren, solo quedan en la memoria. Desde tres años y medio que comencé mi formación en comunicación digital y me acompaña en ese camino, estoy a un año de recibirme.</p>
+          <p>Soy fotógrafa deportiva especializada en fútbol y estudiante de Comunicación Digital en Montevideo. Hace cinco años que hago fotografía deportiva y capturo esos instantes irrepetibles que, una vez que ocurren, solo quedan en la memoria. Desde tres años y medio que comencé mi formación en comunicación digital y me acompaña en ese camino, estoy a un año de recibirme.</p>
           <p>Trabajo de forma metódica y organizada, con atención al detalle y ganas de innovar en cada proyecto. Combino fotografía, diseño y manejo de redes sociales para ofrecer una comunicación visual integral, coherente y pensada para llegar al público de manera auténtica.</p>
           <p>Creo que las mejores campañas son las que nacen de entender qué le importa a la comunidad y cómo contarlo con lo que tenés a mano.</p>
         </div>
       </div>
       <div class="pm-skills-list">
-        <!-- EDITAR: agregá o quitá habilidades -->
         <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Fotografía deportiva</span></div>
         <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Gestión de redes sociales</span></div>
         <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Estrategia de contenido</span></div>
@@ -644,45 +606,37 @@
     </div>
     <p class="pm-gallery-intro">Especializada en fútbol — la velocidad, el contacto, la emoción. Cada partido tiene su foto definitiva.</p>
     <div class="pm-gallery-grid">
-      <!-- EDITAR: reemplazá cada .pm-gallery-placeholder con tu foto:
-           <img src="foto1.jpg" style="width:100%;height:100%;object-fit:cover;" />
-           Cambiá también el texto del pm-gallery-tag con la descripción que quieras
-      -->
+
+      <!-- por6 — vertical, ocupa las dos filas -->
       <div class="pm-gallery-item">
-        <div class="pm-gallery-placeholder">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg>
-          <span>Foto principal</span>
-        </div>
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Grito de Gol</span></div>
+        <img src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="Grito de gol" />
+        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Grito de gol</span></div>
       </div>
+
+      <!-- por5 — Campeón TFC -->
       <div class="pm-gallery-item">
-        <div class="pm-gallery-placeholder">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg>
-          <span>por6</span>
-        </div>
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Gol</span></div>
+        <img src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="Campeón TFC" />
+        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Campeón TFC</span></div>
       </div>
+
+      <!-- por3 — La hinchada -->
       <div class="pm-gallery-item">
-        <div class="pm-gallery-placeholder">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg>
-          <span>Foto 3</span>
-        </div>
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Celebración</span></div>
+        <img src="https://github.com/user-attachments/assets/9e089098-e417-431f-bc22-b29830b67267" alt="La hinchada" />
+        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">La hinchada</span></div>
       </div>
+
+      <!-- por2 — Campeón Sudamericana -->
       <div class="pm-gallery-item">
-        <div class="pm-gallery-placeholder">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg>
-          <span>Foto 4</span>
-        </div>
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Previa</span></div>
+        <img src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="Campeón Sudamericana" />
+        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Campeón Sudamericana</span></div>
       </div>
+
+      <!-- por1 — Nacional - Peñarol -->
       <div class="pm-gallery-item">
-        <div class="pm-gallery-placeholder">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg>
-          <span>Foto 5</span>
-        </div>
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Retrato</span></div>
+        <img src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="Nacional - Peñarol" />
+        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Nacional · Peñarol</span></div>
       </div>
+
     </div>
   </section>
 
@@ -697,11 +651,9 @@
     <div class="pm-case-header">
       <div class="pm-case-brand">
         <span class="pm-case-logo">Tacuarembó FC — Caso de estudio</span>
-        <!-- EDITAR: título y descripción del caso -->
         <h3 class="pm-case-title">Lanzamiento de camiseta en 48 horas</h3>
         <p class="pm-case-sub">Sin recursos, sin tiempo. Con creatividad, estrategia y trabajo en equipo logramos una campaña de lanzamiento completa que generó expectativa real en la comunidad del club.</p>
         <div class="pm-case-tags">
-          <!-- EDITAR: agregá o quitá tags -->
           <span class="pm-tag">Redes sociales</span>
           <span class="pm-tag">Estrategia</span>
           <span class="pm-tag">Video</span>
@@ -710,7 +662,6 @@
         </div>
       </div>
       <div class="pm-case-metrics">
-        <!-- EDITAR: cambiá las métricas por datos reales del proyecto -->
         <div class="pm-metric-card">
           <div class="pm-metric-num">48h</div>
           <div class="pm-metric-desc">De la camiseta al lanzamiento</div>
@@ -724,16 +675,13 @@
           <div class="pm-metric-desc">Producción propia</div>
         </div>
         <div class="pm-metric-card">
-          <!-- EDITAR: si tenés algún número real (alcance, likes, etc.) poné acá -->
           <div class="pm-metric-num">↑</div>
           <div class="pm-metric-desc">Expectativa generada en comunidad</div>
         </div>
       </div>
     </div>
 
-    <!-- TIMELINE DEL PROCESO -->
     <div class="pm-timeline">
-      <!-- EDITAR: ajustá los tiempos y descripciones según lo que pasó realmente -->
       <div class="pm-timeline-item">
         <span class="pm-timeline-time">Día 1 · 9:30 AM</span>
         <div class="pm-timeline-content">
@@ -742,41 +690,40 @@
         </div>
       </div>
       <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 1 · 12:00 AM</span>
+        <span class="pm-timeline-time">Día 1 · 12:00 PM</span>
         <div class="pm-timeline-content">
           <h4>Planificación y producción</h4>
-          <p>Definimos el concepto creativo, planificamos qué contenido necesitábamos, como y con que lo ibamos a hacer. Coordinamos jugadores y verificamos que la locaciones esten permitidas en los horarios que la ibamos a usar y que esten en codiciones optimas.
-           Pensamos la secuencia de publicaciones para ir construyendo expectativa antes del reveal final.</p>
-        </div>
-      </div>
-        <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 1 · 16:00 AM</span>
-        <div class="pm-timeline-content">
-          <h4>Primera Publiación</h4>
-          <p>Producción de fotos dolo de la camiseta. Edición de foto con efecto. Se realizo la primera publicación en campaña de lanzamiento.</p>
-        </div>
-      </div>
-         <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 2 · 8:00 AM</span>
-        <div class="pm-timeline-content">
-          <h4>Producción del contenido</h4>
-          <p>Se relizaron las fotos planificadas y los videos respactivos al plan de rodaje.</p>
+          <p>Definimos el concepto creativo, planificamos qué contenido necesitábamos, cómo y con qué lo ibamos a hacer. Coordinamos jugadores y verificamos que las locaciones estén permitidas en los horarios que las íbamos a usar y que estén en condiciones óptimas. Pensamos la secuencia de publicaciones para ir construyendo expectativa antes del reveal final.</p>
         </div>
       </div>
       <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 2 · 12:00 AM</span>
+        <span class="pm-timeline-time">Día 1 · 16:00 PM</span>
+        <div class="pm-timeline-content">
+          <h4>Primera publicación</h4>
+          <p>Producción de fotos solo de la camiseta. Edición de foto con efecto. Se realizó la primera publicación en campaña de lanzamiento.</p>
+        </div>
+      </div>
+      <div class="pm-timeline-item">
+        <span class="pm-timeline-time">Día 2 · 8:00 AM</span>
+        <div class="pm-timeline-content">
+          <h4>Producción del contenido</h4>
+          <p>Se realizaron las fotos planificadas y los videos respectivos al plan de rodaje.</p>
+        </div>
+      </div>
+      <div class="pm-timeline-item">
+        <span class="pm-timeline-time">Día 2 · 12:00 PM</span>
         <div class="pm-timeline-content">
           <h4>Edición y armado de campaña</h4>
-          <p>Selección de fotos. Selección de videos y edición. </p>
+          <p>Selección de fotos. Selección de videos y edición.</p>
         </div>
-          </div>
-        <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 2 · 12:00 AM</span>
+      </div>
+      <div class="pm-timeline-item">
+        <span class="pm-timeline-time">Día 2 · 15:00 PM</span>
         <div class="pm-timeline-content">
-          <h4>Segunda Publiación</h4>
+          <h4>Segunda publicación</h4>
           <p>Estrategia de adelanto del video corto para crear anticipación, estimular la interacción del público y sostener el interés hasta la publicación principal.</p>
         </div>
-        </div>
+      </div>
       <div class="pm-timeline-item">
         <span class="pm-timeline-time">Día 2 · PM</span>
         <div class="pm-timeline-content">
@@ -786,10 +733,6 @@
       </div>
     </div>
 
-    <!-- CAPTURAS DE REDES -->
-    <!-- EDITAR: reemplazá cada .pm-screenshot-slot con tus capturas:
-         <img src="captura1.png" style="width:100%;height:100%;object-fit:cover;" />
-    -->
     <div class="pm-screenshots">
       <div class="pm-screenshot-slot"><span>Captura 1</span></div>
       <div class="pm-screenshot-slot"><span>Captura 2</span></div>
@@ -812,7 +755,6 @@
         <p style="font-size: 0.9rem; color: var(--gray); line-height: 1.7; max-width: 340px;">Disponible para proyectos de fotografía deportiva, gestión de redes y comunicación digital para clubes y marcas deportivas.</p>
       </div>
       <div class="pm-contact-links">
-        <!-- EDITAR: reemplazá con tus redes y datos reales -->
         <a class="pm-contact-link" href="https://instagram.com/tu_usuario" target="_blank">
           <span>Instagram</span>
           <span class="pm-contact-link-label">@tu_usuario</span>
