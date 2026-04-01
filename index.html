@@ -519,6 +519,9 @@
     }
 
     .pm-reveal.visible { opacity: 1; transform: none; }
+
+    /* Fix scroll que no corte los títulos */
+    html { scroll-padding-top: 80px; }
   </style>
 </head>
 <body>
@@ -530,6 +533,7 @@
       <li><a href="#about">Sobre mí</a></li>
       <li><a href="#foto">Fotografía</a></li>
       <li><a href="#proyecto">Proyectos</a></li>
+      <li><a href="#proyecto">Campaña</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
@@ -751,9 +755,9 @@
           <span>Instagram</span>
           <span class="pm-contact-link-label">@pilarmachado.ph</span>
         </a>
-        <a class="pm-contact-link" href="https://linkedin.com/in/pilar-machado" target="_blank">
-          <span>LinkedIn</span>
-          <span class="pm-contact-link-label">Pilar Machado</span>
+        <a class="pm-contact-link" href="tel:+59898998895">
+          <span>WhatsApp / Celular</span>
+          <span class="pm-contact-link-label">+598 98 998 895</span>
         </a>
         <a class="pm-contact-link" href="mailto:pilarmachado.fotografia@gmail.com">
           <span>Email</span>
@@ -769,7 +773,7 @@
     <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll suave para todos los links internos
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
@@ -780,13 +784,4 @@
     });
 
     // Reveal on scroll
-    const reveals = document.querySelectorAll('.pm-reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, { threshold: 0.08 });
-    reveals.forEach(r => observer.observe(r));
-  </script>
-</body>
-</html>
+    const reveals = document.querySelectorAll('.pm-reveal')
