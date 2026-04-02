@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nacional · Plaza Copa AUF — Pilar Machado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --black: #0e0e0e; --white: #f5f2ee; --accent: #d4ff00; --gray: #888; --border: rgba(255,255,255,0.08); }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+    .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(14,14,14,0.95); backdrop-filter: blur(8px); z-index: 100; }
+    .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .pm-logo span { color: var(--accent); }
+    .pm-back { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .pm-back:hover { color: var(--accent); }
+    .page-header { padding: 4rem 2.5rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .page-header-top { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1rem; }
+    .page-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 0.04em; line-height: 1; }
+    .page-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
+    .page-desc { font-size: 0.9rem; color: var(--gray); max-width: 500px; line-height: 1.7; }
+    .photo-count { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-top: 0.5rem; }
+    .masonry { columns: 3; column-gap: 4px; padding: 4px 2.5rem 4rem; }
+    .masonry-item { break-inside: avoid; margin-bottom: 4px; overflow: hidden; position: relative; cursor: pointer; }
+    .masonry-item img { width: 100%; display: block; transition: transform 0.4s ease, filter 0.4s ease; }
+    .masonry-item:hover img { transform: scale(1.03); filter: brightness(0.85); }
+    .masonry-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; }
+    .masonry-item:hover::after { opacity: 1; }
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 999; justify-content: center; align-items: center; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; color: var(--gray); cursor: pointer; transition: color 0.2s; }
+    .lightbox-close:hover { color: var(--accent); }
+    .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; color: var(--gray); cursor: pointer; transition: color 0.2s; padding: 1rem; user-select: none; }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+    .lightbox-prev:hover, .lightbox-next:hover { color: var(--accent); }
+    .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+    .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
+    .pm-footer-copy { font-size: 0.72rem; color: rgba(136,136,136,0.5); letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+
+  <nav class="pm-nav">
+    <a href="index.html" class="pm-logo">P<span>.</span>M</a>
+    <a href="index.html#foto" class="pm-back">← Volver a Fotografía</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-top">
+      <span class="page-num">02</span>
+      <h1 class="page-title">Nacional · Plaza Copa AUF</h1>
+      <div class="page-line"></div>
+    </div>
+    <p class="page-desc">Octavos Copa AUF 2025 · Nacional - Plaza Colonia</p>
+    <p class="photo-count">18 fotografías</p>
+  </div>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(0)"><img src="https://github.com/user-attachments/assets/2cbd49f1-8974-4a9b-8b73-191202df5bcf" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(1)"><img src="https://github.com/user-attachments/assets/056a6d14-627a-40a9-98c3-cbad53b7e34d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(2)"><img src="https://github.com/user-attachments/assets/f1ee7b76-b5ee-406a-8495-2b417751b079" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(3)"><img src="https://github.com/user-attachments/assets/b797154d-105c-4352-804e-bfb8764b6316" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(4)"><img src="https://github.com/user-attachments/assets/333102ba-9779-4590-914b-5a2f2246d347" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(5)"><img src="https://github.com/user-attachments/assets/d4954686-d9e3-44d3-9ab8-c0de1a7a25fb" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(6)"><img src="https://github.com/user-attachments/assets/203bf023-5d81-48ab-9a4b-a13b3be2466d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(7)"><img src="https://github.com/user-attachments/assets/c0f67d60-86ba-483e-85f9-8b17d3daa89c" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(8)"><img src="https://github.com/user-attachments/assets/ee2893fc-aa7b-4055-b419-88b3845f2d27" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(9)"><img src="https://github.com/user-attachments/assets/07047816-b0b3-4f89-b1bb-098d5374066a" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(10)"><img src="https://github.com/user-attachments/assets/7990f252-7cab-4554-aac7-661e5a152df9" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(11)"><img src="https://github.com/user-attachments/assets/b379f6e4-6830-4a12-9eb1-db920bd11b11" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(12)"><img src="https://github.com/user-attachments/assets/6292b0e8-e6b7-4def-b2ea-825805948639" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(13)"><img src="https://github.com/user-attachments/assets/9fc2b8d5-cd6c-48f0-b475-e243bc1dadba" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(14)"><img src="https://github.com/user-attachments/assets/d2d98379-3fe2-492f-8cb5-6e8fbaaaf1df" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(15)"><img src="https://github.com/user-attachments/assets/e6d9819c-ec17-4533-94f0-a6bf233cb266" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(16)"><img src="https://github.com/user-attachments/assets/774a912d-df98-4a03-bcc6-dbaa66f8551a" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(17)"><img src="https://github.com/user-attachments/assets/e229d5ea-526f-453d-80a5-f936361351b9" alt=""/></div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <span class="lightbox-prev" onclick="changePhoto(-1)">‹</span>
+    <img id="lightbox-img" src="" alt="" />
+    <span class="lightbox-next" onclick="changePhoto(1)">›</span>
+  </div>
+
+  <footer class="pm-footer">
+    <span class="pm-footer-name">Pilar Machado</span>
+    <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
+  </footer>
+
+  <script>
+    const imgs = Array.from(document.querySelectorAll('.masonry-item img')).map(i => i.src);
+    let current = 0;
+    function openLightbox(idx) { current = idx; document.getElementById('lightbox-img').src = imgs[idx]; document.getElementById('lightbox').classList.add('open'); }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+    function changePhoto(dir) { current = (current + dir + imgs.length) % imgs.length; document.getElementById('lightbox-img').src = imgs[current]; }
+    document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) closeLightbox(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); });
+  </script>
+</body>
+</html>
