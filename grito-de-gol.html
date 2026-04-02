@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grito de Gol — Pilar Machado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --black: #0e0e0e; --white: #f5f2ee; --accent: #d4ff00; --gray: #888; --border: rgba(255,255,255,0.08); }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+    .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(14,14,14,0.95); backdrop-filter: blur(8px); z-index: 100; }
+    .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .pm-logo span { color: var(--accent); }
+    .pm-back { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .pm-back:hover { color: var(--accent); }
+    .page-header { padding: 4rem 2.5rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .page-header-top { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1rem; }
+    .page-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 0.04em; line-height: 1; }
+    .page-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
+    .page-desc { font-size: 0.9rem; color: var(--gray); max-width: 500px; line-height: 1.7; }
+    .photo-count { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-top: 0.5rem; }
+    .masonry { columns: 3; column-gap: 4px; padding: 4px 2.5rem 4rem; }
+    .masonry-item { break-inside: avoid; margin-bottom: 4px; overflow: hidden; position: relative; cursor: pointer; }
+    .masonry-item img { width: 100%; display: block; transition: transform 0.4s ease, filter 0.4s ease; }
+    .masonry-item:hover img { transform: scale(1.03); filter: brightness(0.85); }
+    .masonry-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; }
+    .masonry-item:hover::after { opacity: 1; }
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 999; justify-content: center; align-items: center; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; color: var(--gray); cursor: pointer; transition: color 0.2s; }
+    .lightbox-close:hover { color: var(--accent); }
+    .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; color: var(--gray); cursor: pointer; transition: color 0.2s; padding: 1rem; user-select: none; }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+    .lightbox-prev:hover, .lightbox-next:hover { color: var(--accent); }
+    .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+    .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
+    .pm-footer-copy { font-size: 0.72rem; color: rgba(136,136,136,0.5); letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+
+  <nav class="pm-nav">
+    <a href="index.html" class="pm-logo">P<span>.</span>M</a>
+    <a href="index.html#foto" class="pm-back">← Volver a Fotografía</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-top">
+      <span class="page-num">02</span>
+      <h1 class="page-title">Grito de Gol</h1>
+      <div class="page-line"></div>
+    </div>
+    <p class="page-desc">Final de la Divisional D 2025 · Trabajo realizado para Radio Día D</p>
+    <p class="photo-count">18 fotografías</p>
+  </div>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(0)"><img src="https://github.com/user-attachments/assets/6845092c-7657-45d9-9faa-6b116d78ea41" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(1)"><img src="https://github.com/user-attachments/assets/3c988d7a-1522-4f1b-ab4b-94d36ab066b1" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(2)"><img src="https://github.com/user-attachments/assets/6632d5a2-d34e-409a-a7c7-e7edb395cb6b" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(3)"><img src="https://github.com/user-attachments/assets/6b323343-a61e-4dc5-9de8-53f66e73cfba" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(4)"><img src="https://github.com/user-attachments/assets/07791869-4747-4e36-b2f8-9e0944a24c27" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(5)"><img src="https://github.com/user-attachments/assets/87f56ecc-a799-4fef-a4a2-71427318bbec" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(6)"><img src="https://github.com/user-attachments/assets/477c8f20-a629-4187-b9b3-d07de35c7bce" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(7)"><img src="https://github.com/user-attachments/assets/9989100a-d500-42bf-824a-bca65685512f" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(8)"><img src="https://github.com/user-attachments/assets/6a997951-8944-4201-aa1d-023c9dbe255e" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(9)"><img src="https://github.com/user-attachments/assets/6894374d-3318-4e81-a3cd-ae2987aa9bc8" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(10)"><img src="https://github.com/user-attachments/assets/076d8f8f-1b71-40b5-983b-660a4acb8b5a" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(11)"><img src="https://github.com/user-attachments/assets/3ad954c4-ba7b-446b-a86c-51a063e12719" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(12)"><img src="https://github.com/user-attachments/assets/9ee30ad7-8df9-4702-879d-eff49d1d8971" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(13)"><img src="https://github.com/user-attachments/assets/0adeb0c3-6137-41cc-a11a-badf9083168d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(14)"><img src="https://github.com/user-attachments/assets/e406cf65-fc10-44d9-95b5-6bb0e6f2c061" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(15)"><img src="https://github.com/user-attachments/assets/3c9485a4-0b56-4cfc-9933-dacdc5d63261" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(16)"><img src="https://github.com/user-attachments/assets/45355503-f0a8-4adb-80c0-26c8c8352f2d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(17)"><img src="https://github.com/user-attachments/assets/0e3acda5-7483-41a7-a70e-4ccd2a51495d" alt=""/></div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <span class="lightbox-prev" onclick="changePhoto(-1)">‹</span>
+    <img id="lightbox-img" src="" alt="" />
+    <span class="lightbox-next" onclick="changePhoto(1)">›</span>
+  </div>
+
+  <footer class="pm-footer">
+    <span class="pm-footer-name">Pilar Machado</span>
+    <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
+  </footer>
+
+  <script>
+    const imgs = Array.from(document.querySelectorAll('.masonry-item img')).map(i => i.src);
+    let current = 0;
+    function openLightbox(idx) { current = idx; document.getElementById('lightbox-img').src = imgs[idx]; document.getElementById('lightbox').classList.add('open'); }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+    function changePhoto(dir) { current = (current + dir + imgs.length) % imgs.length; document.getElementById('lightbox-img').src = imgs[current]; }
+    document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) closeLightbox(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); });
+  </script>
+</body>
+</html>
