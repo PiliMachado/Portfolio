@@ -84,4 +84,24 @@
 ![4K3A8852](https://github.com/user-attachments/assets/774a912d-df98-4a03-bcc6-dbaa66f8551a)
 ![4K3A8403](https://github.com/user-attachments/assets/e229d5ea-526f-453d-80a5-f936361351b9)
 
+#fotos tacuarembo vs atenas 
+![4K3A2654](https://github.com/user-attachments/assets/81663276-7aab-468f-adce-ff3d2b086c69)
+![4K3A2735](https://github.com/user-attachments/assets/fd9db6b7-73de-4a5e-bf46-2e56de0753af)
+![4K3A2312](https://github.com/user-attachments/assets/eae698a3-99e9-41ec-908a-4768bfd085a9)
+![4K3A2167](https://github.com/user-attachments/assets/d56d2c02-5c43-4c2a-a52e-a3b4af1650c6)
+![4K3A3040](https://github.com/user-attachments/assets/f980310c-8564-4fcf-8e95-383dc94fefdc)
+![4K3A2798-2](https://github.com/user-attachments/assets/eb3c7f48-c086-4de1-9325-a47eff837039)
+![4K3A2335](https://github.com/user-attachments/assets/2adccf77-0990-41fa-bc73-bc7b2f92609d)
+![4K3A2197](https://github.com/user-attachments/assets/c45bcb14-224c-471d-845b-32216d27d2b8)
+![4K3A2167](https://github.com/user-attachments/assets/b4808bf4-013b-4619-b934-7e20726c7315)
+![4K3A2142](https://github.com/user-attachments/assets/d03be605-6979-4476-a433-8020e227dd86)
+![4K3A3067](https://github.com/user-attachments/assets/3be72c13-8a0b-4bfe-b26f-ffd5f489d536)
+![4K3A1999](https://github.com/user-attachments/assets/986e7c3f-6b07-4ce9-abaa-67af2a7690d5)
+![4K3A1856](https://github.com/user-attachments/assets/a79909d1-5d33-476a-8f14-42c712dff66f)
+![4K3A3090](https://github.com/user-attachments/assets/4a80bcc0-d4e2-4d25-b865-f3cfc4ae6512)
+![4K3A1731](https://github.com/user-attachments/assets/08f1038c-2ddc-422e-8d7b-cf3babd2881d)
+![4K3A2799-2](https://github.com/user-attachments/assets/37049f47-c869-4b71-a56b-9fcde32e2517)
+![4K3A3102](https://github.com/user-attachments/assets/11f59883-5188-4351-bf9e-ea597aad4d49)
+![4K3A3110](https://github.com/user-attachments/assets/1abfe5b4-edbd-48b9-bcc8-f26478bf623f)
+
 
