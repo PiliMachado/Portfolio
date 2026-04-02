@@ -55,14 +55,19 @@
     .pm-skill-name { font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(245,242,238,0.7); }
 
     .pm-gallery-intro { font-size: 1rem; color: var(--gray); margin-bottom: 2.5rem; max-width: 100%; line-height: 1.7; }
-    .pm-gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 380px 240px; gap: 2px; }
-    .pm-gallery-item { background: #1a1a1a; position: relative; overflow: hidden; cursor: pointer; }
-    .pm-gallery-item:first-child { grid-row: 1 / 3; }
-    .pm-gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
-    .pm-gallery-item:hover img { transform: scale(1.04); }
-    .pm-gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%); display: flex; align-items: flex-end; padding: 1.25rem; transition: background 0.3s; }
-    .pm-gallery-item:hover .pm-gallery-overlay { background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(212,255,0,0.04) 100%); }
-    .pm-gallery-tag { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-shadow: 0 1px 6px rgba(0,0,0,0.9); }
+
+    /* CARPETAS */
+    .folder-row { display: flex; gap: 1.5rem; justify-content: space-between; align-items: flex-end; padding: 2rem 0 1rem; overflow: visible; }
+    .folder-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; cursor: pointer; position: relative; }
+    .folder-wrap { position: relative; width: 100%; padding-top: 80%; overflow: visible; }
+    .folder-body { position: absolute; inset: 0; overflow: visible; }
+    .folder-tab { position: absolute; top: 0; left: 8%; width: 35%; height: 18%; background: #b8e600; border-radius: 6px 6px 0 0; z-index: 1; }
+    .folder-front { position: absolute; bottom: 0; left: 0; right: 0; top: 10%; background: #d4ff00; border-radius: 4px 8px 8px 8px; z-index: 2; transition: transform 0.3s ease; box-shadow: inset 0 -4px 0 rgba(0,0,0,0.15); }
+    .folder-photo { position: absolute; bottom: 12%; left: 50%; transform: translateX(-50%) translateY(10px); width: 85%; height: 90%; object-fit: cover; border-radius: 3px; z-index: 3; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease; opacity: 0; }
+    .folder-item:hover .folder-photo { opacity: 1; transform: translateX(-50%) translateY(-55%); }
+    .folder-item:hover .folder-front { transform: scaleY(0.88); transform-origin: bottom; }
+    .folder-name { font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); text-align: center; transition: color 0.2s; }
+    .folder-item:hover .folder-name { color: var(--accent); }
 
     .pm-case-header { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 0.5px solid var(--border); }
     .pm-case-brand { display: flex; flex-direction: column; gap: 1rem; }
@@ -235,27 +240,64 @@
       <div class="pm-section-line"></div>
     </div>
     <p class="pm-gallery-intro">Especializada en fútbol — la velocidad, el contacto, la emoción. Cada partido tiene su foto definitiva.</p>
-    <div class="pm-gallery-grid">
-      <div class="pm-gallery-item">
-        <img src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="Grito de gol" />
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Grito de gol</span></div>
+
+    <div class="folder-row">
+
+      <div class="folder-item">
+        <div class="folder-wrap">
+          <div class="folder-body">
+            <div class="folder-tab"></div>
+            <div class="folder-front"></div>
+            <img class="folder-photo" src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="Grito de gol" />
+          </div>
+        </div>
+        <span class="folder-name">Grito de gol</span>
       </div>
-      <div class="pm-gallery-item">
-        <img src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="Campeón TFC" />
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Campeón TFC</span></div>
+
+      <div class="folder-item">
+        <div class="folder-wrap">
+          <div class="folder-body">
+            <div class="folder-tab"></div>
+            <div class="folder-front"></div>
+            <img class="folder-photo" src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="Campeón TFC" />
+          </div>
+        </div>
+        <span class="folder-name">Campeón TFC</span>
       </div>
-      <div class="pm-gallery-item">
-        <img src="https://github.com/user-attachments/assets/9e089098-e417-431f-bc22-b29830b67267" alt="La hinchada" />
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">La hinchada</span></div>
+
+      <div class="folder-item">
+        <div class="folder-wrap">
+          <div class="folder-body">
+            <div class="folder-tab"></div>
+            <div class="folder-front"></div>
+            <img class="folder-photo" src="https://github.com/user-attachments/assets/9e089098-e417-431f-bc22-b29830b67267" alt="La hinchada" />
+          </div>
+        </div>
+        <span class="folder-name">La hinchada</span>
       </div>
-      <div class="pm-gallery-item">
-        <img src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="Campeón Sudamericana" />
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Campeón Sudamericana</span></div>
+
+      <div class="folder-item">
+        <div class="folder-wrap">
+          <div class="folder-body">
+            <div class="folder-tab"></div>
+            <div class="folder-front"></div>
+            <img class="folder-photo" src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="Campeón Sudamericana" />
+          </div>
+        </div>
+        <span class="folder-name">Campeón Sudamericana</span>
       </div>
-      <div class="pm-gallery-item">
-        <img src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="Nacional - Peñarol" />
-        <div class="pm-gallery-overlay"><span class="pm-gallery-tag">Nacional · Peñarol</span></div>
+
+      <div class="folder-item">
+        <div class="folder-wrap">
+          <div class="folder-body">
+            <div class="folder-tab"></div>
+            <div class="folder-front"></div>
+            <img class="folder-photo" src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="Nacional - Peñarol" />
+          </div>
+        </div>
+        <span class="folder-name">Nacional · Peñarol</span>
       </div>
+
     </div>
   </section>
 
