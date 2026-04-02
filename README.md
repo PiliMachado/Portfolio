@@ -65,3 +65,25 @@
 ![IMGL9402](https://github.com/user-attachments/assets/0a750f2e-d246-46ea-815e-ac78076f62a2)
 ![4K3A9799](https://github.com/user-attachments/assets/26ca0dd7-c39f-417e-9da9-1f33e8a0e2fa)
 ![4K3A9273](https://github.com/user-attachments/assets/61dc71f8-a345-4402-b32d-9a22eada7c96)
+
+#fotos nacional copa auf
+![4K3A9183](https://github.com/user-attachments/assets/2cbd49f1-8974-4a9b-8b73-191202df5bcf)
+![4K3A9285](https://github.com/user-attachments/assets/056a6d14-627a-40a9-98c3-cbad53b7e34d)
+![4K3A9290](https://github.com/user-attachments/assets/f1ee7b76-b5ee-406a-8495-2b417751b079)
+![4K3A9143](https://github.com/user-attachments/assets/b797154d-105c-4352-804e-bfb8764b6316)
+![4K3A9301](https://github.com/user-attachments/assets/333102ba-9779-4590-914b-5a2f2246d347)
+![4K3A9418](https://github.com/user-attachments/assets/d4954686-d9e3-44d3-9ab8-c0de1a7a25fb)
+![4K3A9425](https://github.com/user-attachments/assets/203bf023-5d81-48ab-9a4b-a13b3be2466d)
+![4K3A9404](https://github.com/user-attachments/assets/c0f67d60-86ba-483e-85f9-8b17d3daa89c)
+![4K3A9347](https://github.com/user-attachments/assets/ee2893fc-aa7b-4055-b419-88b3845f2d27)
+![4K3A9312](https://github.com/user-attachments/assets/07047816-b0b3-4f89-b1bb-098d5374066a)
+![4K3A8419](https://github.com/user-attachments/assets/7990f252-7cab-4554-aac7-661e5a152df9)
+![4K3A8398](https://github.com/user-attachments/assets/b379f6e4-6830-4a12-9eb1-db920bd11b11)
+![4K3A9356](https://github.com/user-attachments/assets/6292b0e8-e6b7-4def-b2ea-825805948639)
+![4K3A8810](https://github.com/user-attachments/assets/9fc2b8d5-cd6c-48f0-b475-e243bc1dadba)
+![IMGL9465](https://github.com/user-attachments/assets/d2d98379-3fe2-492f-8cb5-6e8fbaaaf1df)
+![IMGL9516](https://github.com/user-attachments/assets/e6d9819c-ec17-4533-94f0-a6bf233cb266)
+![4K3A8852](https://github.com/user-attachments/assets/774a912d-df98-4a03-bcc6-dbaa66f8551a)
+![4K3A8403](https://github.com/user-attachments/assets/e229d5ea-526f-453d-80a5-f936361351b9)
+
+
