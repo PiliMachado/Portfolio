@@ -19,9 +19,9 @@
     .pm-nav-links a:hover { color: var(--accent); }
 
     /* HERO achicado — min-height 55vh, padding reducido, nombre más chico, stats compactos */
-    .pm-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 55vh; border-bottom: 0.5px solid var(--border); }
-    .pm-hero-img { background: #1a1a1a; overflow: hidden; position: relative; border-right: 0.5px solid var(--border); }
-    .pm-hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+    .pm-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: unset; border-bottom: 0.5px solid var(--border); }
+    .pm-hero-img { background: #1a1a1a; overflow: hidden; position: relative; border-right: 0.5px solid var(--border); min-height: 100%; }
+    .pm-hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; display: block; }
     .pm-hero-right { display: grid; grid-template-rows: 1fr auto; }
     .pm-hero-left { padding: 2rem 2.5rem 1.5rem; display: flex; flex-direction: column; justify-content: flex-end; }
     .pm-hero-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
@@ -115,7 +115,7 @@
     .dash-panel { display: none; }
     .dash-panel.active { display: block; }
     .dash-panel-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-    .post-hero { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/5; background: #111; }
+    .post-hero { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; background: #111; }
     .post-hero img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.55); }
     .post-hero-gradient { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%); }
     .post-hero-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 1.25rem; }
@@ -136,18 +136,18 @@
     .metric-value { font-size: 20px; font-weight: 500; color: #fff; line-height: 1; }
     .metric-value.accent { color: #C0392B; }
     .metric-sub { font-size: 11px; color: #666; margin-top: 4px; }
-    .section-title { font-size: 10px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; margin-top: 1.5rem; }
+    .section-title { font-size: 11px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; margin-top: 1.5rem; }
     .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .bar-label { font-size: 13px; color: #888; width: 80px; flex-shrink: 0; }
+    .bar-label { font-size: 14px; color: #888; width: 90px; flex-shrink: 0; }
     .bar-track { flex: 1; height: 5px; background: #222; border-radius: 3px; overflow: hidden; }
     .bar-fill { height: 100%; border-radius: 3px; background: #C0392B; }
-    .bar-pct { font-size: 13px; font-weight: 500; color: #fff; width: 44px; text-align: right; flex-shrink: 0; }
+    .bar-pct { font-size: 14px; font-weight: 500; color: #fff; width: 48px; text-align: right; flex-shrink: 0; }
     .audience-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
     .aud-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-    .aud-label { font-size: 13px; color: #888; flex: 1; }
+    .aud-label { font-size: 14px; color: #888; flex: 1; }
     .aud-bar-track { width: 120px; height: 5px; background: #222; border-radius: 3px; overflow: hidden; flex-shrink: 0; }
     .aud-bar-fill { height: 100%; border-radius: 3px; }
-    .aud-pct { font-size: 13px; font-weight: 500; color: #fff; width: 38px; text-align: right; flex-shrink: 0; }
+    .aud-pct { font-size: 14px; font-weight: 500; color: #fff; width: 42px; text-align: right; flex-shrink: 0; }
     .two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .info-card { background: #111; border: 1px solid #222; border-radius: 10px; padding: 1rem; }
     .info-card-label { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; }
@@ -524,9 +524,9 @@
           <span>WhatsApp / Celular</span>
           <span class="pm-contact-link-label">+598 98 998 895</span>
         </a>
-        <a class="pm-contact-link" href="mailto:pilarmachado.fotografia@gmail.com">
+        <a class="pm-contact-link" href="/cdn-cgi/l/email-protection#2f5f46434e5d424e4c474e4b400149405b40485d4e49464e6f48424e4643014c4042">
           <span>Email</span>
-          <span class="pm-contact-link-label">pilarmachado.fotografia@gmail.com</span>
+          <span class="pm-contact-link-label"><span class="__cf_email__" data-cfemail="b2c2dbded3c0dfd3d1dad3d6dd9cd4ddc6ddd5c0d3d4dbd3f2d5dfd3dbde9cd1dddf">[email&#160;protected]</span></span>
         </a>
       </div>
     </div>
@@ -537,7 +537,7 @@
     <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
@@ -551,11 +551,4 @@
     }, { threshold: 0.08 });
     reveals.forEach(r => observer.observe(r));
     function showTab(id, el) {
-      document.querySelectorAll('.dash-panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      el.classList.add('active');
-    }
-  </script>
-</body>
-</html>
+      document.querySelectorAll('.da
