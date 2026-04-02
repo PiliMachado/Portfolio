@@ -551,4 +551,11 @@
     }, { threshold: 0.08 });
     reveals.forEach(r => observer.observe(r));
     function showTab(id, el) {
-      document.querySelectorAll('.da
+      document.querySelectorAll('.dash-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      el.classList.add('active');
+    }
+  </script>
+</body>
+</html>
