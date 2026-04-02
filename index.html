@@ -20,8 +20,8 @@
 
     /* HERO achicado — min-height 55vh, padding reducido, nombre más chico, stats compactos */
     .pm-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: unset; border-bottom: 0.5px solid var(--border); }
-    .pm-hero-img { background: #1a1a1a; overflow: hidden; position: relative; border-right: 0.5px solid var(--border); min-height: 100%; }
-    .pm-hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; display: block; }
+    .pm-hero-img { background: #1a1a1a; overflow: hidden; position: relative; border-right: 0.5px solid var(--border); }
+    .pm-hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; display: block; max-height: 100%; }
     .pm-hero-right { display: grid; grid-template-rows: 1fr auto; }
     .pm-hero-left { padding: 2rem 2.5rem 1.5rem; display: flex; flex-direction: column; justify-content: flex-end; }
     .pm-hero-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
