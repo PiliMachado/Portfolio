@@ -43,12 +43,11 @@ body { background: var(--black); color: #f5f5f0; font-family: 'DM Sans', sans-se
 .tag-dark { color: var(--gray); }
 
 /* ZOOM con lupa + preview */
-.zoom-container { display: grid; grid-template-columns: 3fr 2fr; gap: 2rem; align-items: start; }
-.zoom-img-wrap { position: relative; cursor: crosshair; overflow: hidden; }
+.zoom-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.zoom-img-wrap { position: relative; cursor: crosshair; }
 .zoom-img-wrap img { width: 100%; display: block; }
-.magnifier { position: absolute; width: 120px; height: 120px; border: 2px solid var(--accent); border-radius: 50%; pointer-events: none; display: none; overflow: hidden; box-shadow: 0 0 0 2px rgba(212,255,0,0.3); }
-.magnifier-inner { position: absolute; }
-.zoom-preview { background: #111; border: 0.5px solid var(--border); overflow: hidden; aspect-ratio: 1; position: relative; }
+.magnifier { position: absolute; width: 100px; height: 100px; border: 2px solid var(--accent); border-radius: 50%; pointer-events: none; display: none; box-shadow: 0 0 0 2px rgba(212,255,0,0.2); }
+.zoom-preview { background: #111; border: 0.5px solid var(--border); overflow: hidden; position: relative; }
 .zoom-preview-img { position: absolute; transform-origin: top left; }
 .zoom-preview-label { font-size: 0.72rem; color: var(--gray); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
 .zoom-hint { font-size: 0.9rem; color: var(--gray); margin-bottom: 1.5rem; line-height: 1.7; }
@@ -261,7 +260,15 @@ const magnifier = document.getElementById('magnifier');
 const preview = document.getElementById('zoomPreview');
 const previewImg = document.getElementById('zoomPreviewImg');
 const ZOOM = 3;
-const MAG_SIZE = 120;
+const MAG_SIZE = 100;
+
+function syncHeight() {
+  const h = wrap.offsetHeight;
+  if (h > 0) preview.style.height = h + 'px';
+}
+img.addEventListener('load', syncHeight);
+window.addEventListener('resize', syncHeight);
+setTimeout(syncHeight, 300);
 
 wrap.addEventListener('mousemove', function(e) {
   const rect = wrap.getBoundingClientRect();
@@ -270,15 +277,13 @@ wrap.addEventListener('mousemove', function(e) {
   const pctX = x / rect.width;
   const pctY = y / rect.height;
 
-  // Mostrar lupa
+  // Mostrar lupa sobre la imagen
   magnifier.style.display = 'block';
   magnifier.style.left = (x - MAG_SIZE/2) + 'px';
   magnifier.style.top = (y - MAG_SIZE/2) + 'px';
 
-  // Preview a la derecha
+  // Preview a la derecha: escalar imagen ZOOM veces y desplazar para centrar el punto
   const prevRect = preview.getBoundingClientRect();
-  const scaledW = img.naturalWidth * (prevRect.width / rect.width) * ZOOM;
-  const scaledH = img.naturalHeight * (prevRect.height / rect.height) * ZOOM;
   previewImg.style.width = (rect.width * ZOOM) + 'px';
   previewImg.style.height = 'auto';
   previewImg.style.left = (-pctX * rect.width * ZOOM + prevRect.width / 2) + 'px';
@@ -290,16 +295,8 @@ wrap.addEventListener('mouseleave', function() {
   previewImg.style.left = '0';
   previewImg.style.top = '0';
   previewImg.style.width = '100%';
+  previewImg.style.height = 'auto';
 });
-
-// Hacer que el preview tenga el mismo alto que la imagen izquierda
-function syncHeight() {
-  const h = wrap.offsetHeight;
-  if (h > 0) preview.style.height = h + 'px';
-}
-img.addEventListener('load', syncHeight);
-window.addEventListener('resize', syncHeight);
-syncHeight();
 </script>
 </body>
 </html>
