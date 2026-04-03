@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>S.O.S Bike — Pilar Machado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-padding-top:70px;}
+    :root{--black:#0e0e0e;--white:#f5f5f0;--accent:#d4ff00;--red:#CC0000;--gray:#888;--border:rgba(255,255,255,0.08);}
+    body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;}
+
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 2.5rem;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:rgba(14,14,14,0.96);backdrop-filter:blur(8px);z-index:100;}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.06em;color:var(--white);}
+    .nav-logo span{color:var(--accent);}
+    .nav-back{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:color 0.2s;}
+    .nav-back:hover{color:var(--accent);}
+    .nav-links{display:flex;gap:1.75rem;list-style:none;}
+    .nav-links a{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--accent);}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;border-bottom:0.5px solid var(--border);}
+    .hero-left{padding:3.5rem 2.5rem;display:flex;flex-direction:column;justify-content:space-between;border-right:0.5px solid var(--border);}
+    .hero-tag{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;}
+    .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,10vw,9rem);line-height:0.85;letter-spacing:0.01em;}
+    .hero-title em{font-style:normal;color:var(--accent);}
+    .hero-desc{font-size:0.92rem;line-height:1.75;color:rgba(245,245,240,0.55);max-width:380px;margin-top:1.5rem;}
+    .hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem;}
+    .btn{padding:0.65rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;border:0.5px solid var(--white);background:transparent;color:var(--white);cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block;}
+    .btn:hover{background:var(--white);color:var(--black);}
+    .btn-acc{background:var(--accent);border-color:var(--accent);color:var(--black);font-weight:500;}
+    .btn-acc:hover{background:var(--white);border-color:var(--white);color:var(--black);}
+    .btn-red{border-color:var(--red);color:var(--red);}
+    .btn-red:hover{background:var(--red);color:var(--white);}
+    .hero-tags{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .htag{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.75rem;border:0.5px solid var(--border);color:var(--gray);}
+    .hero-right{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;}
+    .hstat{padding:2.5rem 2rem;border-right:0.5px solid var(--border);border-bottom:0.5px solid var(--border);display:flex;flex-direction:column;justify-content:flex-end;gap:0.35rem;}
+    .hstat:nth-child(2n){border-right:none;}
+    .hstat:nth-child(3),.hstat:nth-child(4){border-bottom:none;}
+    .hstat-num{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:var(--accent);line-height:1;}
+    .hstat-num.red{color:var(--red);}
+    .hstat-label{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);}
+
+    /* SECTIONS */
+    .sec{padding:4.5rem 2.5rem;border-bottom:0.5px solid var(--border);}
+    .sec-hd{display:flex;align-items:baseline;gap:1rem;margin-bottom:3rem;}
+    .sec-n{font-family:'Bebas Neue',sans-serif;font-size:0.9rem;color:var(--accent);letter-spacing:0.1em;}
+    .sec-t{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:0.03em;line-height:1;}
+    .sec-l{flex:1;height:0.5px;background:var(--border);margin-left:0.5rem;}
+
+    /* LOGOS */
+    .logos-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.05);}
+    .logo-item{padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;}
+    .logo-item img{max-width:100%;max-height:110px;object-fit:contain;}
+    .logo-caption{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);text-align:center;}
+
+    /* MARCA */
+    .mood-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
+    .mood-img{width:100%;border:0.5px solid var(--border);display:block;}
+    .palette-row{display:flex;gap:1px;margin-bottom:1.5rem;}
+    .swatch{flex:1;height:52px;display:flex;align-items:flex-end;padding:5px 7px;}
+    .swatch span{font-size:0.55rem;font-weight:600;letter-spacing:0.05em;}
+    .brand-lbl{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:0.6rem;}
+    .font-demo{border:0.5px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.5rem;}
+    .font-nm{font-size:0.62rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .font-h{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--white);line-height:1;}
+    .font-b{font-size:0.8rem;color:var(--gray);margin-top:0.3rem;line-height:1.6;}
+    .prop-box{border:0.5px solid var(--border);padding:1.25rem;margin-top:1.5rem;}
+    .prop-box p{font-size:0.82rem;color:var(--gray);line-height:1.75;}
+
+    /* ESTRATEGIA */
+    .tabs{display:flex;border-bottom:0.5px solid var(--border);margin-bottom:2.5rem;overflow-x:auto;}
+    .tab{padding:0.8rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+    .tab.on{color:var(--accent);border-bottom-color:var(--accent);}
+    .tab:hover:not(.on){color:var(--white);}
+    .panel{display:none;}
+    .panel.on{display:block;}
+    .est-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.05);}
+    .est-card{background:var(--black);padding:2rem 1.5rem;}
+    .est-tipo{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;}
+    .est-tit{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--white);margin-bottom:1rem;}
+    .est-obj{font-size:0.8rem;color:rgba(245,245,240,0.6);line-height:1.7;margin-bottom:1rem;padding-bottom:1rem;border-bottom:0.5px solid var(--border);}
+    .est-ideas{font-size:0.76rem;color:var(--gray);line-height:2;}
+    .est-freq{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--border);}
+    .cal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.05);}
+    .cal-col{background:var(--black);padding:1.5rem;}
+    .cal-wk{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+    .cal-item{font-size:0.76rem;color:var(--gray);padding:0.4rem 0;border-bottom:0.5px solid rgba(255,255,255,0.04);}
+    .cal-item.hi{color:var(--white);}
+
+    /* BUYER PERSONA */
+    .persona-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:1px;background:rgba(255,255,255,0.05);}
+    .persona-left{background:var(--black);padding:2.5rem 2rem;}
+    .persona-name{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--white);line-height:0.9;margin-bottom:0.5rem;}
+    .persona-role{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;}
+    .persona-field{margin-bottom:1.25rem;}
+    .persona-field-lbl{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:0.3rem;}
+    .persona-field-val{font-size:0.85rem;color:rgba(245,245,240,0.8);line-height:1.6;}
+    .persona-right{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.05);}
+    .persona-block{background:var(--black);padding:1.75rem 1.5rem;}
+    .persona-block-tit{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--accent);letter-spacing:0.05em;margin-bottom:1rem;}
+    .persona-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+    .persona-list li{font-size:0.78rem;color:var(--gray);line-height:1.5;padding-left:1rem;position:relative;}
+    .persona-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.7rem;}
+
+    /* REPORTE */
+    .rep-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.05);margin-bottom:3rem;}
+    .kpi{background:var(--black);padding:1.5rem;text-align:center;}
+    .kpi-v{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--accent);line-height:1;}
+    .kpi-v.red{color:var(--red);}
+    .kpi-l{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);margin-top:5px;}
+    .rep-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+    .tl{padding-left:1.5rem;border-left:0.5px solid rgba(255,255,255,0.06);}
+    .tl-item{position:relative;padding-bottom:2.25rem;}
+    .tl-dot{position:absolute;left:-1.57rem;top:7px;width:7px;height:7px;background:var(--accent);border-radius:50%;}
+    .tl-mo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--white);margin-bottom:0.5rem;}
+    .tl-row{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:0.4rem;}
+    .tl-s{font-size:0.76rem;color:var(--gray);}
+    .tl-s strong{color:var(--white);font-weight:500;}
+    .tl-note{font-size:0.72rem;color:#444;font-style:italic;margin-top:4px;}
+    .tl-conv{display:inline-block;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);border:0.5px solid var(--accent);padding:2px 8px;margin-top:6px;}
+    .bar-row2{margin-bottom:1.1rem;}
+    .bar-meta{display:flex;justify-content:space-between;margin-bottom:5px;}
+    .bar-nm{font-size:0.68rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray);}
+    .bar-vl{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--white);}
+    .bar-track2{height:2px;background:rgba(255,255,255,0.06);border-radius:1px;overflow:hidden;}
+    .bar-fill2{height:100%;background:var(--accent);border-radius:1px;width:0;transition:width 1.3s ease;}
+    .rep-table{width:100%;border-collapse:collapse;font-size:0.8rem;margin-top:2.5rem;}
+    .rep-table th{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);padding:0.6rem 0.75rem;text-align:left;border-bottom:0.5px solid var(--border);}
+    .rep-table td{padding:0.7rem 0.75rem;border-bottom:0.5px solid rgba(255,255,255,0.03);color:rgba(245,245,240,0.65);}
+    .rep-table tr:last-child td{color:var(--white);font-weight:500;}
+    .rep-table .ac{color:var(--accent);}
+
+    footer{padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;}
+    .ft-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.1em;color:var(--gray);}
+    .ft-copy{font-size:0.68rem;color:#333;letter-spacing:0.05em;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+    .hero-left>*{animation:fadeUp 0.65s ease both;}
+    .hero-tag{animation-delay:0.1s;}.hero-title{animation-delay:0.2s;}.hero-desc{animation-delay:0.3s;}.hero-btns{animation-delay:0.4s;}.hero-tags{animation-delay:0.5s;}
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;}.hero-right{display:none;}
+      .logos-row{grid-template-columns:1fr;}
+      .mood-wrap{grid-template-columns:1fr;}
+      .est-grid{grid-template-columns:1fr;}
+      .persona-grid{grid-template-columns:1fr;}
+      .persona-right{grid-template-columns:1fr;}
+      .rep-kpis{grid-template-columns:1fr 1fr;}
+      .rep-grid{grid-template-columns:1fr;}
+      .cal-grid{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">S.O.S<span>.</span>BIKE</div>
+  <ul class="nav-links">
+    <li><a href="#marca">Marca</a></li>
+    <li><a href="#estrategia">Estrategia</a></li>
+    <li><a href="#persona">Audiencia</a></li>
+    <li><a href="#reporte">Reporte</a></li>
+  </ul>
+  <button class="nav-back" onclick="window.location.href='index.html'">← Volver al portfolio</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div>
+      <div class="hero-tag">Gestión de redes · Branding · Estrategia de contenido · 2024</div>
+      <h1 class="hero-title">S.O.S<br><em>BIKE</em></h1>
+      <p class="hero-desc">Servicio de reparación, mantenimiento y lavado de bicicletas con retiro y entrega a domicilio en Montevideo. Partimos de cero en redes y construimos marca, comunidad y conversiones en 3 meses.</p>
+      <div class="hero-btns">
+        <button class="btn btn-acc" onclick="document.getElementById('reporte').scrollIntoView({behavior:'smooth'})">Ver resultados</button>
+        <button class="btn" onclick="document.getElementById('estrategia').scrollIntoView({behavior:'smooth'})">Estrategia de contenido</button>
+        <button class="btn" onclick="document.getElementById('marca').scrollIntoView({behavior:'smooth'})">Estudio de marca</button>
+        <button class="btn" onclick="document.getElementById('persona').scrollIntoView({behavior:'smooth'})">Análisis de audiencia</button>
+        <a href="https://www.instagram.com/sosbike.uy/" target="_blank" rel="noopener" class="btn btn-red">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="hero-tags">
+      <span class="htag">Instagram</span>
+      <span class="htag">Branding</span>
+      <span class="htag">Contenido</span>
+      <span class="htag">Análisis</span>
+      <span class="htag">Montevideo · UY</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hstat"><div class="hstat-num">1.333</div><div class="hstat-label">Seguidores en 3 meses</div></div>
+    <div class="hstat"><div class="hstat-num">34</div><div class="hstat-label">Servicios generados</div></div>
+    <div class="hstat"><div class="hstat-num">438</div><div class="hstat-label">Consultas por DM</div></div>
+    <div class="hstat"><div class="hstat-num red">2.181</div><div class="hstat-label">Interacciones totales</div></div>
+  </div>
+</section>
+
+<!-- 01 LOGOTIPOS -->
+<section class="sec" id="marca">
+  <div class="sec-hd">
+    <span class="sec-n">01</span>
+    <span class="sec-t">Logotipos</span>
+    <div class="sec-l"></div>
+  </div>
+  <div class="logos-row">
+    <div class="logo-item" style="background:#0e0e0e;">
+      <img src="https://github.com/user-attachments/assets/9cb60838-16cb-424c-93b0-74823644aa37" alt="S.O.S Bike logo transparente"/>
+      <span class="logo-caption">Versión transparente — uso en fondos oscuros</span>
+    </div>
+    <div class="logo-item" style="background:#ffffff;">
+      <img src="https://github.com/user-attachments/assets/a6796bf5-b0df-4989-b637-780d7dc8af02" alt="S.O.S Bike logo fondo blanco"/>
+      <span class="logo-caption" style="color:#666;">Versión fondo blanco — materiales impresos</span>
+    </div>
+    <div class="logo-item" style="background:#111111;">
+      <img src="https://github.com/user-attachments/assets/8d31e26d-da45-4c5f-a601-fc8590ff45ca" alt="S.O.S Bike logo fondo negro"/>
+      <span class="logo-caption">Versión fondo negro — uso digital principal</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 IDENTIDAD DE MARCA -->
+<section class="sec">
+  <div class="sec-hd">
+    <span class="sec-n">02</span>
+    <span class="sec-t">Identidad de marca</span>
+    <div class="sec-l"></div>
+  </div>
+  <div class="mood-wrap">
+    <div>
+      <div class="brand-lbl" style="margin-bottom:0.75rem;">Mood board</div>
+      <img src="https://github.com/user-attachments/assets/dfd6121d-36dd-4e99-ad95-eb94790b2fa3" alt="Mood board S.O.S Bike" class="mood-img"/>
+    </div>
+    <div>
+      <div class="brand-lbl">Paleta de colores</div>
+      <div class="palette-row">
+        <div class="swatch" style="background:#CC0000;"><span style="color:rgba(255,255,255,0.7);">#CC0000</span></div>
+        <div class="swatch" style="background:#000000;border:0.5px solid #222;"><span style="color:rgba(255,255,255,0.5);">#000000</span></div>
+        <div class="swatch" style="background:#FFFFFF;"><span style="color:rgba(0,0,0,0.4);">#FFFFFF</span></div>
+        <div class="swatch" style="background:#D1CCCC;"><span style="color:rgba(0,0,0,0.4);">#D1CCCC</span></div>
+      </div>
+
+      <div class="brand-lbl">Tipografías</div>
+      <div class="font-demo">
+        <div class="font-nm">Teko — Titulares y llamados a la acción</div>
+        <div class="font-h">S.O.S BIKE</div>
+        <div class="font-b">Encabezados, botones y destacados de marca.</div>
+      </div>
+      <div class="font-demo">
+        <div class="font-nm">Exo 2 — Cuerpo de texto</div>
+        <div class="font-b" style="font-size:0.9rem;color:rgba(245,245,240,0.7);">Recogemos tu bici, la reparamos y te la devolvemos lista para rodar. Fácil, rápido y sin esfuerzos.</div>
+      </div>
+
+      <div class="prop-box">
+        <div class="brand-lbl" style="margin-bottom:0.5rem;">Propuesta de valor</div>
+        <p>Eliminamos la molestia de transportar la bici al taller. Resolvemos la falta de tiempo, logística y conocimiento técnico que puede hacer que una bicicleta quede en desuso o en mal estado.</p>
+      </div>
+
+      <div style="margin-top:1.5rem;">
+        <div class="brand-lbl">Highlights Instagram</div>
+        <div style="display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+            <div style="width:54px;height:54px;border-radius:50%;background:#111;border:2px solid #CC0000;display:flex;align-items:center;justify-content:center;"><div style="width:28px;height:28px;border-radius:50%;background:#CC0000;"></div></div>
+            <span style="font-size:0.62rem;color:var(--gray);">Info</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+            <div style="width:54px;height:54px;border-radius:50%;background:#111;border:2px solid #333;display:flex;align-items:center;justify-content:center;"><div style="width:28px;height:28px;border-radius:50%;background:#333;"></div></div>
+            <span style="font-size:0.62rem;color:var(--gray);">Servicios</span>
+          </div>
+          <div style="font-size:0.75rem;color:var(--gray);line-height:1.7;flex:1;min-width:160px;">Rango de acción · Horarios y días · Contacto directo por WhatsApp · Fotos de cada servicio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ESTRATEGIA -->
+<section class="sec" id="estrategia">
+  <div class="sec-hd">
+    <span class="sec-n">03</span>
+    <span class="sec-t">Estrategia de contenido</span>
+    <div class="sec-l"></div>
+  </div>
+  <p style="font-size:0.88rem;color:var(--gray);line-height:1.75;max-width:680px;margin-bottom:2.5rem;">Objetivo: posicionar S.O.S Bike como el servicio de mantenimiento más confiable y conveniente de Montevideo, generando interacción con la comunidad ciclista a través de contenido educativo, inspiracional y promocional.</p>
+  <div class="tabs">
+    <button class="tab on" onclick="showTab('ts',this)">Stories</button>
+    <button class="tab" onclick="showTab('tr',this)">Reels</button>
+    <button class="tab" onclick="showTab('tc',this)">Carrusel</button>
+    <button class="tab" onclick="showTab('tk',this)">Calendario</button>
+  </div>
+  <div id="ts" class="panel on">
+    <div class="est-grid">
+      <div class="est-card"><div class="est-tipo">Tema 1</div><div class="est-tit">Interacción</div><div class="est-obj">Fomentar el acercamiento con los seguidores mediante historias dinámicas que generen participación activa.</div><div class="est-ideas">· Preguntas abiertas<br>· Juegos y trivias de ciclismo<br>· Encuestas sobre hábitos</div><div class="est-freq">1× semana — 2× en eventos especiales</div></div>
+      <div class="est-card"><div class="est-tipo">Tema 2</div><div class="est-tit">Mostrar el servicio</div><div class="est-obj">Mostrar la facilidad y beneficios del servicio para generar confianza y motivar que los seguidores reserven.</div><div class="est-ideas">· Antes y después del arreglo<br>· Trabajo en acción (retiro y entrega)<br>· Resolvemos dudas frecuentes<br>· Testimonios de clientes</div><div class="est-freq">1× semana</div></div>
+      <div class="est-card"><div class="est-tipo">Tema 3</div><div class="est-tit">Educación</div><div class="est-obj">Posicionarnos como expertos en mantenimiento brindando consejos y demostraciones de valor real.</div><div class="est-ideas">· Consejos rápidos de mantenimiento<br>· Errores comunes y cómo evitarlos<br>· Mito vs realidad del ciclismo<br>· Proceso de retiro y entrega</div><div class="est-freq">1× semana</div></div>
+    </div>
+  </div>
+  <div id="tr" class="panel">
+    <div class="est-grid">
+      <div class="est-card"><div class="est-tipo">Tema 1</div><div class="est-tit">Calidad técnica</div><div class="est-obj">Resaltar la calidad del servicio mientras se enseña a los seguidores el cuidado necesario para su bicicleta.</div><div class="est-ideas">· Reel "cómo se hace" paso a paso<br>· Tips rápidos de 30 segundos<br>· Reel de herramientas utilizadas</div><div class="est-freq">1× mes</div></div>
+      <div class="est-card"><div class="est-tipo">Tema 2</div><div class="est-tit">Humanizar la marca</div><div class="est-obj">Conectar con los seguidores mostrando el ambiente de trabajo, el equipo y el esfuerzo detrás del servicio.</div><div class="est-ideas">· Presentación del equipo<br>· Behind the scenes del taller<br>· Un día típico en S.O.S Bike</div><div class="est-freq">1× mes</div></div>
+      <div class="est-card"><div class="est-tipo">Tema 3</div><div class="est-tit">El proceso</div><div class="est-obj">Mostrar de forma dinámica y visual cómo funciona la recolección, reparación y entrega.</div><div class="est-ideas">· "Antes y después" en 30 segundos<br>· Reel del proceso de entrega<br>· Testimonio rápido de cliente</div><div class="est-freq">1× mes</div></div>
+    </div>
+  </div>
+  <div id="tc" class="panel">
+    <div class="est-grid">
+      <div class="est-card"><div class="est-tipo">Tema 1</div><div class="est-tit">Promociones</div><div class="est-obj">Atraer nuevos clientes y fidelizar a los actuales mediante promociones, descuentos y servicios especiales.</div><div class="est-ideas">· Post de promoción de temporada<br>· Paquetes de servicio<br>· Llamado a la acción directo</div><div class="est-freq">2× mes</div></div>
+      <div class="est-card"><div class="est-tipo">Tema 2</div><div class="est-tit">Resultados</div><div class="est-obj">Generar confianza mostrando resultados concretos de los arreglos y la calidad de los trabajos realizados.</div><div class="est-ideas">· Carrusel antes y después<br>· Testimonios con fotos del cliente<br>· Post de proyectos especiales</div><div class="est-freq">2× mes</div></div>
+      <div class="est-card"><div class="est-tipo">Tema 3</div><div class="est-tit">Educación</div><div class="est-obj">Informar sobre cuidados esenciales para que las bicicletas funcionen de manera óptima y durable.</div><div class="est-ideas">· Consejos y tips de mantenimiento<br>· Guía de mantenimiento básico<br>· Mitos y realidades del ciclismo</div><div class="est-freq">2× mes</div></div>
+    </div>
+  </div>
+  <div id="tk" class="panel">
+    <div class="cal-grid">
+      <div class="cal-col"><div class="cal-wk">Semana 1</div><div class="cal-item hi">Carrusel: Promoción</div><div class="cal-item">Stories: Interacción</div><div class="cal-item">Stories: Servicio</div></div>
+      <div class="cal-col"><div class="cal-wk">Semana 2</div><div class="cal-item hi">Reel: Calidad técnica</div><div class="cal-item">Stories: Educación</div><div class="cal-item">Carrusel: Resultados</div></div>
+      <div class="cal-col"><div class="cal-wk">Semana 3</div><div class="cal-item hi">Carrusel: Educación</div><div class="cal-item">Stories: Interacción</div><div class="cal-item hi">Reel: Humanizar</div></div>
+      <div class="cal-col"><div class="cal-wk">Semana 4</div><div class="cal-item hi">Reel: El proceso</div><div class="cal-item">Stories: Servicio</div><div class="cal-item">Carrusel: Promoción</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 BUYER PERSONA -->
+<section class="sec" id="persona">
+  <div class="sec-hd">
+    <span class="sec-n">04</span>
+    <span class="sec-t">Buyer persona</span>
+    <div class="sec-l"></div>
+  </div>
+  <div class="persona-grid">
+    <div class="persona-left">
+      <div class="persona-name">Gustavo</div>
+      <div class="persona-role">Cliente ideal · S.O.S Bike</div>
+      <div class="persona-field"><div class="persona-field-lbl">Edad</div><div class="persona-field-val">35 años</div></div>
+      <div class="persona-field"><div class="persona-field-lbl">Ubicación</div><div class="persona-field-val">Carrasco, Montevideo</div></div>
+      <div class="persona-field"><div class="persona-field-lbl">Ocupación</div><div class="persona-field-val">Gerente de empresa</div></div>
+      <div class="persona-field"><div class="persona-field-lbl">Ingresos</div><div class="persona-field-val">Medios-Altos</div></div>
+      <div class="persona-field"><div class="persona-field-lbl">Perfil digital</div><div class="persona-field-val">Activo en Instagram y foros de ciclismo. Sigue cuentas de movilidad sustentable y tecnología aplicada a bicicletas.</div></div>
+      <div class="persona-field"><div class="persona-field-lbl">Valores</div><div class="persona-field-val">Eficiencia, sostenibilidad, comodidad. Reduce su huella de carbono y opta por servicios prácticos y directos.</div></div>
+    </div>
+    <div class="persona-right">
+      <div class="persona-block">
+        <div class="persona-block-tit">Intereses</div>
+        <ul class="persona-list">
+          <li>Movilidad sustentable y ecológica como estilo de vida</li>
+          <li>Uso frecuente de la bici para transporte diario, deporte y trabajo</li>
+          <li>Estilo de vida saludable: ejercicio y nutrición equilibrada</li>
+          <li>Comodidad y servicios eficientes tipo delivery</li>
+          <li>Tecnología aplicada a la bicicleta y al deporte</li>
+        </ul>
+      </div>
+      <div class="persona-block">
+        <div class="persona-block-tit">Objetivos</div>
+        <ul class="persona-list">
+          <li>Mantener su bici en óptimas condiciones sin interrumpir su rutina</li>
+          <li>Acceder a un servicio confiable y profesional sin perder tiempo</li>
+          <li>Prolongar la vida útil de su bicicleta sin reparaciones costosas</li>
+          <li>Resolver el mantenimiento de forma rápida y sin complicaciones</li>
+          <li>Contar con auxilio si la bici falla lejos de casa</li>
+        </ul>
+      </div>
+      <div class="persona-block">
+        <div class="persona-block-tit">Frustraciones</div>
+        <ul class="persona-list">
+          <li>No tiene tiempo para llevar la bici al taller durante la semana</li>
+          <li>Le cuesta encontrar un servicio confiable con repuestos de calidad</li>
+          <li>Las reparaciones con demora lo dejan sin movilidad días enteros</li>
+          <li>No sabe hacer mantenimiento y termina con problemas mayores</li>
+          <li>Le molestan los presupuestos poco claros o sorpresas de costo</li>
+          <li>Angustia por no tener auxilio si la bici falla en ruta</li>
+        </ul>
+      </div>
+      <div class="persona-block">
+        <div class="persona-block-tit">Hábitos y comportamiento</div>
+        <ul class="persona-list">
+          <li>Usa la bici todos los días: trabajo, ejercicio o recreación</li>
+          <li>Posterga el mantenimiento hasta que la bici empieza a fallar</li>
+          <li>Prefiere resolver todo desde el celular, sin moverse de casa</li>
+          <li>Toma decisiones basadas en recomendaciones y reseñas online</li>
+          <li>Valora la comunicación clara, rápida y transparente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 REPORTE -->
+<section class="sec" id="reporte">
+  <div class="sec-hd">
+    <span class="sec-n">05</span>
+    <span class="sec-t">Reporte trimestral</span>
+    <div class="sec-l"></div>
+  </div>
+  <div class="rep-kpis">
+    <div class="kpi"><div class="kpi-v">1.333</div><div class="kpi-l">Seguidores finales</div></div>
+    <div class="kpi"><div class="kpi-v red">438</div><div class="kpi-l">Consultas por DM</div></div>
+    <div class="kpi"><div class="kpi-v">34</div><div class="kpi-l">Servicios generados</div></div>
+    <div class="kpi"><div class="kpi-v">2.181</div><div class="kpi-l">Interacciones totales</div></div>
+  </div>
+  <div class="rep-grid">
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-mo">Abril</div>
+        <div class="tl-row"><span class="tl-s"><strong>+305</strong> seguidores</span><span class="tl-s"><strong>521</strong> interacciones</span><span class="tl-s"><strong>79</strong> DMs</span><span class="tl-s"><strong>6</strong> servicios</span></div>
+        <div class="tl-note">Alto volumen de consultas desde el inicio. Se instala el diferencial: atención clara, directa y accesible.</div>
+        <span class="tl-conv">Conversión: 7,6%</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-mo">Mayo</div>
+        <div class="tl-row"><span class="tl-s"><strong>+401</strong> seguidores</span><span class="tl-s"><strong>830</strong> interacciones</span><span class="tl-s"><strong>96</strong> DMs</span><span class="tl-s"><strong>12</strong> servicios</span></div>
+        <div class="tl-note">Mejor mes de conversión del trimestre. La comunidad creció de forma orgánica y constante.</div>
+        <span class="tl-conv">Conversión: 12,5%</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-mo">Junio</div>
+        <div class="tl-row"><span class="tl-s"><strong>+627</strong> seguidores</span><span class="tl-s"><strong>830</strong> interacciones</span><span class="tl-s"><strong>263</strong> DMs</span><span class="tl-s"><strong>16</strong> servicios</span></div>
+        <div class="tl-note">Mayor alcance del trimestre. Las consultas se triplicaron — foco en seguimiento para mejorar conversión.</div>
+        <span class="tl-conv">Conversión: 6,1%</span>
+      </div>
+    </div>
+    <div>
+      <div class="brand-lbl">Crecimiento de seguidores</div>
+      <div id="bars">
+        <div class="bar-row2"><div class="bar-meta"><span class="bar-nm">Inicio</span><span class="bar-vl">0</span></div><div class="bar-track2"><div class="bar-fill2" data-w="1"></div></div></div>
+        <div class="bar-row2"><div class="bar-meta"><span class="bar-nm">Abril</span><span class="bar-vl">305</span></div><div class="bar-track2"><div class="bar-fill2" data-w="23"></div></div></div>
+        <div class="bar-row2"><div class="bar-meta"><span class="bar-nm">Mayo</span><span class="bar-vl">706</span></div><div class="bar-track2"><div class="bar-fill2" data-w="53"></div></div></div>
+        <div class="bar-row2"><div class="bar-meta"><span class="bar-nm">Junio</span><span class="bar-vl">1.333</span></div><div class="bar-track2"><div class="bar-fill2" data-w="100"></div></div></div>
+      </div>
+      <table class="rep-table">
+        <thead><tr><th>Mes</th><th>Simples</th><th>Básicos</th><th>Completos</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Abril</td><td>2</td><td>2</td><td>2</td><td>6</td></tr>
+          <tr><td>Mayo</td><td>3</td><td>5</td><td>4</td><td>12</td></tr>
+          <tr><td>Junio</td><td>7</td><td>4</td><td>5</td><td>16</td></tr>
+          <tr><td>Total</td><td class="ac">12</td><td class="ac">11</td><td class="ac">11</td><td class="ac">34</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="ft-name">S.O.S Bike · See You Studio × Pilar Machado</span>
+  <span class="ft-copy">2024</span>
+</footer>
+
+<script>
+function showTab(id,el){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  el.classList.add('on');
+}
+const barsEl=document.getElementById('bars');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.bar-fill2').forEach(b=>b.style.width=b.dataset.w+'%');
+    }
+  });
+},{threshold:0.3});
+if(barsEl) obs.observe(barsEl);
+</script>
+</body>
+</html>
