@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --black: #0e0e0e; --white: #f5f2ee; --accent: #d4ff00; --gray: #888; --border: rgba(255,255,255,0.08); }
+    :root { --black: #0e0e0e; --white: #f5f5f0; --accent: #d4ff00; --gray: #888; --border: rgba(255,255,255,0.08); }
     body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
     .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(14,14,14,0.95); backdrop-filter: blur(8px); z-index: 100; }
     .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
@@ -42,12 +42,10 @@
   </style>
 </head>
 <body>
-
   <nav class="pm-nav">
     <a href="index.html" class="pm-logo">P<span>.</span>M</a>
     <a href="index.html#foto" class="pm-back">← Volver a Fotografía</a>
   </nav>
-
   <div class="page-header">
     <div class="page-header-top">
       <span class="page-num">02</span>
@@ -57,7 +55,6 @@
     <p class="page-desc">Clásico · Final ida del Campeonato Uruguayo 2025 · Nacional - Peñarol</p>
     <p class="photo-count">22 fotografías</p>
   </div>
-
   <div class="masonry">
     <div class="masonry-item" onclick="openLightbox(0)"><img src="https://github.com/user-attachments/assets/31e3d2a9-31e3-4884-9055-7e37d8e0fe71" alt=""/></div>
     <div class="masonry-item" onclick="openLightbox(1)"><img src="https://github.com/user-attachments/assets/a2c4c48a-97d4-412b-9c8b-4fc2680e4f60" alt=""/></div>
@@ -82,19 +79,16 @@
     <div class="masonry-item" onclick="openLightbox(20)"><img src="https://github.com/user-attachments/assets/32546d99-2330-4f33-bc7a-8efa9a7816b7" alt=""/></div>
     <div class="masonry-item" onclick="openLightbox(21)"><img src="https://github.com/user-attachments/assets/f6c846cd-b566-4c95-9946-e7f0b7034d12" alt=""/></div>
   </div>
-
   <div class="lightbox" id="lightbox">
     <span class="lightbox-close" onclick="closeLightbox()">×</span>
     <span class="lightbox-prev" onclick="changePhoto(-1)">‹</span>
     <img id="lightbox-img" src="" alt="" />
     <span class="lightbox-next" onclick="changePhoto(1)">›</span>
   </div>
-
   <footer class="pm-footer">
     <span class="pm-footer-name">Pilar Machado</span>
     <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
   </footer>
-
   <script>
     const imgs = Array.from(document.querySelectorAll('.masonry-item img')).map(i => i.src);
     let current = 0;
