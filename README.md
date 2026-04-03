@@ -104,4 +104,7 @@
 ![4K3A3102](https://github.com/user-attachments/assets/11f59883-5188-4351-bf9e-ea597aad4d49)
 ![4K3A3110](https://github.com/user-attachments/assets/1abfe5b4-edbd-48b9-bcc8-f26478bf623f)
 
+#proyecto khadda
+![afiche](https://github.com/user-attachments/assets/b7851b3a-4335-4353-a13c-e50ed9f87e0b)
+![identidad](https://github.com/user-attachments/assets/c33ee940-6853-4e70-b65f-9c7b292df796)
 
