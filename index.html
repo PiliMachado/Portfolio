@@ -18,7 +18,6 @@
     .pm-nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; cursor: pointer; }
     .pm-nav-links a:hover { color: var(--accent); }
 
-    /* HERO achicado — min-height 55vh, padding reducido, nombre más chico, stats compactos */
     .pm-hero { display: grid; grid-template-columns: 35fr 65fr; min-height: unset; border-bottom: 0.5px solid var(--border); align-items: start; }
     .pm-hero-img { background: #1a1a1a; overflow: hidden; position: relative; border-right: 0.5px solid var(--border); }
     .pm-hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; display: block; max-height: 100%; }
@@ -56,32 +55,13 @@
 
     .pm-gallery-intro { font-size: 1rem; color: var(--gray); margin-bottom: 2.5rem; max-width: 100%; line-height: 1.7; }
 
-    /* CARPETAS */
     .folder-row { display: flex; gap: 2.5rem; justify-content: center; align-items: flex-start; padding: 10rem 0 0.5rem; overflow: visible; }
     .folder-item { width: 160px; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; cursor: pointer; position: relative; }
     .folder-wrap { position: relative; width: 160px; height: 128px; overflow: visible; }
     .folder-tab { position: absolute; top: 0; left: 8%; width: 38%; height: 18%; background: #b8e600; border-radius: 5px 5px 0 0; z-index: 1; }
     .folder-front { position: absolute; bottom: 0; left: 0; right: 0; top: 12%; background: #d4ff00; border-radius: 3px 6px 6px 6px; z-index: 2; transition: transform 0.3s ease; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.12), 0 2px 8px rgba(212,255,0,0.15); }
-    .folder-photo {
-      position: absolute;
-      bottom: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(40%) scale(0.9);
-      width: 220px;
-      height: 270px;
-      object-fit: cover;
-      border-radius: 4px;
-      z-index: 10;
-      transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      pointer-events: none;
-      box-shadow: 0 0 0 rgba(0,0,0,0);
-    }
-    .folder-item:hover .folder-photo {
-      opacity: 1;
-      transform: translateX(-50%) translateY(-55%) scale(1.05);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.6);
-    }
+    .folder-photo { position: absolute; bottom: 50%; left: 50%; transform: translateX(-50%) translateY(40%) scale(0.9); width: 220px; height: 270px; object-fit: cover; border-radius: 4px; z-index: 10; transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease; opacity: 0; pointer-events: none; box-shadow: 0 0 0 rgba(0,0,0,0); }
+    .folder-item:hover .folder-photo { opacity: 1; transform: translateX(-50%) translateY(-55%) scale(1.05); box-shadow: 0 12px 32px rgba(0,0,0,0.6); }
     .folder-item:hover .folder-front { transform: scaleY(0.85); transform-origin: bottom; }
     .folder-name { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-align: center; transition: color 0.2s; line-height: 1.3; min-height: 2.4rem; }
     .folder-item:hover .folder-name { color: var(--accent); }
@@ -257,75 +237,31 @@
       <div class="pm-section-line"></div>
     </div>
     <p class="pm-gallery-intro">Especializada en fútbol — la velocidad, el contacto, la emoción. Cada partido tiene su foto definitiva.</p>
-
     <div class="folder-row">
-
       <div class="folder-item" onclick="window.location.href='grito-de-gol.html'" style="cursor:pointer;">
-        <div class="folder-wrap">
-          <div class="folder-body">
-            <div class="folder-tab"></div>
-            <div class="folder-front"></div>
-            <img class="folder-photo" src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="Grito de gol" />
-          </div>
-        </div>
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="Grito de gol" /></div></div>
         <span class="folder-name">Grito de gol</span>
       </div>
-
       <div class="folder-item" onclick="window.location.href='campeon-tfc.html'" style="cursor:pointer;">
-        <div class="folder-wrap">
-          <div class="folder-body">
-            <div class="folder-tab"></div>
-            <div class="folder-front"></div>
-            <img class="folder-photo" src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="Campeón TFC" />
-          </div>
-        </div>
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="Campeón TFC" /></div></div>
         <span class="folder-name">Campeón TFC</span>
       </div>
-
       <div class="folder-item" onclick="window.location.href='nacional-plaza.html'" style="cursor:pointer;">
-        <div class="folder-wrap">
-          <div class="folder-body">
-            <div class="folder-tab"></div>
-            <div class="folder-front"></div>
-            <img class="folder-photo" src="https://github.com/user-attachments/assets/056a6d14-627a-40a9-98c3-cbad53b7e34d" alt="Nacional · Plaza Copa AUF" />
-          </div>
-        </div>
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/056a6d14-627a-40a9-98c3-cbad53b7e34d" alt="Nacional · Plaza Copa AUF" /></div></div>
         <span class="folder-name">Nacional · Plaza Copa AUF</span>
       </div>
-
       <div class="folder-item">
-        <div class="folder-wrap">
-          <div class="folder-body">
-            <div class="folder-tab"></div>
-            <div class="folder-front"></div>
-            <img class="folder-photo" src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="Campeón Sudamericana" />
-          </div>
-        </div>
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="Campeón Sudamericana" /></div></div>
         <span class="folder-name">Campeón Sudamericana</span>
       </div>
-
       <div class="folder-item" onclick="window.location.href='nacional-penarol.html'" style="cursor:pointer;">
-        <div class="folder-wrap">
-          <div class="folder-body">
-            <div class="folder-tab"></div>
-            <div class="folder-front"></div>
-            <img class="folder-photo" src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="Nacional - Peñarol" />
-          </div>
-        </div>
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="Nacional - Peñarol" /></div></div>
         <span class="folder-name">Peñarol · Nacional</span>
       </div>
-
       <div class="folder-item" onclick="window.location.href='atenas-tacuarembo.html'" style="cursor:pointer;">
-        <div class="folder-wrap">
-          <div class="folder-body">
-            <div class="folder-tab"></div>
-            <div class="folder-front"></div>
-            <img class="folder-photo" src="https://github.com/user-attachments/assets/4a80bcc0-d4e2-4d25-b865-f3cfc4ae6512" alt="Atenas · Tacuarembó" />
-          </div>
-        </div>
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/4a80bcc0-d4e2-4d25-b865-f3cfc4ae6512" alt="Atenas · Tacuarembó" /></div></div>
         <span class="folder-name">Atenas · Tacuarembó</span>
       </div>
-
     </div>
   </section>
 
@@ -336,9 +272,10 @@
       <div class="pm-section-line"></div>
     </div>
 
-    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:1.5rem;">
+    <div style="display:grid; grid-template-columns: repeat(2,1fr); gap:1.5rem;">
+
+      <!-- CARD KHADDA (sin cambios) -->
       <div onclick="window.location.href='khadda.html'" style="cursor:pointer; border:0.5px solid var(--border); overflow:hidden;">
-        <!-- Portada Khadda -->
         <div style="background:#0a0a0a; padding:1.5rem; position:relative; overflow:hidden; aspect-ratio:16/9; display:flex; flex-direction:column; justify-content:flex-end;">
           <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
             <line x1="-50" y1="80" x2="450" y2="-20" stroke="#CC1515" stroke-width="1" opacity="0.2"/>
@@ -355,8 +292,63 @@
           <div style="font-size:0.65rem; color:var(--gray); letter-spacing:0.08em; text-transform:uppercase;">Universidad Católica del Uruguay</div>
         </div>
       </div>
-    </div>
 
+      <!-- CARD S.O.S BIKE -->
+      <div onclick="window.location.href='sosbike.html'" style="cursor:pointer; border:0.5px solid var(--border); overflow:hidden;">
+        <div style="background:#0a0a0a; padding:1.5rem; position:relative; overflow:hidden; aspect-ratio:16/9; display:flex; flex-direction:column; justify-content:space-between;">
+
+          <!-- Fondo decorativo: rueda de bici con líneas de velocidad -->
+          <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
+            <!-- líneas de velocidad -->
+            <line x1="0"   y1="70"  x2="180" y2="70"  stroke="#CC0000" stroke-width="1.5" opacity="0.25"/>
+            <line x1="0"   y1="85"  x2="150" y2="85"  stroke="#CC0000" stroke-width="0.8" opacity="0.15"/>
+            <line x1="0"   y1="100" x2="160" y2="100" stroke="#CC0000" stroke-width="0.8" opacity="0.12"/>
+            <!-- rueda derecha -->
+            <circle cx="310" cy="145" r="68" fill="none" stroke="#CC0000" stroke-width="0.6" opacity="0.2"/>
+            <circle cx="310" cy="145" r="48" fill="none" stroke="#CC0000" stroke-width="0.4" opacity="0.15"/>
+            <circle cx="310" cy="145" r="10" fill="none" stroke="#CC0000" stroke-width="0.8" opacity="0.25"/>
+            <!-- rayos -->
+            <line x1="310" y1="77"  x2="310" y2="213" stroke="#CC0000" stroke-width="0.4" opacity="0.18"/>
+            <line x1="242" y1="145" x2="378" y2="145" stroke="#CC0000" stroke-width="0.4" opacity="0.18"/>
+            <line x1="262" y1="97"  x2="358" y2="193" stroke="#CC0000" stroke-width="0.4" opacity="0.13"/>
+            <line x1="358" y1="97"  x2="262" y2="193" stroke="#CC0000" stroke-width="0.4" opacity="0.13"/>
+            <!-- punto de acento amarillo -->
+            <circle cx="52" cy="42" r="3" fill="#d4ff00" opacity="0.7"/>
+            <circle cx="62" cy="42" r="2" fill="#d4ff00" opacity="0.4"/>
+          </svg>
+
+          <!-- Logo real de SOS Bike (versión blanca/sin fondo) — top left -->
+          <div style="position:relative;z-index:2;">
+            <img
+              src="https://github.com/user-attachments/assets/9cb60838-16cb-424c-93b0-74823644aa37"
+              alt="S.O.S Bike"
+              style="height:36px; object-fit:contain; filter:brightness(0) invert(1);"
+            />
+          </div>
+
+          <!-- Título y tag — bottom left -->
+          <div style="position:relative;z-index:2;">
+            <div style="font-size:7px;color:#CC0000;letter-spacing:3px;text-transform:uppercase;margin-bottom:7px;">Gestión de redes · Branding · Estrategia</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:#e8e8e8;letter-spacing:-0.5px;line-height:0.85;">S.O.S<span style="color:#CC0000;"> /</span><br>BIKE</div>
+          </div>
+
+          <!-- Stat top-right -->
+          <div style="position:absolute;top:1.25rem;right:1.25rem;z-index:2;text-align:right;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#d4ff00;line-height:1;">1.333</div>
+            <div style="font-size:6px;letter-spacing:2px;text-transform:uppercase;color:#555;margin-top:2px;">seg · 3 meses</div>
+          </div>
+
+          <!-- Botón ver proyecto -->
+          <div style="position:absolute;bottom:1rem;right:1rem;z-index:2;font-size:7px;letter-spacing:2px;color:#555;text-transform:uppercase;border:1px solid #222;padding:5px 10px;">Ver proyecto ↗</div>
+        </div>
+
+        <div style="padding:0.75rem 1rem; border-top:0.5px solid var(--border); background:#0e0e0e;">
+          <div style="font-size:0.75rem; color:var(--white); letter-spacing:0.05em; margin-bottom:0.2rem;">Branding & estadísticas para emprendimientos</div>
+          <div style="font-size:0.65rem; color:var(--gray); letter-spacing:0.08em; text-transform:uppercase;">S.O.S Bike · Montevideo, Uruguay</div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <section class="pm-section pm-reveal" id="campana">
@@ -365,18 +357,13 @@
       <h2 class="pm-section-title">Campaña</h2>
       <div class="pm-section-line"></div>
     </div>
-
     <div class="pm-case-header">
       <div class="pm-case-brand">
         <span class="pm-case-logo">Tacuarembó FC — Caso de estudio</span>
         <h3 class="pm-case-title">Lanzamiento de camiseta en 48 horas</h3>
         <p class="pm-case-sub">Sin recursos, sin tiempo. Con creatividad, estrategia y trabajo en equipo logramos una campaña de lanzamiento completa que generó expectativa real en la comunidad del club.</p>
         <div class="pm-case-tags">
-          <span class="pm-tag">Redes sociales</span>
-          <span class="pm-tag">Estrategia</span>
-          <span class="pm-tag">Video</span>
-          <span class="pm-tag">Fotografía</span>
-          <span class="pm-tag">Sin presupuesto</span>
+          <span class="pm-tag">Redes sociales</span><span class="pm-tag">Estrategia</span><span class="pm-tag">Video</span><span class="pm-tag">Fotografía</span><span class="pm-tag">Sin presupuesto</span>
         </div>
       </div>
       <div class="pm-case-metrics">
@@ -386,74 +373,29 @@
         <div class="pm-metric-card"><div class="pm-metric-num">↑</div><div class="pm-metric-desc">Expectativa generada en comunidad</div></div>
       </div>
     </div>
-
     <div class="pm-timeline">
-      <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 1 · 9:30 AM</span>
-        <div class="pm-timeline-content"><h4>Llegó la camiseta</h4><p>Primera toma de contacto con el producto. Sin brief formal. Tuvimos que definir la estrategia de comunicación en el momento: cómo lanzarla, en qué orden, cómo generar expectativa.</p></div>
-      </div>
-      <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 1 · 12:00 PM</span>
-        <div class="pm-timeline-content"><h4>Planificación y producción</h4><p>Definimos el concepto creativo, planificamos qué contenido necesitábamos, cómo y con qué lo ibamos a hacer. Coordinamos jugadores y verificamos que las locaciones estén permitidas en los horarios que las íbamos a usar y que estén en condiciones óptimas. Pensamos la secuencia de publicaciones para ir construyendo expectativa antes del reveal final.</p></div>
-      </div>
-      <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 1 · 16:00 PM</span>
-        <div class="pm-timeline-content"><h4>Primera publicación</h4><p>Producción de fotos solo de la camiseta. Edición de foto con efecto. Se realizó la primera publicación en campaña de lanzamiento.</p></div>
-      </div>
-      <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 2 · 8:00 AM</span>
-        <div class="pm-timeline-content"><h4>Producción del contenido</h4><p>Se realizaron las fotos planificadas y los videos respectivos al plan de rodaje.</p></div>
-      </div>
-      <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 2 · 12:00 PM</span>
-        <div class="pm-timeline-content"><h4>Edición y armado de campaña</h4><p>Selección de fotos. Selección de videos y edición.</p></div>
-      </div>
-      <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 2 · 15:00 PM</span>
-        <div class="pm-timeline-content"><h4>Segunda publicación</h4><p>Estrategia de adelanto del video corto para crear anticipación, estimular la interacción del público y sostener el interés hasta la publicación principal.</p></div>
-      </div>
-      <div class="pm-timeline-item">
-        <span class="pm-timeline-time">Día 2 · 19:00 PM</span>
-        <div class="pm-timeline-content"><h4>Lanzamiento</h4><p>Publicación de la camiseta en las redes del club. El contenido generó interacción y expectativa genuina en la comunidad de Tacuarembó FC.</p></div>
-      </div>
+      <div class="pm-timeline-item"><span class="pm-timeline-time">Día 1 · 9:30 AM</span><div class="pm-timeline-content"><h4>Llegó la camiseta</h4><p>Primera toma de contacto con el producto. Sin brief formal. Tuvimos que definir la estrategia de comunicación en el momento: cómo lanzarla, en qué orden, cómo generar expectativa.</p></div></div>
+      <div class="pm-timeline-item"><span class="pm-timeline-time">Día 1 · 12:00 PM</span><div class="pm-timeline-content"><h4>Planificación y producción</h4><p>Definimos el concepto creativo, planificamos qué contenido necesitábamos, cómo y con qué lo ibamos a hacer. Coordinamos jugadores y verificamos que las locaciones estén permitidas.</p></div></div>
+      <div class="pm-timeline-item"><span class="pm-timeline-time">Día 1 · 16:00 PM</span><div class="pm-timeline-content"><h4>Primera publicación</h4><p>Producción de fotos solo de la camiseta. Edición de foto con efecto. Se realizó la primera publicación en campaña de lanzamiento.</p></div></div>
+      <div class="pm-timeline-item"><span class="pm-timeline-time">Día 2 · 8:00 AM</span><div class="pm-timeline-content"><h4>Producción del contenido</h4><p>Se realizaron las fotos planificadas y los videos respectivos al plan de rodaje.</p></div></div>
+      <div class="pm-timeline-item"><span class="pm-timeline-time">Día 2 · 12:00 PM</span><div class="pm-timeline-content"><h4>Edición y armado de campaña</h4><p>Selección de fotos. Selección de videos y edición.</p></div></div>
+      <div class="pm-timeline-item"><span class="pm-timeline-time">Día 2 · 15:00 PM</span><div class="pm-timeline-content"><h4>Segunda publicación</h4><p>Estrategia de adelanto del video corto para crear anticipación y sostener el interés hasta la publicación principal.</p></div></div>
+      <div class="pm-timeline-item"><span class="pm-timeline-time">Día 2 · 19:00 PM</span><div class="pm-timeline-content"><h4>Lanzamiento</h4><p>Publicación de la camiseta en las redes del club. El contenido generó interacción y expectativa genuina en la comunidad de Tacuarembó FC.</p></div></div>
     </div>
-
     <div class="dash" style="margin-top:3rem;">
       <div class="dash-header">
         <div class="dash-badge">Tacuarembó FC</div>
         <h2 class="dash-title">Campaña · Lanzamiento camiseta</h2>
         <p class="dash-sub">Resultados · 15–16 de marzo · 3 publicaciones</p>
       </div>
-
       <div class="dash-tabs">
         <button class="dash-tab active" onclick="showTab('pub1', this)">Foto · Escudo</button>
         <button class="dash-tab" onclick="showTab('pub2', this)">Reel · Tick tack</button>
         <button class="dash-tab" onclick="showTab('pub3', this)">Reel · Nueva piel</button>
       </div>
-
       <div id="pub1" class="dash-panel active">
         <div class="dash-panel-inner">
-          <div class="post-hero">
-            <img src="https://github.com/user-attachments/assets/af8e51cc-2f05-4f0d-9ab0-427c2e801298" alt="Foto escudo TFC">
-            <div class="post-hero-gradient"></div>
-            <div class="post-hero-overlay">
-              <div class="post-hero-top">
-                <span class="post-type-badge">Foto</span>
-                <a class="ig-btn" href="https://www.instagram.com/p/DV7NARIEmcO/" target="_blank" rel="noopener">
-                  <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
-                  Ver en Instagram
-                </a>
-              </div>
-              <div>
-                <div class="post-title">Foto del escudo TFC</div>
-                <div class="post-date">15 de marzo · Primera publicación</div>
-                <div class="hero-stats">
-                  <div class="hero-stat"><div class="hero-stat-val">23.1K</div><div class="hero-stat-key">Views</div></div>
-                  <div class="hero-stat"><div class="hero-stat-val">631</div><div class="hero-stat-key">Interacciones</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="post-hero"><img src="https://github.com/user-attachments/assets/af8e51cc-2f05-4f0d-9ab0-427c2e801298" alt="Foto escudo TFC"><div class="post-hero-gradient"></div><div class="post-hero-overlay"><div class="post-hero-top"><span class="post-type-badge">Foto</span><a class="ig-btn" href="https://www.instagram.com/p/DV7NARIEmcO/" target="_blank" rel="noopener"><svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>Ver en Instagram</a></div><div><div class="post-title">Foto del escudo TFC</div><div class="post-date">15 de marzo · Primera publicación</div><div class="hero-stats"><div class="hero-stat"><div class="hero-stat-val">23.1K</div><div class="hero-stat-key">Views</div></div><div class="hero-stat"><div class="hero-stat-val">631</div><div class="hero-stat-key">Interacciones</div></div></div></div></div></div>
           <div class="dash-panel-right">
             <div class="section-title" style="margin-top:0">Interacciones</div>
             <div class="bar-row"><span class="bar-label">Me gusta</span><div class="bar-track"><div class="bar-fill" style="width:86.7%"></div></div><span class="bar-pct">547</span></div>
@@ -461,7 +403,7 @@
             <div class="bar-row"><span class="bar-label">Comentarios</span><div class="bar-track"><div class="bar-fill" style="width:3.5%"></div></div><span class="bar-pct">22</span></div>
             <div class="bar-row"><span class="bar-label">Reposts</span><div class="bar-track"><div class="bar-fill" style="width:3.3%"></div></div><span class="bar-pct">21</span></div>
             <div class="bar-row"><span class="bar-label">Guardados</span><div class="bar-track"><div class="bar-fill" style="width:0.9%"></div></div><span class="bar-pct">6</span></div>
-            <div class="section-title">Orígenes de visualizaciones</div>
+            <div class="section-title">Orígenes</div>
             <div class="bar-row"><span class="bar-label">Feed</span><div class="bar-track"><div class="bar-fill" style="width:56.3%"></div></div><span class="bar-pct">56,3%</span></div>
             <div class="bar-row"><span class="bar-label">Historias</span><div class="bar-track"><div class="bar-fill" style="width:29.7%"></div></div><span class="bar-pct">29,7%</span></div>
             <div class="bar-row"><span class="bar-label">Perfil</span><div class="bar-track"><div class="bar-fill" style="width:11.9%"></div></div><span class="bar-pct">11,9%</span></div>
@@ -476,45 +418,21 @@
           <div class="metric-card"><div class="metric-label">Actividad perfil</div><div class="metric-value">362</div><div class="metric-sub">357 visitas · 5 nuevos</div></div>
         </div>
       </div>
-
       <div id="pub2" class="dash-panel">
         <div class="dash-panel-inner">
-          <div class="post-hero">
-            <img src="https://github.com/user-attachments/assets/f7c5e98b-6661-49bd-b724-051c4a8d49bc" alt="Reel tick tack TFC">
-            <div class="post-hero-gradient"></div>
-            <div class="post-hero-overlay">
-              <div class="post-hero-top">
-                <span class="post-type-badge">Video</span>
-                <a class="ig-btn" href="https://www.instagram.com/p/DV9Tlg3kiR8/" target="_blank" rel="noopener">
-                  <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
-                  Ver en Instagram
-                </a>
-              </div>
-              <div>
-                <div class="post-title">Reel "Tick tack..." · Silueta</div>
-                <div class="post-date">16 de marzo · Segunda publicación</div>
-                <div class="hero-stats">
-                  <div class="hero-stat"><div class="hero-stat-val">14.6K</div><div class="hero-stat-key">Views</div></div>
-                  <div class="hero-stat"><div class="hero-stat-val">258</div><div class="hero-stat-key">Interacciones</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="post-hero"><img src="https://github.com/user-attachments/assets/f7c5e98b-6661-49bd-b724-051c4a8d49bc" alt="Reel tick tack TFC"><div class="post-hero-gradient"></div><div class="post-hero-overlay"><div class="post-hero-top"><span class="post-type-badge">Video</span><a class="ig-btn" href="https://www.instagram.com/p/DV9Tlg3kiR8/" target="_blank" rel="noopener"><svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>Ver en Instagram</a></div><div><div class="post-title">Reel "Tick tack..." · Silueta</div><div class="post-date">16 de marzo · Segunda publicación</div><div class="hero-stats"><div class="hero-stat"><div class="hero-stat-val">14.6K</div><div class="hero-stat-key">Views</div></div><div class="hero-stat"><div class="hero-stat-val">258</div><div class="hero-stat-key">Interacciones</div></div></div></div></div></div>
           <div class="dash-panel-right">
             <div class="section-title" style="margin-top:0">Interacciones</div>
             <div class="bar-row"><span class="bar-label">Me gusta</span><div class="bar-track"><div class="bar-fill" style="width:91.9%"></div></div><span class="bar-pct">237</span></div>
             <div class="bar-row"><span class="bar-label">Compartidos</span><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><span class="bar-pct">13</span></div>
             <div class="bar-row"><span class="bar-label">Comentarios</span><div class="bar-track"><div class="bar-fill" style="width:1.9%"></div></div><span class="bar-pct">5</span></div>
             <div class="bar-row"><span class="bar-label">Reposts</span><div class="bar-track"><div class="bar-fill" style="width:1.1%"></div></div><span class="bar-pct">3</span></div>
-            <div class="section-title">Orígenes de visualizaciones</div>
+            <div class="section-title">Orígenes</div>
             <div class="bar-row"><span class="bar-label">Feed</span><div class="bar-track"><div class="bar-fill" style="width:59%"></div></div><span class="bar-pct">59,0%</span></div>
             <div class="bar-row"><span class="bar-label">Historias</span><div class="bar-track"><div class="bar-fill" style="width:20.6%"></div></div><span class="bar-pct">20,6%</span></div>
             <div class="bar-row"><span class="bar-label">Perfil</span><div class="bar-track"><div class="bar-fill" style="width:13.3%"></div></div><span class="bar-pct">13,3%</span></div>
             <div class="bar-row"><span class="bar-label">Reels</span><div class="bar-track"><div class="bar-fill" style="width:5.5%"></div></div><span class="bar-pct">5,5%</span></div>
-            <div class="two-col" style="margin-top:1.5rem;">
-              <div class="info-card"><div class="info-card-label">Retención</div><div class="info-card-row"><span class="info-card-key">Omisiones reel</span><span class="info-card-val" style="color:#27ae60">0,0%</span></div><div class="info-card-row"><span class="info-card-key">Omisiones habitual</span><span class="info-card-val">58,2%</span></div></div>
-              <div class="info-card"><div class="info-card-label">Facebook</div><div class="info-card-row"><span class="info-card-key">Views</span><span class="info-card-val">2,530</span></div><div class="info-card-row"><span class="info-card-key">Reacciones</span><span class="info-card-val">29</span></div><div class="info-card-row"><span class="info-card-key">Comentarios</span><span class="info-card-val">2</span></div></div>
-            </div>
+            <div class="two-col" style="margin-top:1.5rem;"><div class="info-card"><div class="info-card-label">Retención</div><div class="info-card-row"><span class="info-card-key">Omisiones reel</span><span class="info-card-val" style="color:#27ae60">0,0%</span></div><div class="info-card-row"><span class="info-card-key">Omisiones habitual</span><span class="info-card-val">58,2%</span></div></div><div class="info-card"><div class="info-card-label">Facebook</div><div class="info-card-row"><span class="info-card-key">Views</span><span class="info-card-val">2,530</span></div><div class="info-card-row"><span class="info-card-key">Reacciones</span><span class="info-card-val">29</span></div></div></div>
             <div class="section-title">Audiencia</div>
             <div class="audience-row"><div class="aud-dot" style="background:#C0392B"></div><span class="aud-label">Hombres</span><div class="aud-bar-track"><div class="aud-bar-fill" style="width:77%;background:#C0392B"></div></div><span class="aud-pct">77,0%</span></div>
             <div class="audience-row"><div class="aud-dot" style="background:#555"></div><span class="aud-label">Mujeres</span><div class="aud-bar-track"><div class="aud-bar-fill" style="width:23%;background:#555"></div></div><span class="aud-pct">23,0%</span></div>
@@ -526,30 +444,9 @@
           <div class="metric-card"><div class="metric-label">Reproducción</div><div class="metric-value">7h 19m</div><div class="metric-sub">Prom. 4 seg · 4,451 ctas</div></div>
         </div>
       </div>
-
       <div id="pub3" class="dash-panel">
         <div class="dash-panel-inner">
-          <div class="post-hero">
-            <img src="https://github.com/user-attachments/assets/268eebe2-b4aa-41f0-85c8-a705554f69fd" alt="Reel La nueva piel TFC">
-            <div class="post-hero-gradient"></div>
-            <div class="post-hero-overlay">
-              <div class="post-hero-top">
-                <span class="post-type-badge">Video · Lanzamiento</span>
-                <a class="ig-btn" href="https://www.instagram.com/p/DV9rBL7EueE/" target="_blank" rel="noopener">
-                  <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
-                  Ver en Instagram
-                </a>
-              </div>
-              <div>
-                <div class="post-title">Reel "La nueva piel" · Reveal</div>
-                <div class="post-date">16 de marzo · Lanzamiento final</div>
-                <div class="hero-stats">
-                  <div class="hero-stat"><div class="hero-stat-val">44.1K</div><div class="hero-stat-key">Views</div></div>
-                  <div class="hero-stat"><div class="hero-stat-val">1,031</div><div class="hero-stat-key">Interacciones</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="post-hero"><img src="https://github.com/user-attachments/assets/268eebe2-b4aa-41f0-85c8-a705554f69fd" alt="Reel La nueva piel TFC"><div class="post-hero-gradient"></div><div class="post-hero-overlay"><div class="post-hero-top"><span class="post-type-badge">Video · Lanzamiento</span><a class="ig-btn" href="https://www.instagram.com/p/DV9rBL7EueE/" target="_blank" rel="noopener"><svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>Ver en Instagram</a></div><div><div class="post-title">Reel "La nueva piel" · Reveal</div><div class="post-date">16 de marzo · Lanzamiento final</div><div class="hero-stats"><div class="hero-stat"><div class="hero-stat-val">44.1K</div><div class="hero-stat-key">Views</div></div><div class="hero-stat"><div class="hero-stat-val">1,031</div><div class="hero-stat-key">Interacciones</div></div></div></div></div></div>
           <div class="dash-panel-right">
             <div class="section-title" style="margin-top:0">Interacciones</div>
             <div class="bar-row"><span class="bar-label">Me gusta</span><div class="bar-track"><div class="bar-fill" style="width:73.3%"></div></div><span class="bar-pct">920</span></div>
@@ -557,15 +454,12 @@
             <div class="bar-row"><span class="bar-label">Comentarios</span><div class="bar-track"><div class="bar-fill" style="width:4.3%"></div></div><span class="bar-pct">54</span></div>
             <div class="bar-row"><span class="bar-label">Reposts</span><div class="bar-track"><div class="bar-fill" style="width:3.8%"></div></div><span class="bar-pct">48</span></div>
             <div class="bar-row"><span class="bar-label">Guardados</span><div class="bar-track"><div class="bar-fill" style="width:0.5%"></div></div><span class="bar-pct">6</span></div>
-            <div class="section-title">Orígenes de visualizaciones</div>
+            <div class="section-title">Orígenes</div>
             <div class="bar-row"><span class="bar-label">Historias</span><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><span class="bar-pct">50,0%</span></div>
             <div class="bar-row"><span class="bar-label">Feed</span><div class="bar-track"><div class="bar-fill" style="width:26.5%"></div></div><span class="bar-pct">26,5%</span></div>
             <div class="bar-row"><span class="bar-label">Reels</span><div class="bar-track"><div class="bar-fill" style="width:9.6%"></div></div><span class="bar-pct">9,6%</span></div>
             <div class="bar-row"><span class="bar-label">Perfil</span><div class="bar-track"><div class="bar-fill" style="width:8.8%"></div></div><span class="bar-pct">8,8%</span></div>
-            <div class="two-col" style="margin-top:1.5rem;">
-              <div class="info-card"><div class="info-card-label">Retención</div><div class="info-card-row"><span class="info-card-key">Omisiones reel</span><span class="info-card-val">69,2%</span></div><div class="info-card-row"><span class="info-card-key">Omisiones habitual</span><span class="info-card-val">58,2%</span></div></div>
-              <div class="info-card"><div class="info-card-label">Facebook</div><div class="info-card-row"><span class="info-card-key">Views</span><span class="info-card-val">11,558</span></div><div class="info-card-row"><span class="info-card-key">Reacciones</span><span class="info-card-val">164</span></div><div class="info-card-row"><span class="info-card-key">Comentarios</span><span class="info-card-val">12</span></div></div>
-            </div>
+            <div class="two-col" style="margin-top:1.5rem;"><div class="info-card"><div class="info-card-label">Retención</div><div class="info-card-row"><span class="info-card-key">Omisiones reel</span><span class="info-card-val">69,2%</span></div><div class="info-card-row"><span class="info-card-key">Omisiones habitual</span><span class="info-card-val">58,2%</span></div></div><div class="info-card"><div class="info-card-label">Facebook</div><div class="info-card-row"><span class="info-card-key">Views</span><span class="info-card-val">11,558</span></div><div class="info-card-row"><span class="info-card-key">Reacciones</span><span class="info-card-val">164</span></div></div></div>
             <div class="section-title">Audiencia</div>
             <div class="audience-row"><div class="aud-dot" style="background:#C0392B"></div><span class="aud-label">Hombres</span><div class="aud-bar-track"><div class="aud-bar-fill" style="width:72.6%;background:#C0392B"></div></div><span class="aud-pct">72,6%</span></div>
             <div class="audience-row"><div class="aud-dot" style="background:#555"></div><span class="aud-label">Mujeres</span><div class="aud-bar-track"><div class="aud-bar-fill" style="width:27.4%;background:#555"></div></div><span class="aud-pct">27,4%</span></div>
@@ -577,7 +471,6 @@
           <div class="metric-card"><div class="metric-label">Reproducción</div><div class="metric-value">2d 1m</div><div class="metric-sub">Prom. 8 seg · 15,774 ctas</div></div>
         </div>
       </div>
-
       <div class="dash-resumen">
         <hr style="border:none;border-top:1px solid #1a1a1a;margin:2rem 0;">
         <div class="section-title" style="margin-top:0">Resumen de campaña · 3 publicaciones</div>
@@ -607,18 +500,9 @@
         <p style="font-size: 0.9rem; color: var(--gray); line-height: 1.7; max-width: 340px;">Disponible para proyectos de fotografía deportiva, gestión de redes y comunicación digital para clubes y marcas deportivas.</p>
       </div>
       <div class="pm-contact-links">
-        <a class="pm-contact-link" href="https://www.instagram.com/pilarmachado.ph/" target="_blank">
-          <span>Instagram</span>
-          <span class="pm-contact-link-label">@pilarmachado.ph</span>
-        </a>
-        <a class="pm-contact-link" href="tel:+59898998895">
-          <span>WhatsApp / Celular</span>
-          <span class="pm-contact-link-label">+598 98 998 895</span>
-        </a>
-        <a class="pm-contact-link" href="/cdn-cgi/l/email-protection#2f5f46434e5d424e4c474e4b400149405b40485d4e49464e6f48424e4643014c4042">
-          <span>Email</span>
-          <span class="pm-contact-link-label"><span class="__cf_email__" data-cfemail="b2c2dbded3c0dfd3d1dad3d6dd9cd4ddc6ddd5c0d3d4dbd3f2d5dfd3dbde9cd1dddf">[email&#160;protected]</span></span>
-        </a>
+        <a class="pm-contact-link" href="https://www.instagram.com/pilarmachado.ph/" target="_blank"><span>Instagram</span><span class="pm-contact-link-label">@pilarmachado.ph</span></a>
+        <a class="pm-contact-link" href="tel:+59898998895"><span>WhatsApp / Celular</span><span class="pm-contact-link-label">+598 98 998 895</span></a>
+        <a class="pm-contact-link" href="mailto:pilarmacha@gmail.com"><span>Email</span><span class="pm-contact-link-label">pilarmacha@gmail.com</span></a>
       </div>
     </div>
   </section>
@@ -628,7 +512,7 @@
     <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
