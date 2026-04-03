@@ -8,8 +8,8 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-padding-top: 80px; }
-:root { --black: #0e0e0e; --white: #f5f2ee; --accent: #d4ff00; --red: #CC1515; --gray: #888; --border: rgba(255,255,255,0.08); }
-body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+:root { --black: #0e0e0e; --white: #f5f2ee; --accent: #d4ff00; --red: #ff2255; --gray: #888; --border: rgba(255,255,255,0.08); }
+body { background: var(--black); color: #f5f5f0; font-family: 'DM Sans', sans-serif; font-weight: 300; }
 
 /* NAV — colores originales del portfolio */
 .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(14,14,14,0.95); backdrop-filter: blur(8px); z-index: 100; }
@@ -43,12 +43,12 @@ body { background: var(--black); color: var(--white); font-family: 'DM Sans', sa
 .tag-dark { color: var(--gray); }
 
 /* ZOOM con lupa + preview */
-.zoom-container { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start; }
+.zoom-container { display: grid; grid-template-columns: 3fr 2fr; gap: 2rem; align-items: start; }
 .zoom-img-wrap { position: relative; cursor: crosshair; overflow: hidden; }
 .zoom-img-wrap img { width: 100%; display: block; }
 .magnifier { position: absolute; width: 120px; height: 120px; border: 2px solid var(--accent); border-radius: 50%; pointer-events: none; display: none; overflow: hidden; box-shadow: 0 0 0 2px rgba(212,255,0,0.3); }
 .magnifier-inner { position: absolute; }
-.zoom-preview { background: #111; border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden; aspect-ratio: 1; position: relative; max-height: 280px; }
+.zoom-preview { background: #111; border: 0.5px solid var(--border); overflow: hidden; aspect-ratio: 1; position: relative; }
 .zoom-preview-img { position: absolute; transform-origin: top left; }
 .zoom-preview-label { font-size: 0.72rem; color: var(--gray); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
 .zoom-hint { font-size: 0.9rem; color: var(--gray); margin-bottom: 1.5rem; line-height: 1.7; }
