@@ -8,7 +8,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-padding-top: 80px; }
-    :root { --black: #0e0e0e; --white: #f5f2ee; --accent: #d4ff00; --gray: #888; --border: rgba(255,255,255,0.08); }
+    :root { --black: #0e0e0e; --white: #f5f5f0; --accent: #d4ff00; --gray: #888; --border: rgba(255,255,255,0.08); }
     body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
 
     .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(14,14,14,0.95); backdrop-filter: blur(8px); z-index: 100; }
@@ -27,7 +27,7 @@
     .pm-hero-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .pm-hero-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4.5vw, 4.5rem); line-height: 0.92; letter-spacing: 0.02em; margin-bottom: 1rem; }
     .pm-hero-name em { font-style: normal; color: var(--accent); }
-    .pm-hero-desc { font-size: 0.9rem; line-height: 1.6; color: rgba(245,242,238,0.6); max-width: 360px; margin-bottom: 1.5rem; }
+    .pm-hero-desc { font-size: 0.9rem; line-height: 1.6; color: rgba(245,245,240,0.6); max-width: 360px; margin-bottom: 1.5rem; }
     .pm-hero-btns { display: flex; gap: 1rem; }
     .pm-btn { padding: 0.65rem 1.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; border: 0.5px solid var(--white); background: transparent; color: var(--white); cursor: pointer; transition: all 0.2s; }
     .pm-btn:hover { background: var(--white); color: var(--black); }
@@ -47,12 +47,12 @@
     .pm-section-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
 
     .pm-about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
-    .pm-about-text { font-size: 1.05rem; line-height: 1.8; color: rgba(245,242,238,0.75); }
+    .pm-about-text { font-size: 1.05rem; line-height: 1.8; color: rgba(245,245,240,0.75); }
     .pm-about-text p + p { margin-top: 1.25rem; }
     .pm-skills-list { display: flex; flex-direction: column; gap: 0.5rem; }
     .pm-skill-item { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1rem; border: 0.5px solid var(--border); }
     .pm-skill-dot { width: 6px; height: 6px; background: var(--accent); flex-shrink: 0; }
-    .pm-skill-name { font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(245,242,238,0.7); }
+    .pm-skill-name { font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(245,245,240,0.7); }
 
     .pm-gallery-intro { font-size: 1rem; color: var(--gray); margin-bottom: 2.5rem; max-width: 100%; line-height: 1.7; }
 
