@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos — Pilar Machado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-padding-top: 80px; }
+    :root { --black: #F1EADC; --surface: #E8DEC9; --white: #221D18; --accent: #7A2436; --gold: #A0793D; --gray: #75695A; --border: rgba(34,29,24,0.14); }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+
+    .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(241,234,220,0.85); backdrop-filter: blur(10px); z-index: 100; }
+    .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .pm-logo span { color: var(--accent); }
+    .pm-back { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .pm-back:hover { color: var(--accent); }
+
+    .page-header { padding: 4rem 2.5rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .page-header-top { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1rem; }
+    .page-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: 0.04em; line-height: 1; }
+    .page-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
+    .page-desc { font-size: 0.95rem; color: var(--gray); max-width: 520px; line-height: 1.7; }
+
+    .pm-projects-wrap { padding: 3.5rem 2.5rem 6rem; }
+    .pm-projects-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .pm-project-card { cursor: pointer; border: 0.5px solid var(--border); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; grid-column: span 1; }
+    .pm-project-card.wide { grid-column: 1 / -1; }
+    .pm-project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(34,29,24,0.18); }
+    .pm-project-visual { background: var(--accent); padding: 1.75rem; position: relative; overflow: hidden; aspect-ratio: 16/9; display: flex; flex-direction: column; justify-content: space-between; }
+    .pm-project-tag { font-size: 7px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+    .pm-project-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: #fff; letter-spacing: -0.5px; line-height: 0.85; position: relative; z-index: 2; }
+    .pm-project-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); line-height: 1; }
+    .pm-project-view { position: absolute; bottom: 1rem; right: 1rem; z-index: 2; font-size: 7px; letter-spacing: 2px; color: rgba(255,255,255,0.7); text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); padding: 5px 10px; }
+    .pm-project-footer { padding: 0.9rem 1.1rem; border-top: 0.5px solid var(--border); background: var(--surface); }
+    .pm-project-footer-title { font-size: 0.8rem; color: var(--white); letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+    .pm-project-footer-sub { font-size: 0.68rem; color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
+    .pm-footer-copy { font-size: 0.68rem; color: rgba(34,29,24,0.4); letter-spacing: 0.05em; }
+
+    @media (max-width: 800px) {
+      .pm-projects-grid { grid-template-columns: 1fr; }
+      .pm-project-card.wide { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="pm-nav">
+    <a href="index.html" class="pm-logo">P<span>.</span>M</a>
+    <a href="index.html#proyecto" class="pm-back">← Volver al portfolio</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-top">
+      <span class="page-num">03</span>
+      <h1 class="page-title">Proyectos</h1>
+      <div class="page-line"></div>
+    </div>
+    <p class="page-desc">Branding, identidad visual, gestión de redes y estrategia de contenido para clubes, marcas y emprendimientos.</p>
+  </div>
+
+  <div class="pm-projects-wrap">
+    <div class="pm-projects-grid">
+
+      <!-- CARD KHADDA -->
+      <div class="pm-project-card" onclick="window.location.href='khadda.html'">
+        <div class="pm-project-visual">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
+            <path d="M12 12 V32 H32" stroke="#fff" stroke-width="1" opacity="0.4" fill="none"/>
+            <path d="M368 12 H388 V32" stroke="#fff" stroke-width="1" opacity="0.4" fill="none"/>
+            <path d="M388 193 V213 H368" stroke="#fff" stroke-width="1" opacity="0.4" fill="none"/>
+            <path d="M32 213 H12 V193" stroke="#fff" stroke-width="1" opacity="0.4" fill="none"/>
+            <circle cx="330" cy="55" r="22" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.5"/>
+          </svg>
+          <div class="pm-project-tag">Identidad visual · Marca</div>
+          <div class="pm-project-logo">KHA<span style="color:var(--gold);">/</span>DDA</div>
+          <div class="pm-project-view">Ver proyecto ↗</div>
+        </div>
+        <div class="pm-project-footer">
+          <div class="pm-project-footer-title">Proyecto de identidad visual · Khadda</div>
+          <div class="pm-project-footer-sub">Universidad Católica del Uruguay</div>
+        </div>
+      </div>
+
+      <!-- CARD S.O.S BIKE -->
+      <div class="pm-project-card" onclick="window.location.href='sosbike.html'">
+        <div class="pm-project-visual">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
+            <circle cx="330" cy="60" r="38" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.3"/>
+            <circle cx="330" cy="60" r="24" fill="none" stroke="#fff" stroke-width="0.6" opacity="0.22"/>
+            <path d="M330 12 V26 M330 94 V108 M282 60 H296 M364 60 H378" stroke="#fff" stroke-width="0.6" opacity="0.3" fill="none"/>
+            <path d="M20 130 H180" stroke="var(--gold)" stroke-width="0.8" opacity="0.4" fill="none"/>
+            <circle cx="20" cy="130" r="2.5" fill="var(--gold)" opacity="0.7"/>
+            <circle cx="180" cy="130" r="2.5" fill="var(--gold)" opacity="0.7"/>
+          </svg>
+          <div>
+            <div class="pm-project-tag">Gestión de redes · Branding · Estrategia</div>
+          </div>
+          <div style="position:relative;z-index:2;">
+            <div class="pm-project-logo">S.O.S<span style="color:var(--gold);"> /</span><br>BIKE</div>
+          </div>
+          <div style="position:absolute;top:1.25rem;right:1.25rem;z-index:2;text-align:right;">
+            <div class="pm-project-stat-num">1.333</div>
+            <div style="font-size:6px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:2px;">seg · 3 meses</div>
+          </div>
+          <div class="pm-project-view">Ver proyecto ↗</div>
+        </div>
+        <div class="pm-project-footer">
+          <div class="pm-project-footer-title">Branding & estadísticas para emprendimientos</div>
+          <div class="pm-project-footer-sub">S.O.S Bike · Montevideo, Uruguay</div>
+        </div>
+      </div>
+
+      <!-- CARD CAMPAÑA TFC -->
+      <div class="pm-project-card wide" onclick="window.location.href='campana-tfc.html'">
+        <div class="pm-project-visual" style="aspect-ratio:32/9;">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 800 225" preserveAspectRatio="xMidYMid slice">
+            <path d="M12 12 V32 H32 M768 12 H788 V32 M788 193 V213 H768 M32 213 H12 V193" stroke="#fff" stroke-width="1" opacity="0.35" fill="none"/>
+            <circle cx="680" cy="55" r="26" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.4"/>
+            <circle cx="680" cy="55" r="14" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.35"/>
+          </svg>
+          <div style="position:relative;z-index:2;">
+            <div class="pm-project-tag">Tacuarembó FC · Caso de estudio</div>
+          </div>
+          <div style="position:relative;z-index:2;">
+            <div class="pm-project-tag" style="margin-bottom:8px;">Redes sociales · Estrategia · Sin presupuesto</div>
+            <div class="pm-project-logo">Lanzamiento<span style="color:var(--gold);"> /</span> en 48H</div>
+          </div>
+          <div style="position:absolute;top:1.25rem;right:1.25rem;z-index:2;text-align:right;">
+            <div class="pm-project-stat-num">81.8K</div>
+            <div style="font-size:6px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:2px;">views · 3 publicaciones</div>
+          </div>
+          <div class="pm-project-view">Ver proyecto ↗</div>
+        </div>
+        <div class="pm-project-footer">
+          <div class="pm-project-footer-title">Campaña de lanzamiento de camiseta</div>
+          <div class="pm-project-footer-sub">Tacuarembó Fútbol Club</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="pm-footer">
+    <span class="pm-footer-name">Pilar Machado</span>
+    <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
+  </footer>
+
+</body>
+</html>

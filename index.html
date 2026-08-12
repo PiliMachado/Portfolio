@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilar Machado — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+    :root {
+      --black: #F1EADC;      /* fondo principal (papel/beige) */
+      --surface: #E8DEC9;    /* superficie levemente más oscura */
+      --white: #221D18;      /* texto principal (tinta) */
+      --accent: #7A2436;     /* bordó — acento principal */
+      --gold: #A0793D;       /* dorado — acento secundario, decorativo */
+      --gray: #75695A;       /* texto secundario */
+      --border: rgba(34,29,24,0.14);
+    }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+    ::selection { background: var(--accent); color: var(--black); }
+
+    /* NAV */
+    .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(241,234,220,0.85); backdrop-filter: blur(10px); z-index: 100; }
+    .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); }
+    .pm-logo span { color: var(--accent); }
+    .pm-nav-links { display: flex; gap: 2rem; list-style: none; }
+    .pm-nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; cursor: pointer; position: relative; }
+    .pm-nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
+    .pm-nav-links a:hover { color: var(--white); }
+    .pm-nav-links a:hover::after { width: 100%; }
+
+    /* HERO — nombre como protagonista + marcas de precisión */
+    .hero { position: relative; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 2rem 2.5rem 4rem; overflow: hidden; border-bottom: 0.5px solid var(--border); }
+    .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.6rem; display: flex; align-items: center; gap: 0.7rem; position: relative; z-index: 3; }
+    .hero-eyebrow::before { content: ''; width: 26px; height: 1px; background: var(--accent); }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.6rem, 12vw, 9.5rem); line-height: 0.86; letter-spacing: 0.01em; position: relative; z-index: 3; color: var(--white); }
+    .hero-title .line { display: block; overflow: hidden; }
+    .hero-title .line span { display: inline-block; transform: translateY(110%); animation: riseUp 0.9s cubic-bezier(.22,1,.36,1) forwards; }
+    .hero-title .line:nth-child(1) span { animation-delay: 0.1s; }
+    .hero-title .line:nth-child(2) span { animation-delay: 0.24s; }
+    @keyframes riseUp { to { transform: translateY(0); } }
+    .hero-title .outline { color: transparent; -webkit-text-stroke: 1.5px var(--accent); }
+    .hero-role { margin-top: 1.6rem; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--gray); position: relative; z-index: 3; text-transform: uppercase; }
+    .hero-role b { color: var(--white); font-weight: 500; }
+    .hero-cta { margin-top: 2.4rem; display: inline-flex; align-items: center; gap: 0.7rem; background: var(--white); color: var(--black); border: none; padding: 0.9rem 1.8rem; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; border-radius: 2px; transition: transform 0.3s ease, background 0.3s ease; width: fit-content; position: relative; z-index: 3; }
+    .hero-cta:hover { transform: translateY(-3px); background: var(--accent); color: var(--black); }
+    .hero-cta svg { transition: transform 0.3s ease; }
+    .hero-cta:hover svg { transform: translateY(3px); }
+
+    .mark { position: absolute; pointer-events: none; stroke: currentColor; fill: none; stroke-width: 0.9; will-change: transform; }
+    .mark-viewfinder { top: 9%; right: 7%; width: 190px; color: var(--accent); opacity: 0.55; animation: drift1 20s ease-in-out infinite; }
+    .mark-rings { bottom: 10%; right: 16%; width: 150px; color: var(--gold); opacity: 0.5; animation: spin 60s linear infinite; }
+    .mark-diag { top: 26%; left: 0%; width: 340px; color: var(--white); opacity: 0.14; }
+    .mark-crop { bottom: 14%; left: 9%; width: 56px; color: var(--accent); opacity: 0.5; animation: drift2 16s ease-in-out infinite; }
+    .mark-dots { top: 56%; right: 3%; width: 70px; color: var(--white); opacity: 0.3; animation: drift1 22s ease-in-out infinite; }
+    @keyframes drift1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes drift2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .scroll-hint { position: absolute; bottom: 2.2rem; right: 2.5rem; display: flex; align-items: center; gap: 0.6rem; z-index: 3; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); }
+    .scroll-hint .bar { width: 1px; height: 34px; background: linear-gradient(var(--accent), transparent); animation: scrollbar 1.6s ease-in-out infinite; }
+    @keyframes scrollbar { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 50.01% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+    /* SECTIONS */
+    .pm-section { padding: 6rem 2.5rem; border-bottom: 0.5px solid var(--border); opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .pm-section.visible { opacity: 1; transform: translateY(0); }
+    .pm-section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
+    .pm-section-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .pm-section-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 0.04em; line-height: 1; }
+    .pm-section-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
+
+    /* SOBRE MÍ */
+    .pm-about-grid { display: grid; grid-template-columns: 0.85fr 1.4fr 1fr; gap: 3rem; align-items: start; }
+    .pm-about-photo { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--surface); }
+    .pm-about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pm-about-photo-mark { position: absolute; inset: 10px; pointer-events: none; }
+    .pm-about-photo-mark svg { width: 100%; height: 100%; stroke: var(--black); stroke-width: 1; fill: none; opacity: 0.85; }
+    .pm-about-text { font-size: 1.02rem; line-height: 1.8; color: rgba(34,29,24,0.78); }
+    .pm-about-text p + p { margin-top: 1.25rem; }
+    .pm-skills-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .pm-skill-item { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1rem; border: 0.5px solid var(--border); transition: border-color 0.25s, background 0.25s; }
+    .pm-skill-item:hover { border-color: var(--accent); background: var(--surface); }
+    .pm-skill-dot { width: 6px; height: 6px; background: var(--accent); flex-shrink: 0; border-radius: 50%; }
+    .pm-skill-name { font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(34,29,24,0.75); }
+
+    /* FOTOGRAFÍA */
+    /* TRABAJO — paneles que se expanden al pasar el mouse */
+    .pm-gallery-intro { font-size: 1rem; color: var(--gray); margin-bottom: 2.5rem; max-width: 100%; line-height: 1.7; }
+    .category-strip { display: flex; height: 62vh; min-height: 400px; max-height: 560px; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); overflow: hidden; margin: 0 -2.5rem; width: calc(100% + 5rem); }
+    .category-panel { position: relative; flex: 1; cursor: pointer; overflow: hidden; transition: flex 0.65s cubic-bezier(.22,1,.36,1); border-right: 0.5px solid rgba(245,234,220,0.12); }
+    .category-panel:last-child { border-right: none; }
+    .category-strip:hover .category-panel { flex: 0.72; }
+    .category-strip:hover .category-panel:hover { flex: 1.9; }
+    .category-panel-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.1); transition: transform 0.7s ease; }
+    .category-panel:hover .category-panel-bg { transform: scale(1); }
+    .category-panel-marks { position: absolute; inset: 0; width: 100%; height: 100%; stroke: #fff; fill: none; stroke-width: 0.8; opacity: 0.4; }
+    .category-panel-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,6,0.75) 0%, rgba(10,8,6,0.15) 55%, rgba(10,8,6,0.3) 100%); }
+    .category-panel-num { position: absolute; top: 1.6rem; left: 1.6rem; z-index: 2; font-family: 'Bebas Neue', sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.65); letter-spacing: 0.15em; }
+    .category-panel-content { position: absolute; left: 1.6rem; right: 1.6rem; bottom: 1.8rem; z-index: 2; color: #fff; }
+    .category-panel-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.6rem, 2.4vw, 2.3rem); letter-spacing: 0.02em; line-height: 1; transition: font-size 0.5s ease; white-space: nowrap; }
+    .category-panel:hover .category-panel-title { font-size: clamp(2rem, 3vw, 2.9rem); }
+    .category-panel-desc { font-size: 0.8rem; color: rgba(255,255,255,0.75); line-height: 1.6; max-width: 260px; margin-top: 0.6rem; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s; }
+    .category-panel:hover .category-panel-desc { opacity: 1; transform: translateY(0); }
+    .category-panel-cta { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 0.9rem; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s; }
+    .category-panel:hover .category-panel-cta { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 700px) {
+      .category-strip { flex-direction: column; height: auto; max-height: none; margin: 0; width: 100%; }
+      .category-panel { flex: none !important; height: 200px; border-right: none; border-bottom: 0.5px solid rgba(245,234,220,0.12); }
+      .category-panel-bg { transform: scale(1); }
+      .category-panel-desc, .category-panel-cta { opacity: 1; transform: none; }
+      .category-panel-title { font-size: 1.8rem; }
+    }
+
+    /* CONTACTO */
+    .pm-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .pm-contact-statement { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; line-height: 1.05; margin-bottom: 2rem; }
+    .pm-contact-statement em { font-style: normal; color: var(--accent); }
+    .pm-contact-links { display: flex; flex-direction: column; }
+    .pm-contact-link { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; border-bottom: 0.5px solid var(--border); text-decoration: none; color: var(--white); font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.03em; transition: color 0.2s, padding-left 0.25s; }
+    .pm-contact-link:hover { color: var(--accent); padding-left: 0.5rem; }
+    .pm-contact-link-label { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--gray); letter-spacing: 0.05em; text-transform: none; }
+
+    .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
+    .pm-footer-copy { font-size: 0.68rem; color: rgba(34,29,24,0.4); letter-spacing: 0.05em; }
+
+    @media (max-width: 900px) {
+      .pm-about-grid { grid-template-columns: 1fr; }
+      .pm-contact-grid { grid-template-columns: 1fr; }
+      .mark-diag, .mark-dots { display: none; }
+    }
+    @media (max-width: 640px) {
+      .pm-nav-links { display: none; }
+      .pm-nav, .hero, .pm-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="pm-nav">
+    <div class="pm-logo">P<span>.</span>M</div>
+    <ul class="pm-nav-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#foto">Trabajo</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="hero-eyebrow">Portfolio · Montevideo, UY</div>
+    <h1 class="hero-title">
+      <div class="line"><span>PILAR</span></div>
+      <div class="line"><span class="outline">MACHADO</span></div>
+    </h1>
+    <p class="hero-role">Ver <b>trabajo seleccionado</b> ↓</p>
+    <a href="#about" class="hero-cta">Explorar
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+
+    <svg class="mark mark-viewfinder" viewBox="0 0 200 200">
+      <path d="M4 40 V4 H40"/><path d="M160 4 H196 V40"/><path d="M196 160 V196 H160"/><path d="M40 196 H4 V160"/>
+      <circle cx="100" cy="100" r="1.6" fill="currentColor" stroke="none"/>
+    </svg>
+    <svg class="mark mark-rings" viewBox="0 0 160 160">
+      <circle cx="80" cy="80" r="76"/><circle cx="80" cy="80" r="54"/>
+      <path d="M80 4 V16 M80 144 V156 M4 80 H16 M144 80 H156"/>
+    </svg>
+    <svg class="mark mark-diag" viewBox="0 0 400 60" preserveAspectRatio="none">
+      <path d="M0 30 H400"/><circle cx="0" cy="30" r="3" fill="currentColor" stroke="none"/><circle cx="400" cy="30" r="3" fill="currentColor" stroke="none"/>
+    </svg>
+    <svg class="mark mark-crop" viewBox="0 0 60 60">
+      <path d="M16 4 V16 H4 M44 4 V16 H56 M16 56 V44 H4 M44 56 V44 H56"/>
+    </svg>
+    <svg class="mark mark-dots" viewBox="0 0 70 70">
+      <circle cx="6" cy="6" r="1.4" fill="currentColor" stroke="none"/><circle cx="34" cy="6" r="1.4" fill="currentColor" stroke="none"/><circle cx="62" cy="6" r="1.4" fill="currentColor" stroke="none"/>
+      <circle cx="6" cy="34" r="1.4" fill="currentColor" stroke="none"/><circle cx="34" cy="34" r="1.4" fill="currentColor" stroke="none"/><circle cx="62" cy="34" r="1.4" fill="currentColor" stroke="none"/>
+      <circle cx="6" cy="62" r="1.4" fill="currentColor" stroke="none"/><circle cx="34" cy="62" r="1.4" fill="currentColor" stroke="none"/><circle cx="62" cy="62" r="1.4" fill="currentColor" stroke="none"/>
+    </svg>
+
+    <div class="scroll-hint"><span class="bar"></span> Scroll</div>
+  </section>
+
+  <section class="pm-section pm-reveal" id="about">
+    <div class="pm-section-header">
+      <span class="pm-section-num">01</span>
+      <h2 class="pm-section-title">Sobre mí</h2>
+      <div class="pm-section-line"></div>
+    </div>
+    <div class="pm-about-grid">
+      <div class="pm-about-photo">
+        <img src="https://github.com/user-attachments/assets/0459368a-bd3f-4a5f-a856-61efd34d952e" alt="Pilar Machado" />
+        <div class="pm-about-photo-mark">
+          <svg viewBox="0 0 200 260" preserveAspectRatio="none">
+            <path d="M2 30 V2 H30" /><path d="M170 2 H198 V30" /><path d="M198 230 V258 H170" /><path d="M30 258 H2 V230" />
+          </svg>
+        </div>
+      </div>
+      <div class="pm-about-text">
+        <p>Soy fotógrafa deportiva dedicada fútbol y estudiante de Comunicación Digital en Montevideo. Hace cinco años que comence en la fotografía y capturo esos instantes irrepetibles que, una vez que ocurren, solo quedan en la memoria. Hace tres años comencé la formación en comunicación digital que me acompaña en este camino, estoy a un año de recibirme =).</p>
+        <p>Trabajo de forma metódica y organizada, con atención al detalle y ganas de innovar en cada proyecto. Combino fotografía, diseño y manejo de redes sociales para ofrecer una comunicación visual integral, coherente y pensada para llegar al público de manera auténtica.</p>
+        <p>Creo que las mejores campañas son las que nacen de entender qué le importa a la comunidad y cómo contarlo con lo que tenés a mano.</p>
+      </div>
+      <div class="pm-skills-list">
+        <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Fotografía deportiva</span></div>
+        <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Gestión de redes sociales</span></div>
+        <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Estrategia de contenido</span></div>
+        <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Edición de video</span></div>
+        <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Planificación de campañas</span></div>
+        <div class="pm-skill-item"><div class="pm-skill-dot"></div><span class="pm-skill-name">Comunicación digital</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section pm-reveal" id="foto">
+    <div class="pm-section-header">
+      <span class="pm-section-num">02</span>
+      <h2 class="pm-section-title">Trabajo</h2>
+      <div class="pm-section-line"></div>
+    </div>
+    <p class="pm-gallery-intro">Explorá por categoría.</p>
+    <div class="category-strip">
+      <div class="category-panel" onclick="window.location.href='proyectos.html'">
+        <div class="category-panel-bg" style="background: var(--accent);">
+          <svg class="category-panel-marks" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+            <path d="M16 16 V50 H50 M250 16 H284 V50 M284 350 V384 H250 M50 384 H16 V350"/>
+            <circle cx="220" cy="90" r="34" opacity="0.6"/><circle cx="220" cy="90" r="18" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="category-panel-overlay"></div>
+        <div class="category-panel-num">01</div>
+        <div class="category-panel-content">
+          <div class="category-panel-title">Proyectos</div>
+          <p class="category-panel-desc">Branding, identidad visual y estrategia de contenido para clubes y marcas.</p>
+          <span class="category-panel-cta">Explorar ↗</span>
+        </div>
+      </div>
+      <div class="category-panel" onclick="window.location.href='fotografia.html'">
+        <div class="category-panel-bg" style="background-image:url('https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58');"></div>
+        <div class="category-panel-overlay"></div>
+        <div class="category-panel-num">02</div>
+        <div class="category-panel-content">
+          <div class="category-panel-title">Fotografía</div>
+          <p class="category-panel-desc">Galerías por partido — la velocidad, el contacto, la emoción del fútbol.</p>
+          <span class="category-panel-cta">Explorar ↗</span>
+        </div>
+      </div>
+      <div class="category-panel" onclick="window.location.href='diseno-ux-ui.html'">
+        <div class="category-panel-bg" style="background: #2E2822;">
+          <svg class="category-panel-marks" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+            <rect x="60" y="150" width="180" height="120" rx="4" opacity="0.6"/>
+            <path d="M60 178 H240" opacity="0.6"/>
+            <circle cx="78" cy="164" r="3" fill="#fff" stroke="none" opacity="0.6"/>
+            <circle cx="90" cy="164" r="3" fill="#fff" stroke="none" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="category-panel-overlay"></div>
+        <div class="category-panel-num">03</div>
+        <div class="category-panel-content">
+          <div class="category-panel-title">Diseño UX/UI</div>
+          <p class="category-panel-desc">Interfaces y prototipos pensados desde la experiencia. Próximamente.</p>
+          <span class="category-panel-cta">Explorar ↗</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section pm-reveal" id="contacto">
+    <div class="pm-section-header">
+      <span class="pm-section-num">03</span>
+      <h2 class="pm-section-title">Contacto</h2>
+      <div class="pm-section-line"></div>
+    </div>
+    <div class="pm-contact-grid">
+      <div>
+        <h3 class="pm-contact-statement">Trabajemos<br><em>juntos</em></h3>
+        <p style="font-size: 0.9rem; color: var(--gray); line-height: 1.7; max-width: 340px;">Disponible para proyectos de fotografía deportiva, gestión de redes y comunicación digital para clubes y marcas deportivas.</p>
+      </div>
+      <div class="pm-contact-links">
+        <a class="pm-contact-link" href="https://www.instagram.com/pilarmachado.ph/" target="_blank"><span>Instagram</span><span class="pm-contact-link-label">@pilarmachado.ph</span></a>
+        <a class="pm-contact-link" href="tel:+59898998895"><span>WhatsApp / Celular</span><span class="pm-contact-link-label">+598 98 998 895</span></a>
+        <a class="pm-contact-link" href="mailto:pilarmacha@gmail.com"><span>Email</span><span class="pm-contact-link-label">pilarmacha@gmail.com</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pm-footer">
+    <span class="pm-footer-name">Pilar Machado</span>
+    <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    const reveals = document.querySelectorAll('.pm-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    reveals.forEach(r => observer.observe(r));
+
+    // paralaje sutil de las marcas del hero
+    const marks = document.querySelectorAll('.mark');
+    document.querySelector('.hero').addEventListener('mousemove', (e) => {
+      const { innerWidth: w, innerHeight: h } = window;
+      const x = (e.clientX / w - 0.5);
+      const y = (e.clientY / h - 0.5);
+      marks.forEach((d, i) => {
+        const depth = (i % 3 + 1) * 6;
+        d.style.translate = `${x*depth}px ${y*depth}px`;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fotografía — Pilar Machado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-padding-top: 80px; }
+    :root { --black: #F1EADC; --surface: #E8DEC9; --white: #221D18; --accent: #7A2436; --gold: #A0793D; --gray: #75695A; --border: rgba(34,29,24,0.14); }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+
+    .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(241,234,220,0.85); backdrop-filter: blur(10px); z-index: 100; }
+    .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .pm-logo span { color: var(--accent); }
+    .pm-back { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .pm-back:hover { color: var(--accent); }
+
+    .page-header { padding: 4rem 2.5rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .page-header-top { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1rem; }
+    .page-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: 0.04em; line-height: 1; }
+    .page-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
+    .page-desc { font-size: 0.95rem; color: var(--gray); max-width: 520px; line-height: 1.7; }
+
+    .pm-gallery-wrap { padding: 2rem 2.5rem 6rem; overflow: visible; }
+    .folder-row { display: flex; gap: 2.5rem; justify-content: center; align-items: flex-start; padding: 9rem 0 0.5rem; overflow: visible; flex-wrap: wrap; }
+    .folder-item { width: 160px; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; cursor: pointer; position: relative; }
+    .folder-wrap { position: relative; width: 160px; height: 128px; overflow: visible; }
+    .folder-tab { position: absolute; top: 0; left: 8%; width: 38%; height: 18%; background: #9C5064; border-radius: 5px 5px 0 0; z-index: 1; }
+    .folder-front { position: absolute; bottom: 0; left: 0; right: 0; top: 12%; background: var(--accent); border-radius: 3px 6px 6px 6px; z-index: 2; transition: transform 0.3s ease; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15), 0 2px 10px rgba(122,36,54,0.25); }
+    .folder-photo { position: absolute; bottom: 50%; left: 50%; transform: translateX(-50%) translateY(40%) scale(0.9); width: 220px; height: 270px; object-fit: cover; border-radius: 4px; z-index: 10; transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease; opacity: 0; pointer-events: none; box-shadow: 0 0 0 rgba(0,0,0,0); }
+    .folder-item:hover .folder-photo { opacity: 1; transform: translateX(-50%) translateY(-55%) scale(1.05); box-shadow: 0 16px 36px rgba(34,29,24,0.35); }
+    .folder-item:hover .folder-front { transform: scaleY(0.85); transform-origin: bottom; }
+    .folder-name { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-align: center; transition: color 0.2s; line-height: 1.3; min-height: 2.4rem; }
+    .folder-item:hover .folder-name { color: var(--accent); }
+
+    .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
+    .pm-footer-copy { font-size: 0.68rem; color: rgba(34,29,24,0.4); letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+
+  <nav class="pm-nav">
+    <a href="index.html" class="pm-logo">P<span>.</span>M</a>
+    <a href="index.html#foto" class="pm-back">← Volver al portfolio</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-top">
+      <span class="page-num">02</span>
+      <h1 class="page-title">Fotografía</h1>
+      <div class="page-line"></div>
+    </div>
+    <p class="page-desc">Especializada en fútbol — la velocidad, el contacto, la emoción. Cada partido tiene su foto definitiva.</p>
+  </div>
+
+  <div class="pm-gallery-wrap">
+    <div class="folder-row">
+      <div class="folder-item" onclick="window.location.href='grito-de-gol.html'" style="cursor:pointer;">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="Grito de gol" /></div></div>
+        <span class="folder-name">Grito de gol</span>
+      </div>
+      <div class="folder-item" onclick="window.location.href='campeon-tfc.html'" style="cursor:pointer;">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="Campeón TFC · Torneo Competencia 2025" /></div></div>
+        <span class="folder-name">Campeón TFC · Torneo Competencia 2025</span>
+      </div>
+      <div class="folder-item" onclick="window.location.href='nacional-plaza.html'" style="cursor:pointer;">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/056a6d14-627a-40a9-98c3-cbad53b7e34d" alt="Nacional · Plaza Copa AUF" /></div></div>
+        <span class="folder-name">Nacional · Plaza Copa AUF</span>
+      </div>
+      <div class="folder-item">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="Campeón Sudamericana" /></div></div>
+        <span class="folder-name">Campeón Sudamericana</span>
+      </div>
+      <div class="folder-item" onclick="window.location.href='nacional-penarol.html'" style="cursor:pointer;">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="Nacional - Peñarol" /></div></div>
+        <span class="folder-name">Peñarol · Nacional</span>
+      </div>
+      <div class="folder-item" onclick="window.location.href='atenas-tacuarembo.html'" style="cursor:pointer;">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/4a80bcc0-d4e2-4d25-b865-f3cfc4ae6512" alt="Tacuarembó vs San Carlos · Copa AUF Octavos de Final 2025" /></div></div>
+        <span class="folder-name">Tacuarembó vs San Carlos · Copa AUF Octavos de Final 2025</span>
+      </div>
+    </div>
+    <div class="folder-row" style="padding-top:4rem;">
+      <div class="folder-item" onclick="window.location.href='tbo-huracan.html'" style="cursor:pointer;">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/2b689080-f01e-4115-af0e-9d7b2d14e913" alt="Tbo vs Huracán · Fase Regular 2026" /></div></div>
+        <span class="folder-name">Tbo vs Huracán · Torneo Competencia · Fase Regular 2026</span>
+      </div>
+      <div class="folder-item" onclick="window.location.href='fenix-laluz.html'" style="cursor:pointer;">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/011cd751-5257-435d-a51f-346c091b9e2b" alt="Fénix vs La Luz · Torneo Competencia 2020" /></div></div>
+        <span class="folder-name">Fénix vs La Luz · Torneo Competencia 2020</span>
+      </div>
+      <div class="folder-item" onclick="window.location.href='matchday-presentacion.html'" style="cursor:pointer;">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/a6229008-6fc0-40b4-9706-db3d500cd3e4" alt="Matchday y presentación de camiseta" /></div></div>
+        <span class="folder-name">Matchday y presentación de camiseta</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pm-footer">
+    <span class="pm-footer-name">Pilar Machado</span>
+    <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
+  </footer>
+
+</body>
+</html>

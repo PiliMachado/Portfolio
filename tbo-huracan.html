@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tbo vs Huracán · Fase Regular 2026 — Pilar Machado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --black: #F1EADC; --white: #221D18; --accent: #7A2436; --gray: #75695A; --border: rgba(34,29,24,0.14); }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+    .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(241,234,220,0.85); backdrop-filter: blur(8px); z-index: 100; }
+    .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .pm-logo span { color: var(--accent); }
+    .pm-back { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .pm-back:hover { color: var(--accent); }
+    .page-header { padding: 4rem 2.5rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .page-header-top { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1rem; }
+    .page-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 0.04em; line-height: 1; }
+    .page-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
+    .page-desc { font-size: 0.9rem; color: var(--gray); max-width: 500px; line-height: 1.7; }
+    .photo-count { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-top: 0.5rem; }
+    .masonry { columns: 3; column-gap: 4px; padding: 4px 2.5rem 4rem; }
+    .masonry-item { break-inside: avoid; margin-bottom: 4px; overflow: hidden; position: relative; cursor: pointer; }
+    .masonry-item img { width: 100%; display: block; transition: transform 0.4s ease, filter 0.4s ease; }
+    .masonry-item:hover img { transform: scale(1.03); filter: brightness(0.85); }
+    .masonry-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; }
+    .masonry-item:hover::after { opacity: 1; }
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 999; justify-content: center; align-items: center; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; color: var(--gray); cursor: pointer; transition: color 0.2s; }
+    .lightbox-close:hover { color: var(--accent); }
+    .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; color: var(--gray); cursor: pointer; transition: color 0.2s; padding: 1rem; user-select: none; }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+    .lightbox-prev:hover, .lightbox-next:hover { color: var(--accent); }
+    .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+    .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
+    .pm-footer-copy { font-size: 0.72rem; color: rgba(136,136,136,0.5); letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+  <nav class="pm-nav">
+    <a href="index.html" class="pm-logo">P<span>.</span>M</a>
+    <a href="index.html#foto" class="pm-back">← Volver a Fotografía</a>
+  </nav>
+  <div class="page-header">
+    <div class="page-header-top">
+      <span class="page-num">02</span>
+      <h1 class="page-title">Tbo · Huracán</h1>
+      <div class="page-line"></div>
+    </div>
+    <p class="page-desc">Torneo Competencia · Fase Regular 2026 · Tacuarembó vs Huracán</p>
+    <p class="photo-count">34 fotografías</p>
+  </div>
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(0)"><img src="https://github.com/user-attachments/assets/2b689080-f01e-4115-af0e-9d7b2d14e913" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(1)"><img src="https://github.com/user-attachments/assets/d3054d68-af6c-445d-8b76-30fb02431ab3" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(2)"><img src="https://github.com/user-attachments/assets/653443fa-1dfc-43e6-a589-0d08df590899" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(3)"><img src="https://github.com/user-attachments/assets/03bc0dd1-ca11-4aed-be5c-bdf8904273ad" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(4)"><img src="https://github.com/user-attachments/assets/c4d1c644-b07d-47d8-824a-9e1f6404dcbd" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(5)"><img src="https://github.com/user-attachments/assets/1ff23397-4399-4ce7-aef8-b47fd9a2bf2c" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(6)"><img src="https://github.com/user-attachments/assets/9dc44a00-dae0-4b3b-9848-6d0f59c37700" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(7)"><img src="https://github.com/user-attachments/assets/481bb583-fa6e-4c8f-a315-3854505133cc" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(8)"><img src="https://github.com/user-attachments/assets/70b7e7ce-68a8-44a2-bd7b-1d6141abbdc4" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(9)"><img src="https://github.com/user-attachments/assets/96a39ec8-55bf-4b9d-bd16-cc7e2e8f88d0" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(10)"><img src="https://github.com/user-attachments/assets/18e8453e-4679-4d8e-889b-b7880d23066d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(11)"><img src="https://github.com/user-attachments/assets/fb092363-ef68-4992-b089-556ea1ac3094" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(12)"><img src="https://github.com/user-attachments/assets/565191fe-acfa-4fdf-a80d-d8c3ff281003" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(13)"><img src="https://github.com/user-attachments/assets/249cf561-b4c2-47b8-82cd-93aeecd8a456" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(14)"><img src="https://github.com/user-attachments/assets/1f711882-a873-437c-8f1f-9264f4a6b216" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(15)"><img src="https://github.com/user-attachments/assets/ab88e8ae-9327-4b1f-909c-bafe449dbde0" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(16)"><img src="https://github.com/user-attachments/assets/13b3d2e5-0e6b-4bbf-8ba5-c315c5ba65e2" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(17)"><img src="https://github.com/user-attachments/assets/164cade8-c193-455a-9a0b-5566afc159dc" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(18)"><img src="https://github.com/user-attachments/assets/04f0ecd3-d6ab-4fe0-be1d-e5af55a073e3" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(19)"><img src="https://github.com/user-attachments/assets/208d7d19-55fb-4917-9baf-94544ccba256" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(20)"><img src="https://github.com/user-attachments/assets/ba9877d6-7ace-44d4-8e8d-66130424f06d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(21)"><img src="https://github.com/user-attachments/assets/21951fa2-5211-4314-afa9-1f9746117d4d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(22)"><img src="https://github.com/user-attachments/assets/bbbd6d51-d376-4c90-95a8-75d5c0afda1f" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(23)"><img src="https://github.com/user-attachments/assets/f3268700-4cc4-4ea8-856e-2eba075a0d8d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(24)"><img src="https://github.com/user-attachments/assets/3ef6ac64-6c21-4c81-9b84-2d70aad24a67" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(25)"><img src="https://github.com/user-attachments/assets/929be00c-8a40-4b14-8f89-187a6c9393b3" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(26)"><img src="https://github.com/user-attachments/assets/f9d890c5-9a6b-4d65-8514-2785cb2619a8" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(27)"><img src="https://github.com/user-attachments/assets/592b6535-d90e-4204-9c3e-8c2c40193ac7" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(28)"><img src="https://github.com/user-attachments/assets/156a0920-a55e-4327-9432-d3691d576a0f" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(29)"><img src="https://github.com/user-attachments/assets/b05bb26c-287f-4b0c-98c7-e894a5dfb54e" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(30)"><img src="https://github.com/user-attachments/assets/7fb76019-82e1-4316-b297-859bff3009ef" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(31)"><img src="https://github.com/user-attachments/assets/7db5e358-12f3-4019-827c-1da8929b6e04" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(32)"><img src="https://github.com/user-attachments/assets/b76280aa-f484-43f6-85ac-f69cf2ef5644" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(33)"><img src="https://github.com/user-attachments/assets/bb4625e5-f88d-4b9b-888e-a0d6ecc6f145" alt=""/></div>
+  </div>
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <span class="lightbox-prev" onclick="changePhoto(-1)">‹</span>
+    <img id="lightbox-img" src="" alt="" />
+    <span class="lightbox-next" onclick="changePhoto(1)">›</span>
+  </div>
+  <footer class="pm-footer">
+    <span class="pm-footer-name">Pilar Machado</span>
+    <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
+  </footer>
+  <script>
+    const imgs = Array.from(document.querySelectorAll('.masonry-item img')).map(i => i.src);
+    let current = 0;
+    function openLightbox(idx) { current = idx; document.getElementById('lightbox-img').src = imgs[idx]; document.getElementById('lightbox').classList.add('open'); }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+    function changePhoto(dir) { current = (current + dir + imgs.length) % imgs.length; document.getElementById('lightbox-img').src = imgs[current]; }
+    document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) closeLightbox(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); });
+  </script>
+</body>
+</html>

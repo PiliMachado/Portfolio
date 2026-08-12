@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diseño UX/UI — Pilar Machado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-padding-top: 80px; }
+    :root { --black: #F1EADC; --surface: #E8DEC9; --white: #221D18; --accent: #7A2436; --gold: #A0793D; --gray: #75695A; --border: rgba(34,29,24,0.14); }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; min-height: 100vh; display: flex; flex-direction: column; }
+
+    .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(241,234,220,0.85); backdrop-filter: blur(10px); z-index: 100; }
+    .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .pm-logo span { color: var(--accent); }
+    .pm-back { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .pm-back:hover { color: var(--accent); }
+
+    .page-header { padding: 4rem 2.5rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .page-header-top { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1rem; }
+    .page-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: 0.04em; line-height: 1; }
+    .page-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
+    .page-desc { font-size: 0.95rem; color: var(--gray); max-width: 520px; line-height: 1.7; }
+
+    .empty-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 2.5rem; gap: 1.5rem; }
+    .empty-mark { width: 90px; height: 90px; }
+    .empty-mark svg { width: 100%; height: 100%; stroke: var(--accent); fill: none; stroke-width: 0.9; opacity: 0.6; }
+    .empty-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.05em; }
+    .empty-desc { font-size: 0.85rem; color: var(--gray); max-width: 340px; line-height: 1.7; }
+
+    .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
+    .pm-footer-copy { font-size: 0.68rem; color: rgba(34,29,24,0.4); letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+
+  <nav class="pm-nav">
+    <a href="index.html" class="pm-logo">P<span>.</span>M</a>
+    <a href="index.html" class="pm-back">← Volver al portfolio</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-top">
+      <span class="page-num">04</span>
+      <h1 class="page-title">Diseño UX/UI</h1>
+      <div class="page-line"></div>
+    </div>
+    <p class="page-desc">Interfaces y prototipos pensados desde la experiencia, no solo la estética.</p>
+  </div>
+
+  <div class="empty-wrap">
+    <div class="empty-mark">
+      <svg viewBox="0 0 90 90">
+        <rect x="6" y="10" width="78" height="52" rx="3"/>
+        <path d="M6 24 H84 M24 24 V62"/>
+        <circle cx="15" cy="17" r="1.3" fill="var(--accent)" stroke="none"/>
+        <circle cx="21" cy="17" r="1.3" fill="var(--accent)" stroke="none"/>
+      </svg>
+    </div>
+    <div class="empty-title">Todavía no hay proyectos acá</div>
+    <p class="empty-desc">Esta sección está en construcción. Muy pronto vas a encontrar interfaces y prototipos de diseño UX/UI.</p>
+  </div>
+
+  <footer class="pm-footer">
+    <span class="pm-footer-name">Pilar Machado</span>
+    <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
+  </footer>
+
+</body>
+</html>

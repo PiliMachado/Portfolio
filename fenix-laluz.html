@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fénix · La Luz — Pilar Machado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --black: #F1EADC; --white: #221D18; --accent: #7A2436; --gray: #75695A; --border: rgba(34,29,24,0.14); }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+    .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(241,234,220,0.85); backdrop-filter: blur(8px); z-index: 100; }
+    .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .pm-logo span { color: var(--accent); }
+    .pm-back { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .pm-back:hover { color: var(--accent); }
+    .page-header { padding: 4rem 2.5rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .page-header-top { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1rem; }
+    .page-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 0.04em; line-height: 1; }
+    .page-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
+    .page-desc { font-size: 0.9rem; color: var(--gray); max-width: 500px; line-height: 1.7; }
+    .photo-count { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-top: 0.5rem; }
+    .masonry { columns: 3; column-gap: 4px; padding: 4px 2.5rem 4rem; }
+    .masonry-item { break-inside: avoid; margin-bottom: 4px; overflow: hidden; position: relative; cursor: pointer; }
+    .masonry-item img { width: 100%; display: block; transition: transform 0.4s ease, filter 0.4s ease; }
+    .masonry-item:hover img { transform: scale(1.03); filter: brightness(0.85); }
+    .masonry-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; }
+    .masonry-item:hover::after { opacity: 1; }
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 999; justify-content: center; align-items: center; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; color: var(--gray); cursor: pointer; transition: color 0.2s; }
+    .lightbox-close:hover { color: var(--accent); }
+    .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; color: var(--gray); cursor: pointer; transition: color 0.2s; padding: 1rem; user-select: none; }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+    .lightbox-prev:hover, .lightbox-next:hover { color: var(--accent); }
+    .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+    .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
+    .pm-footer-copy { font-size: 0.72rem; color: rgba(136,136,136,0.5); letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+  <nav class="pm-nav">
+    <a href="index.html" class="pm-logo">P<span>.</span>M</a>
+    <a href="index.html#foto" class="pm-back">← Volver a Fotografía</a>
+  </nav>
+  <div class="page-header">
+    <div class="page-header-top">
+      <span class="page-num">02</span>
+      <h1 class="page-title">Fénix · La Luz</h1>
+      <div class="page-line"></div>
+    </div>
+    <p class="page-desc">Torneo Competencia 2020 · Fénix vs La Luz</p>
+    <p class="photo-count">51 fotografías</p>
+  </div>
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(0)"><img src="https://github.com/user-attachments/assets/011cd751-5257-435d-a51f-346c091b9e2b" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(1)"><img src="https://github.com/user-attachments/assets/75631d44-49ff-4894-aa21-a0fb3e543085" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(2)"><img src="https://github.com/user-attachments/assets/8d468c08-1d09-4943-9e89-8ef9759b09e3" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(3)"><img src="https://github.com/user-attachments/assets/5c9f7353-dd2f-4da5-b519-bd13b5fd54b0" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(4)"><img src="https://github.com/user-attachments/assets/8f3c59e0-5f59-4e06-886a-053aeeda2aea" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(5)"><img src="https://github.com/user-attachments/assets/c2bb6893-5360-44a9-b701-4d7d4ef1cbc2" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(6)"><img src="https://github.com/user-attachments/assets/fcfa6736-f475-469a-a215-28f74c64470b" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(7)"><img src="https://github.com/user-attachments/assets/0ccf2312-537a-4acf-b686-49d878831939" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(8)"><img src="https://github.com/user-attachments/assets/67d6de84-c359-49e4-b5be-3b882478e61e" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(9)"><img src="https://github.com/user-attachments/assets/fc935eaf-4dd1-4df7-a54f-54f54ddb94cc" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(10)"><img src="https://github.com/user-attachments/assets/421386f7-cf90-49ad-ae67-1cbc966b746e" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(11)"><img src="https://github.com/user-attachments/assets/4b668390-4fb0-4e59-b51e-47ae5bb47bb5" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(12)"><img src="https://github.com/user-attachments/assets/c150fb59-0b74-43b7-8010-ec13bd0e5ada" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(13)"><img src="https://github.com/user-attachments/assets/b412f690-4f58-48fd-b1dd-f46cde13651b" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(14)"><img src="https://github.com/user-attachments/assets/475b85f7-a5f0-4f5c-afc5-eee4a4a50a79" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(15)"><img src="https://github.com/user-attachments/assets/dcbfc1e7-b88e-4c0d-a53b-06fa18e37cf8" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(16)"><img src="https://github.com/user-attachments/assets/c01b2525-71f7-4ec1-b16d-0d35f463b20e" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(17)"><img src="https://github.com/user-attachments/assets/e62c5360-cc94-4d54-973b-f4b6d467437d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(18)"><img src="https://github.com/user-attachments/assets/498fd873-2353-4c09-8561-b15200e2f9df" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(19)"><img src="https://github.com/user-attachments/assets/8cd8789a-e7b3-422f-9060-e19323cd4964" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(20)"><img src="https://github.com/user-attachments/assets/2eae92e4-fdb4-4655-a73e-98d40ff6a0ee" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(21)"><img src="https://github.com/user-attachments/assets/146dbd03-fab5-44ee-b5c2-5b0da5909c2d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(22)"><img src="https://github.com/user-attachments/assets/0e2a494c-4c54-4f5b-a1bf-5ff92faadfca" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(23)"><img src="https://github.com/user-attachments/assets/74099c8b-5122-48db-a12a-778fa38ad718" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(24)"><img src="https://github.com/user-attachments/assets/918a50ed-21e6-4d0d-940c-506adc726686" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(25)"><img src="https://github.com/user-attachments/assets/f6837acd-de5a-4c97-a2b8-234842a3c734" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(26)"><img src="https://github.com/user-attachments/assets/539a4578-ae4b-4e98-83e1-cd805029238d" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(27)"><img src="https://github.com/user-attachments/assets/2ecf5a9a-86f9-45af-9e7f-9edba91d6443" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(28)"><img src="https://github.com/user-attachments/assets/71323065-247c-422c-8a76-d3fd30bb773c" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(29)"><img src="https://github.com/user-attachments/assets/66ec55e2-2df6-4615-b73c-1b02db5271a4" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(30)"><img src="https://github.com/user-attachments/assets/73b48884-d561-4090-a680-069abd61eb42" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(31)"><img src="https://github.com/user-attachments/assets/761dfc52-0203-4486-acc0-c52da7ed043b" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(32)"><img src="https://github.com/user-attachments/assets/37d75c51-6412-4c47-bcb0-f35f0cccaa6f" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(33)"><img src="https://github.com/user-attachments/assets/e4f09f04-faa8-4a7e-8615-6db4dcf2e9c8" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(34)"><img src="https://github.com/user-attachments/assets/32678bae-1d03-4ad9-bb87-fec0d9206d61" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(35)"><img src="https://github.com/user-attachments/assets/5c68fc90-b89d-4850-88f4-0574496d5e73" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(36)"><img src="https://github.com/user-attachments/assets/0378ca56-184f-4860-ae98-de49cd1f56cd" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(37)"><img src="https://github.com/user-attachments/assets/cef4c42d-a6d4-4658-b464-4368d2a1e9d8" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(38)"><img src="https://github.com/user-attachments/assets/dc7dea83-07b3-472d-847f-7e632e4727d1" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(39)"><img src="https://github.com/user-attachments/assets/693964b0-94b6-4a79-8593-7be00efdf0be" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(40)"><img src="https://github.com/user-attachments/assets/f51d2d21-9fd1-4092-a51d-69458fe31a6b" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(41)"><img src="https://github.com/user-attachments/assets/bcf61bce-d569-4920-b741-7d68ea0a59ed" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(42)"><img src="https://github.com/user-attachments/assets/a2e4a3ca-ea77-44d0-bad5-c518908a93af" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(43)"><img src="https://github.com/user-attachments/assets/a54e6abb-f860-47f9-9d14-1d0c230a3de0" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(44)"><img src="https://github.com/user-attachments/assets/fc2ec9d2-db5b-422c-a80a-06e1ceb94efd" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(45)"><img src="https://github.com/user-attachments/assets/91e39114-71e0-4ac5-b6b4-a24de31b68c0" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(46)"><img src="https://github.com/user-attachments/assets/0a6a03bc-e166-438e-be2e-5c6949bac091" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(47)"><img src="https://github.com/user-attachments/assets/f80cdff6-dadf-4448-9082-3f1c39b10838" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(48)"><img src="https://github.com/user-attachments/assets/df334d43-0a63-479d-babb-00b393dee3ea" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(49)"><img src="https://github.com/user-attachments/assets/8a4cc08a-b59f-48f7-8e17-b3ed5496267e" alt=""/></div>
+    <div class="masonry-item" onclick="openLightbox(50)"><img src="https://github.com/user-attachments/assets/d530d250-589e-4f58-9aec-96f5e15e3d23" alt=""/></div>
+  </div>
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <span class="lightbox-prev" onclick="changePhoto(-1)">‹</span>
+    <img id="lightbox-img" src="" alt="" />
+    <span class="lightbox-next" onclick="changePhoto(1)">›</span>
+  </div>
+  <footer class="pm-footer">
+    <span class="pm-footer-name">Pilar Machado</span>
+    <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
+  </footer>
+  <script>
+    const imgs = Array.from(document.querySelectorAll('.masonry-item img')).map(i => i.src);
+    let current = 0;
+    function openLightbox(idx) { current = idx; document.getElementById('lightbox-img').src = imgs[idx]; document.getElementById('lightbox').classList.add('open'); }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+    function changePhoto(dir) { current = (current + dir + imgs.length) % imgs.length; document.getElementById('lightbox-img').src = imgs[current]; }
+    document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) closeLightbox(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); });
+  </script>
+</body>
+</html>
