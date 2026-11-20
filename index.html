@@ -102,20 +102,20 @@
 
     /* TRABAJO — pestañas de carpeta apiladas */
     .pm-gallery-intro { font-size: 1rem; color: var(--gray); margin-bottom: 2.5rem; max-width: 100%; line-height: 1.7; }
-    .ftabs { position: relative; margin: 0 -2.5rem; padding: 5.5rem 0 0; background: #4A1421; overflow: hidden; }
-    .ftab { position: relative; display: block; height: 150px; margin-top: -78px; text-decoration: none; color: var(--ink); transition: transform 0.4s cubic-bezier(.22,1,.36,1); }
+    .ftabs { position: relative; margin: 0 -2.5rem; padding: 6rem 0 0; background: #4A1421; overflow: hidden; }
+    .ftab { position: relative; display: block; height: 250px; margin-top: -92px; text-decoration: none; color: var(--ink); transition: transform 0.4s cubic-bezier(.22,1,.36,1); }
     .ftab:first-child { margin-top: 0; }
     .ftab:hover { transform: translateY(-16px); }
     .ftab-body { position: absolute; inset: 0; background: var(--c); border-radius: 18px 18px 0 0; box-shadow: 0 -10px 24px rgba(20,6,10,0.28), inset 0 1px 0 rgba(255,255,255,0.22); }
-    .ftab-body::after { content: ''; position: absolute; left: 0; right: 0; top: 34px; height: 1px; background: rgba(0,0,0,0.07); box-shadow: 0 1px 0 rgba(255,255,255,0.18); }
+    .ftab-body::after { content: ''; position: absolute; left: 0; right: 0; top: 62px; height: 1px; background: rgba(0,0,0,0.07); box-shadow: 0 1px 0 rgba(255,255,255,0.18); }
     .ftab-label { position: absolute; top: -50px; left: var(--x); height: 52px; padding: 0 5.6rem; display: flex; align-items: center; isolation: isolate; font-size: 1rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
     .ftab-label::before { content: ''; position: absolute; inset: 0 0 -2px; z-index: -1; background: var(--c); border-radius: 16px 16px 0 0; transform: perspective(60px) rotateX(5deg); transform-origin: bottom; }
-    .ftab-row { position: relative; display: flex; align-items: center; gap: 1.5rem; padding: 0.55rem 2.5rem 0; height: 34px; }
-    .ftab-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.12em; opacity: 0.6; }
-    .ftab-desc { font-size: 0.8rem; opacity: 0.75; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ftab-row { position: relative; display: flex; align-items: center; gap: 1.75rem; padding: 1.1rem 2.5rem 0; height: 62px; }
+    .ftab-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; letter-spacing: 0.12em; opacity: 0.6; }
+    .ftab-desc { font-size: 0.95rem; opacity: 0.75; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .ftab-cta { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0; transform: translateX(-8px); transition: opacity 0.3s ease, transform 0.3s ease; }
     .ftab:hover .ftab-cta { opacity: 1; transform: translateX(0); }
-    .ftab:last-child { height: 190px; }
+    .ftab:last-child { height: 260px; }
     .ftab:last-child .ftab-body::after { display: none; }
 
     @media (max-width: 700px) {
