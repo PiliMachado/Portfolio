@@ -71,6 +71,33 @@ body { background: var(--black); color: var(--white); font-family: 'DM Sans', sa
 .pin-label { font-size: 0.72rem; color: var(--red); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; font-weight: 500; }
 .pin-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
 
+/* AFICHE — explicaciones rotando a la derecha */
+.afiche-layout { position: relative; display: grid; grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 5rem; align-items: center; }
+.afiche-layout .pin-tooltip { display: none; }
+.pin-dot::after { content: ''; position: absolute; inset: -6px; border-radius: 50%; border: 1.5px solid var(--accent); opacity: 0; transform: scale(0.6); }
+.pin.active .pin-dot { transform: scale(1.6); background: var(--accent); }
+.pin.active .pin-dot::after { animation: pinPulse 1.5s ease-out infinite; }
+@keyframes pinPulse { 0% { opacity: 0.9; transform: scale(0.6); } 100% { opacity: 0; transform: scale(2.4); } }
+.afiche-line { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 15; }
+.afiche-line path { fill: none; stroke: var(--accent); stroke-width: 1.2; }
+.afiche-line circle { fill: var(--accent); }
+.afiche-panel { position: relative; }
+.afiche-index { display: flex; gap: 0.4rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.afiche-index button { font-family: 'DM Sans', sans-serif; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); background: none; border: 0.5px solid var(--border); padding: 0.35rem 0.7rem; transition: all 0.25s; }
+.afiche-index button.on { color: #fff; background: var(--accent); border-color: var(--accent); }
+.afiche-card { border-left: 1.5px solid var(--accent); padding: 0.4rem 0 0.4rem 1.75rem; min-height: 230px; }
+.afiche-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.2rem; line-height: 1; color: var(--accent); opacity: 0.9; }
+.afiche-card-label { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin: 0.6rem 0 0.9rem; }
+.afiche-card-desc { font-size: 1rem; color: var(--gray); line-height: 1.85; max-width: 460px; }
+.afiche-card > * { transition: opacity 0.35s ease, transform 0.35s ease; }
+.afiche-card.swap > * { opacity: 0; transform: translateY(8px); }
+.afiche-progress { height: 2px; background: var(--border); margin-top: 2rem; max-width: 460px; overflow: hidden; }
+.afiche-progress span { display: block; height: 100%; width: 0; background: var(--accent); }
+.afiche-progress span.run { animation: afProg 3s linear forwards; }
+.afiche-progress span.hold { width: 100%; animation: none; }
+@keyframes afProg { to { width: 100%; } }
+@media (max-width: 900px) { .afiche-layout { grid-template-columns: 1fr; gap: 2.5rem; } .afiche-line { display: none; } .afiche-card { min-height: 0; } }
+
 .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
 .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
 .pm-footer-copy { font-size: 0.72rem; color: rgba(136,136,136,0.5); letter-spacing: 0.05em; }
@@ -203,8 +230,9 @@ body { background: var(--black); color: var(--white); font-family: 'DM Sans', sa
     <h2 class="pm-section-title">Afiche del evento</h2>
     <div class="pm-section-line"></div>
   </div>
-  <p class="zoom-hint">Pasá el mouse sobre los puntos rojos para ver la explicación de cada decisión de diseño.</p>
+  <p class="zoom-hint">Cada 3 segundos se marca un punto del afiche y a la derecha aparece el porqué de esa decisión de diseño. Pasá el mouse sobre un punto para frenarlo ahí.</p>
 
+  <div class="afiche-layout" id="aficheLayout">
   <div class="afiche-wrap">
     <img src="https://github.com/user-attachments/assets/b7851b3a-4335-4353-a13c-e50ed9f87e0b" alt="Afiche Khadda"/>
 
@@ -250,6 +278,17 @@ body { background: var(--black); color: var(--white); font-family: 'DM Sans', sa
         <div class="pin-desc">El sello institucional se integra en el margen inferior sin interrumpir la composición. Su ubicación mantiene los márgenes definidos que generan orden dentro del dinamismo general del afiche.</div>
       </div>
     </div>
+  </div>
+  <div class="afiche-panel">
+    <div class="afiche-index" id="aficheIndex"></div>
+    <div class="afiche-card" id="aficheCard">
+      <div class="afiche-card-num"></div>
+      <div class="afiche-card-label"></div>
+      <div class="afiche-card-desc"></div>
+    </div>
+    <div class="afiche-progress"><span id="aficheProg"></span></div>
+  </div>
+  <svg class="afiche-line" id="aficheLine"><path d=""/><circle r="3"/></svg>
   </div>
 </section>
 
@@ -302,6 +341,66 @@ wrap.addEventListener('mouseleave', function() {
   previewImg.style.width = '100%';
   previewImg.style.height = 'auto';
 });
+
+// AFICHE: explicaciones rotando cada 3 segundos
+(function () {
+  const layout = document.getElementById('aficheLayout');
+  if (!layout) return;
+  const order = ['Inicio del recorrido', 'Logotipo diagonal', 'Datos del evento', 'Paleta y contraste', 'Fondo — el tatuaje', 'Isotipo UCU'];
+  const pins = Array.from(layout.querySelectorAll('.pin')).sort((a, b) =>
+    order.indexOf(a.querySelector('.pin-label').textContent.trim()) - order.indexOf(b.querySelector('.pin-label').textContent.trim()));
+  const card = document.getElementById('aficheCard'), idx = document.getElementById('aficheIndex'), prog = document.getElementById('aficheProg');
+  const svg = document.getElementById('aficheLine'), path = svg.querySelector('path'), end = svg.querySelector('circle');
+  let cur = -1, timer = null, held = false;
+  const btns = pins.map((p, i) => {
+    const b = document.createElement('button');
+    b.textContent = String(i + 1).padStart(2, '0');
+    b.addEventListener('click', () => { show(i); restart(); });
+    idx.appendChild(b); return b;
+  });
+  function drawLine() {
+    if (cur < 0) return;
+    const L = layout.getBoundingClientRect(), d = pins[cur].querySelector('.pin-dot').getBoundingClientRect(), c = card.getBoundingClientRect();
+    const x1 = d.left + d.width / 2 - L.left, y1 = d.top + d.height / 2 - L.top;
+    const x2 = c.left - L.left, y2 = c.top + 30 - L.top;
+    const xm = x2 - 34;
+    path.setAttribute('d', `M${x1} ${y1} L${xm} ${y1} L${xm} ${y2} L${x2} ${y2}`);
+    end.setAttribute('cx', x2); end.setAttribute('cy', y2);
+    const len = path.getTotalLength();
+    path.style.transition = 'none'; path.style.strokeDasharray = len; path.style.strokeDashoffset = len;
+    path.getBoundingClientRect();
+    path.style.transition = 'stroke-dashoffset 0.7s ease'; path.style.strokeDashoffset = 0;
+  }
+  function show(i) {
+    if (i === cur) return;
+    cur = i;
+    pins.forEach((p, k) => p.classList.toggle('active', k === i));
+    btns.forEach((b, k) => b.classList.toggle('on', k === i));
+    card.classList.add('swap');
+    setTimeout(() => {
+      card.querySelector('.afiche-card-num').textContent = String(i + 1).padStart(2, '0');
+      card.querySelector('.afiche-card-label').textContent = pins[i].querySelector('.pin-label').textContent;
+      card.querySelector('.afiche-card-desc').textContent = pins[i].querySelector('.pin-desc').textContent;
+      card.classList.remove('swap');
+      drawLine();
+    }, 300);
+  }
+  function restart() {
+    clearInterval(timer);
+    prog.classList.remove('run', 'hold'); void prog.offsetWidth;
+    if (held) { prog.classList.add('hold'); return; }
+    prog.classList.add('run');
+    timer = setInterval(() => { show((cur + 1) % pins.length); prog.classList.remove('run'); void prog.offsetWidth; prog.classList.add('run'); }, 3000);
+  }
+  pins.forEach((p, i) => {
+    p.addEventListener('mouseenter', () => { held = true; show(i); restart(); });
+    p.addEventListener('mouseleave', () => { held = false; restart(); });
+  });
+  window.addEventListener('resize', drawLine);
+  const img = layout.querySelector('.afiche-wrap img');
+  if (img && !img.complete) img.addEventListener('load', drawLine);
+  show(0); restart();
+})();
 </script>
 </body>
 </html>
