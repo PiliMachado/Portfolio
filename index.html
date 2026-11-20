@@ -84,33 +84,30 @@
     .pm-skill-dot { width: 6px; height: 6px; background: var(--accent); flex-shrink: 0; border-radius: 50%; }
     .pm-skill-name { font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(34,29,24,0.75); }
 
-    /* FOTOGRAFÍA */
-    /* TRABAJO — paneles que se expanden al pasar el mouse */
+    /* TRABAJO — pestañas de carpeta apiladas */
     .pm-gallery-intro { font-size: 1rem; color: var(--gray); margin-bottom: 2.5rem; max-width: 100%; line-height: 1.7; }
-    .category-strip { display: flex; height: 62vh; min-height: 400px; max-height: 560px; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); overflow: hidden; margin: 0 -2.5rem; width: calc(100% + 5rem); }
-    .category-panel { position: relative; flex: 1; cursor: pointer; overflow: hidden; transition: flex 0.65s cubic-bezier(.22,1,.36,1); border-right: 0.5px solid rgba(245,234,220,0.12); }
-    .category-panel:last-child { border-right: none; }
-    .category-strip:hover .category-panel { flex: 0.72; }
-    .category-strip:hover .category-panel:hover { flex: 1.9; }
-    .category-panel-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.1); transition: transform 0.7s ease; }
-    .category-panel:hover .category-panel-bg { transform: scale(1); }
-    .category-panel-marks { position: absolute; inset: 0; width: 100%; height: 100%; stroke: #fff; fill: none; stroke-width: 0.8; opacity: 0.4; }
-    .category-panel-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,6,0.75) 0%, rgba(10,8,6,0.15) 55%, rgba(10,8,6,0.3) 100%); }
-    .category-panel-num { position: absolute; top: 1.6rem; left: 1.6rem; z-index: 2; font-family: 'Bebas Neue', sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.65); letter-spacing: 0.15em; }
-    .category-panel-content { position: absolute; left: 1.6rem; right: 1.6rem; bottom: 1.8rem; z-index: 2; color: #fff; }
-    .category-panel-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.6rem, 2.4vw, 2.3rem); letter-spacing: 0.02em; line-height: 1; transition: font-size 0.5s ease; white-space: nowrap; }
-    .category-panel:hover .category-panel-title { font-size: clamp(2rem, 3vw, 2.9rem); }
-    .category-panel-desc { font-size: 0.8rem; color: rgba(255,255,255,0.75); line-height: 1.6; max-width: 260px; margin-top: 0.6rem; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s; }
-    .category-panel:hover .category-panel-desc { opacity: 1; transform: translateY(0); }
-    .category-panel-cta { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 0.9rem; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s; }
-    .category-panel:hover .category-panel-cta { opacity: 1; transform: translateY(0); }
+    .ftabs { position: relative; margin: 0 -2.5rem; padding: 5.5rem 0 0; background: #4A1421; overflow: hidden; }
+    .ftab { position: relative; display: block; height: 150px; margin-top: -78px; text-decoration: none; color: var(--ink); transition: transform 0.4s cubic-bezier(.22,1,.36,1); }
+    .ftab:first-child { margin-top: 0; }
+    .ftab:hover { transform: translateY(-16px); }
+    .ftab-body { position: absolute; inset: 0; background: var(--c); border-radius: 18px 18px 0 0; box-shadow: 0 -10px 24px rgba(20,6,10,0.28), inset 0 1px 0 rgba(255,255,255,0.22); }
+    .ftab-body::after { content: ''; position: absolute; left: 0; right: 0; top: 34px; height: 1px; background: rgba(0,0,0,0.07); box-shadow: 0 1px 0 rgba(255,255,255,0.18); }
+    .ftab-label { position: absolute; top: -46px; left: var(--x); height: 48px; padding: 0 3.4rem; display: flex; align-items: center; isolation: isolate; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+    .ftab-label::before { content: ''; position: absolute; inset: 0 0 -2px; z-index: -1; background: var(--c); border-radius: 16px 16px 0 0; transform: perspective(60px) rotateX(5deg); transform-origin: bottom; }
+    .ftab-row { position: relative; display: flex; align-items: center; gap: 1.5rem; padding: 0.55rem 2.5rem 0; height: 34px; }
+    .ftab-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.12em; opacity: 0.6; }
+    .ftab-desc { font-size: 0.8rem; opacity: 0.75; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ftab-cta { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0; transform: translateX(-8px); transition: opacity 0.3s ease, transform 0.3s ease; }
+    .ftab:hover .ftab-cta { opacity: 1; transform: translateX(0); }
+    .ftab:last-child { height: 190px; }
+    .ftab:last-child .ftab-body::after { display: none; }
 
     @media (max-width: 700px) {
-      .category-strip { flex-direction: column; height: auto; max-height: none; margin: 0; width: 100%; }
-      .category-panel { flex: none !important; height: 200px; border-right: none; border-bottom: 0.5px solid rgba(245,234,220,0.12); }
-      .category-panel-bg { transform: scale(1); }
-      .category-panel-desc, .category-panel-cta { opacity: 1; transform: none; }
-      .category-panel-title { font-size: 1.8rem; }
+      .ftabs { margin: 0; }
+      .ftab-label { left: var(--xm); padding: 0 1.6rem; font-size: 0.78rem; }
+      .ftab-row { padding: 0.55rem 1.25rem 0; }
+      .ftab-desc { display: none; }
+      .ftab-cta { opacity: 1; transform: none; margin-left: auto; }
     }
 
     /* CONTACTO */
@@ -223,59 +220,27 @@
       <div class="pm-section-line"></div>
     </div>
     <p class="pm-gallery-intro">Explorá por categoría.</p>
-    <div class="category-strip">
-      <div class="category-panel" onclick="window.location.href='proyectos.html'">
-        <div class="category-panel-bg" style="background: var(--accent);">
-          <svg class="category-panel-marks" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
-            <path d="M16 16 V50 H50 M250 16 H284 V50 M284 350 V384 H250 M50 384 H16 V350"/>
-            <circle cx="220" cy="90" r="34" opacity="0.6"/><circle cx="220" cy="90" r="18" opacity="0.5"/>
-          </svg>
-        </div>
-        <div class="category-panel-overlay"></div>
-        <div class="category-panel-num">01</div>
-        <div class="category-panel-content">
-          <div class="category-panel-title">Proyectos</div>
-          <p class="category-panel-desc">Branding, identidad visual y estrategia de contenido para clubes y marcas.</p>
-          <span class="category-panel-cta">Explorar ↗</span>
-        </div>
-      </div>
-      <div class="category-panel" onclick="window.location.href='fotografia.html'">
-        <div class="category-panel-bg" style="background-image:url('https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58');"></div>
-        <div class="category-panel-overlay"></div>
-        <div class="category-panel-num">02</div>
-        <div class="category-panel-content">
-          <div class="category-panel-title">Fotografía<br>deportiva</div>
-          <p class="category-panel-desc">Galerías por partido — la velocidad, el contacto, la emoción del fútbol.</p>
-          <span class="category-panel-cta">Explorar ↗</span>
-        </div>
-      </div>
-      <div class="category-panel" onclick="window.location.href='fotografia-artistica.html'">
-        <div class="category-panel-bg" style="background-image:url('img/artistica/artistica-9588.jpg'); background-position: center 30%;"></div>
-        <div class="category-panel-overlay"></div>
-        <div class="category-panel-num">03</div>
-        <div class="category-panel-content">
-          <div class="category-panel-title">Fotografía<br>artística</div>
-          <p class="category-panel-desc">Retrato, moda y ciudad — una mirada más libre, con tiempo para buscar la luz.</p>
-          <span class="category-panel-cta">Explorar ↗</span>
-        </div>
-      </div>
-      <div class="category-panel" onclick="window.location.href='diseno-ux-ui.html'">
-        <div class="category-panel-bg" style="background: #2E2822;">
-          <svg class="category-panel-marks" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
-            <rect x="60" y="150" width="180" height="120" rx="4" opacity="0.6"/>
-            <path d="M60 178 H240" opacity="0.6"/>
-            <circle cx="78" cy="164" r="3" fill="#fff" stroke="none" opacity="0.6"/>
-            <circle cx="90" cy="164" r="3" fill="#fff" stroke="none" opacity="0.6"/>
-          </svg>
-        </div>
-        <div class="category-panel-overlay"></div>
-        <div class="category-panel-num">04</div>
-        <div class="category-panel-content">
-          <div class="category-panel-title">Diseño UX/UI</div>
-          <p class="category-panel-desc">Interfaces y prototipos pensados desde la experiencia. Próximamente.</p>
-          <span class="category-panel-cta">Explorar ↗</span>
-        </div>
-      </div>
+    <div class="ftabs">
+      <a class="ftab" href="proyectos.html" style="--c:#E8DEC9;--ink:#221D18;--x:54%;--xm:38%;">
+        <div class="ftab-body"></div>
+        <span class="ftab-label">( Proyectos )</span>
+        <div class="ftab-row"><span class="ftab-num">01</span><span class="ftab-desc">Branding, identidad visual y estrategia de contenido para clubes y marcas.</span><span class="ftab-cta">Explorar ↗</span></div>
+      </a>
+      <a class="ftab" href="fotografia.html" style="--c:#D6A9B0;--ink:#3A0F1A;--x:24%;--xm:14%;">
+        <div class="ftab-body"></div>
+        <span class="ftab-label">( Fotografía deportiva )</span>
+        <div class="ftab-row"><span class="ftab-num">02</span><span class="ftab-desc">Galerías por partido — la velocidad, el contacto, la emoción del fútbol.</span><span class="ftab-cta">Explorar ↗</span></div>
+      </a>
+      <a class="ftab" href="fotografia-artistica.html" style="--c:#D9C29A;--ink:#3A2A12;--x:3%;--xm:4%;">
+        <div class="ftab-body"></div>
+        <span class="ftab-label">( Fotografía artística )</span>
+        <div class="ftab-row"><span class="ftab-num">03</span><span class="ftab-desc">Retrato, moda y ciudad — una mirada más libre, con tiempo para buscar la luz.</span><span class="ftab-cta">Explorar ↗</span></div>
+      </a>
+      <a class="ftab" href="diseno-ux-ui.html" style="--c:#7A2436;--ink:#F1EADC;--x:40%;--xm:26%;">
+        <div class="ftab-body"></div>
+        <span class="ftab-label">( Diseño UX/UI )</span>
+        <div class="ftab-row"><span class="ftab-num">04</span><span class="ftab-desc">Interfaces y prototipos pensados desde la experiencia. Próximamente.</span><span class="ftab-cta">Explorar ↗</span></div>
+      </a>
     </div>
   </section>
 

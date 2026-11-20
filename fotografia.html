@@ -25,16 +25,27 @@
     .page-desc { font-size: 0.95rem; color: var(--gray); max-width: 520px; line-height: 1.7; }
 
     .pm-gallery-wrap { padding: 2rem 2.5rem 6rem; overflow: visible; }
-    .folder-row { display: flex; gap: 2.5rem; justify-content: center; align-items: flex-start; padding: 9rem 0 0.5rem; overflow: visible; flex-wrap: wrap; }
-    .folder-item { width: 160px; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; cursor: pointer; position: relative; }
-    .folder-wrap { position: relative; width: 160px; height: 128px; overflow: visible; }
-    .folder-tab { position: absolute; top: 0; left: 8%; width: 38%; height: 18%; background: #9C5064; border-radius: 5px 5px 0 0; z-index: 1; }
-    .folder-front { position: absolute; bottom: 0; left: 0; right: 0; top: 12%; background: var(--accent); border-radius: 3px 6px 6px 6px; z-index: 2; transition: transform 0.3s ease; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15), 0 2px 10px rgba(122,36,54,0.25); }
-    .folder-photo { position: absolute; bottom: 50%; left: 50%; transform: translateX(-50%) translateY(40%) scale(0.9); width: 220px; height: 270px; object-fit: cover; border-radius: 4px; z-index: 10; transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease; opacity: 0; pointer-events: none; box-shadow: 0 0 0 rgba(0,0,0,0); }
-    .folder-item:hover .folder-photo { opacity: 1; transform: translateX(-50%) translateY(-55%) scale(1.05); box-shadow: 0 16px 36px rgba(34,29,24,0.35); }
-    .folder-item:hover .folder-front { transform: scaleY(0.85); transform-origin: bottom; }
-    .folder-name { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-align: center; transition: color 0.2s; line-height: 1.3; min-height: 2.4rem; }
-    .folder-item:hover .folder-name { color: var(--accent); }
+    .folder-row { display: flex; column-gap: 2.75rem; row-gap: 10rem; justify-content: center; align-items: flex-start; padding: 10rem 0 0.5rem; overflow: visible; flex-wrap: wrap; }
+    .folder-item { width: 240px; cursor: pointer; position: relative; }
+    /* carpeta de vidrio: fotos asomando detrás + frente translúcido */
+    .gfolder { position: relative; width: 240px; height: 250px; }
+    .gcard { position: absolute; bottom: 78px; width: 118px; height: 150px; object-fit: cover; border: 4px solid #FBF7F0; border-radius: 12px; box-shadow: 0 6px 18px rgba(34,29,24,0.18); transition: transform 0.5s cubic-bezier(0.34, 1.35, 0.64, 1), box-shadow 0.4s ease; z-index: 1; }
+    .gcard-l { left: 4px; transform: rotate(-13deg); }
+    .gcard-r { right: 4px; transform: rotate(13deg); }
+    .gcard-c { left: 61px; bottom: 88px; transform: rotate(-2deg); z-index: 2; }
+    .gfront { position: absolute; left: 0; bottom: 0; width: 240px; height: 170px; z-index: 3;
+      clip-path: path('M18 0 H104 C114 0 118 5 122 11 L126 17 C129 22 133 24 142 24 H222 Q240 24 240 42 V152 Q240 170 222 170 H18 Q0 170 0 152 V18 Q0 0 18 0 Z');
+      background: linear-gradient(165deg, rgba(122,36,54,0.30) 0%, rgba(122,36,54,0.62) 55%, rgba(84,22,37,0.86) 100%);
+      -webkit-backdrop-filter: blur(11px) saturate(140%); backdrop-filter: blur(11px) saturate(140%);
+      transition: transform 0.35s ease; }
+    .gfront::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.06) 35%, rgba(255,255,255,0) 60%); }
+    .gfront-text { position: absolute; left: 16px; right: 16px; bottom: 14px; color: #fff; }
+    .gtitle { display: block; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.3; }
+    .gsub { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.72); margin-top: 0.2rem; line-height: 1.35; }
+    .folder-item:hover .gcard-c { transform: translateY(-175px) scale(1.6) rotate(0deg); z-index: 5; box-shadow: 0 18px 40px rgba(34,29,24,0.38); }
+    .folder-item:hover .gcard-l { transform: translate(6px, 22px) rotate(-8deg); }
+    .folder-item:hover .gcard-r { transform: translate(-6px, 22px) rotate(8deg); }
+    .folder-item:hover .gfront { transform: translateY(3px); }
 
     .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
     .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
@@ -62,43 +73,34 @@
 
   <div class="pm-gallery-wrap">
     <div class="folder-row">
-      <div class="folder-item" onclick="window.location.href='grito-de-gol.html'" style="cursor:pointer;">
-        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="Grito de gol" /></div></div>
-        <span class="folder-name">Grito de gol</span>
+      <div class="folder-item" onclick="window.location.href='grito-de-gol.html'">
+        <div class="gfolder"><img class="gcard gcard-l" src="https://github.com/user-attachments/assets/3c988d7a-1522-4f1b-ab4b-94d36ab066b1" alt="" loading="lazy" /><img class="gcard gcard-r" src="https://github.com/user-attachments/assets/6632d5a2-d34e-409a-a7c7-e7edb395cb6b" alt="" loading="lazy" /><img class="gcard gcard-c" src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="Grito de gol" /><div class="gfront"><div class="gfront-text"><span class="gtitle">Grito de gol</span></div></div></div>
       </div>
-      <div class="folder-item" onclick="window.location.href='campeon-tfc.html'" style="cursor:pointer;">
-        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="Campeón TFC · Torneo Competencia 2025" /></div></div>
-        <span class="folder-name">Campeón TFC · Torneo Competencia 2025</span>
+      <div class="folder-item" onclick="window.location.href='campeon-tfc.html'">
+        <div class="gfolder"><img class="gcard gcard-l" src="https://github.com/user-attachments/assets/412a079a-05b6-4207-8648-c2c82aa0a363" alt="" loading="lazy" /><img class="gcard gcard-r" src="https://github.com/user-attachments/assets/61a96e0b-d7ad-425b-bd95-25b7b3ab7ae9" alt="" loading="lazy" /><img class="gcard gcard-c" src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="Campeón TFC · Torneo Competencia 2025" /><div class="gfront"><div class="gfront-text"><span class="gtitle">Campeón TFC</span><span class="gsub">Torneo Competencia 2025</span></div></div></div>
       </div>
-      <div class="folder-item" onclick="window.location.href='nacional-plaza.html'" style="cursor:pointer;">
-        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/056a6d14-627a-40a9-98c3-cbad53b7e34d" alt="Nacional · Plaza Copa AUF" /></div></div>
-        <span class="folder-name">Nacional · Plaza Copa AUF</span>
+      <div class="folder-item" onclick="window.location.href='nacional-plaza.html'">
+        <div class="gfolder"><img class="gcard gcard-l" src="https://github.com/user-attachments/assets/f1ee7b76-b5ee-406a-8495-2b417751b079" alt="" loading="lazy" /><img class="gcard gcard-r" src="https://github.com/user-attachments/assets/b797154d-105c-4352-804e-bfb8764b6316" alt="" loading="lazy" /><img class="gcard gcard-c" src="https://github.com/user-attachments/assets/056a6d14-627a-40a9-98c3-cbad53b7e34d" alt="Nacional · Plaza Copa AUF" /><div class="gfront"><div class="gfront-text"><span class="gtitle">Nacional</span><span class="gsub">Plaza Copa AUF</span></div></div></div>
       </div>
       <div class="folder-item">
-        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="Campeón Sudamericana" /></div></div>
-        <span class="folder-name">Campeón Sudamericana</span>
+        <div class="gfolder"><img class="gcard gcard-c" src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="Campeón Sudamericana" /><div class="gfront"><div class="gfront-text"><span class="gtitle">Campeón Sudamericana</span></div></div></div>
       </div>
-      <div class="folder-item" onclick="window.location.href='nacional-penarol.html'" style="cursor:pointer;">
-        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="Nacional - Peñarol" /></div></div>
-        <span class="folder-name">Peñarol · Nacional</span>
+      <div class="folder-item" onclick="window.location.href='nacional-penarol.html'">
+        <div class="gfolder"><img class="gcard gcard-l" src="https://github.com/user-attachments/assets/a2c4c48a-97d4-412b-9c8b-4fc2680e4f60" alt="" loading="lazy" /><img class="gcard gcard-r" src="https://github.com/user-attachments/assets/4dc22951-8e05-41b9-b186-613a317d5f03" alt="" loading="lazy" /><img class="gcard gcard-c" src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="Peñarol · Nacional" /><div class="gfront"><div class="gfront-text"><span class="gtitle">Peñarol</span><span class="gsub">Nacional</span></div></div></div>
       </div>
-      <div class="folder-item" onclick="window.location.href='atenas-tacuarembo.html'" style="cursor:pointer;">
-        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/4a80bcc0-d4e2-4d25-b865-f3cfc4ae6512" alt="Tacuarembó vs San Carlos · Copa AUF Octavos de Final 2025" /></div></div>
-        <span class="folder-name">Tacuarembó vs San Carlos · Copa AUF Octavos de Final 2025</span>
+      <div class="folder-item" onclick="window.location.href='atenas-tacuarembo.html'">
+        <div class="gfolder"><img class="gcard gcard-l" src="https://github.com/user-attachments/assets/986e7c3f-6b07-4ce9-abaa-67af2a7690d5" alt="" loading="lazy" /><img class="gcard gcard-r" src="https://github.com/user-attachments/assets/fd9db6b7-73de-4a5e-bf46-2e56de0753af" alt="" loading="lazy" /><img class="gcard gcard-c" src="https://github.com/user-attachments/assets/4a80bcc0-d4e2-4d25-b865-f3cfc4ae6512" alt="Tacuarembó vs San Carlos · Copa AUF Octavos de Final 2025" /><div class="gfront"><div class="gfront-text"><span class="gtitle">Tacuarembó vs San Carlos</span><span class="gsub">Copa AUF Octavos de Final 2025</span></div></div></div>
       </div>
     </div>
-    <div class="folder-row" style="padding-top:4rem;">
-      <div class="folder-item" onclick="window.location.href='tbo-huracan.html'" style="cursor:pointer;">
-        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/2b689080-f01e-4115-af0e-9d7b2d14e913" alt="Tbo vs Huracán · Fase Regular 2026" /></div></div>
-        <span class="folder-name">Tbo vs Huracán · Torneo Competencia · Fase Regular 2026</span>
+    <div class="folder-row">
+      <div class="folder-item" onclick="window.location.href='tbo-huracan.html'">
+        <div class="gfolder"><img class="gcard gcard-l" src="https://github.com/user-attachments/assets/653443fa-1dfc-43e6-a589-0d08df590899" alt="" loading="lazy" /><img class="gcard gcard-r" src="https://github.com/user-attachments/assets/03bc0dd1-ca11-4aed-be5c-bdf8904273ad" alt="" loading="lazy" /><img class="gcard gcard-c" src="https://github.com/user-attachments/assets/2b689080-f01e-4115-af0e-9d7b2d14e913" alt="Tbo vs Huracán · Torneo Competencia · Fase Regular 2026" /><div class="gfront"><div class="gfront-text"><span class="gtitle">Tbo vs Huracán</span><span class="gsub">Torneo Competencia · Fase Regular 2026</span></div></div></div>
       </div>
-      <div class="folder-item" onclick="window.location.href='fenix-laluz.html'" style="cursor:pointer;">
-        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/011cd751-5257-435d-a51f-346c091b9e2b" alt="Fénix vs La Luz · Torneo Competencia 2020" /></div></div>
-        <span class="folder-name">Fénix vs La Luz · Torneo Competencia 2020</span>
+      <div class="folder-item" onclick="window.location.href='fenix-laluz.html'">
+        <div class="gfolder"><img class="gcard gcard-l" src="https://github.com/user-attachments/assets/8d468c08-1d09-4943-9e89-8ef9759b09e3" alt="" loading="lazy" /><img class="gcard gcard-r" src="https://github.com/user-attachments/assets/5c9f7353-dd2f-4da5-b519-bd13b5fd54b0" alt="" loading="lazy" /><img class="gcard gcard-c" src="https://github.com/user-attachments/assets/011cd751-5257-435d-a51f-346c091b9e2b" alt="Fénix vs La Luz · Torneo Competencia 2020" /><div class="gfront"><div class="gfront-text"><span class="gtitle">Fénix vs La Luz</span><span class="gsub">Torneo Competencia 2020</span></div></div></div>
       </div>
-      <div class="folder-item" onclick="window.location.href='matchday-presentacion.html'" style="cursor:pointer;">
-        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="https://github.com/user-attachments/assets/a6229008-6fc0-40b4-9706-db3d500cd3e4" alt="Matchday y presentación de camiseta" /></div></div>
-        <span class="folder-name">Matchday y presentación de camiseta</span>
+      <div class="folder-item" onclick="window.location.href='matchday-presentacion.html'">
+        <div class="gfolder"><img class="gcard gcard-l" src="https://github.com/user-attachments/assets/ffe3e130-60aa-40f6-9de8-9f22ea2b0e2d" alt="" loading="lazy" /><img class="gcard gcard-r" src="https://github.com/user-attachments/assets/c655147c-cbf5-4904-baf4-c1065465a430" alt="" loading="lazy" /><img class="gcard gcard-c" src="https://github.com/user-attachments/assets/a6229008-6fc0-40b4-9706-db3d500cd3e4" alt="Matchday y presentación de camiseta" /><div class="gfront"><div class="gfront-text"><span class="gtitle">Matchday y presentación de camiseta</span></div></div></div>
       </div>
     </div>
   </div>
