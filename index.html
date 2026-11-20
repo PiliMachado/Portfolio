@@ -31,7 +31,7 @@
     .pm-nav-links a:hover::after { width: 100%; }
 
     /* HERO — nombre como protagonista + marcas de precisión */
-    .hero { position: relative; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 2rem 2.5rem 4rem; overflow: hidden; border-bottom: 0.5px solid var(--border); }
+    .hero { position: relative; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 2.5rem 4rem; overflow: hidden; border-bottom: 0.5px solid var(--border); }
     .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.6rem; display: flex; align-items: center; gap: 0.7rem; position: relative; z-index: 3; }
     .hero-eyebrow::before { content: ''; width: 26px; height: 1px; background: var(--accent); }
     .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.6rem, 12vw, 9.5rem); line-height: 0.86; letter-spacing: 0.01em; position: relative; z-index: 3; color: var(--white); }
@@ -57,6 +57,22 @@
     @keyframes drift1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
     @keyframes drift2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* HERO — carpetas girando alrededor del nombre */
+    .orbit { position: absolute; inset: 0; pointer-events: none; }
+    .orb { position: absolute; left: 50%; top: 50%; width: 132px; height: 120px; margin: -60px 0 0 -66px; pointer-events: auto; text-decoration: none; will-change: transform, opacity; }
+    .mfolder { position: relative; width: 132px; height: 120px; }
+    .mcard { position: absolute; left: 22px; bottom: 38px; width: 88px; height: 96px; object-fit: cover; background: #E8DEC9; border: 3px solid #FBF7F0; border-radius: 9px; box-shadow: 0 4px 12px rgba(34,29,24,0.18); transform: rotate(-4deg); transition: transform 0.45s cubic-bezier(0.34,1.4,0.64,1); }
+    .mfront { position: absolute; left: 0; bottom: 0; width: 132px; height: 84px;
+      clip-path: path('M10 0 H56 C62 0 64 3 66 6 L69 10 C71 13 73 14 78 14 H122 Q132 14 132 24 V74 Q132 84 122 84 H10 Q0 84 0 74 V10 Q0 0 10 0 Z');
+      background: linear-gradient(165deg, rgba(122,36,54,0.30), rgba(84,22,37,0.85)); -webkit-backdrop-filter: blur(8px) saturate(140%); backdrop-filter: blur(8px) saturate(140%); }
+    .orb-proj .mfront { background: linear-gradient(165deg, rgba(160,121,61,0.35), rgba(110,78,32,0.88)); }
+    .mfront::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0) 55%); }
+    .mfront span { position: absolute; left: 10px; right: 8px; bottom: 8px; color: #fff; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.25; text-align: left; }
+    .orb:hover .mcard { transform: translateY(-34px) scale(1.18) rotate(0deg); }
+    .hero-eyebrow, .hero-title, .hero-role { z-index: 3; }
+    .hero .hero-cta { z-index: 5; }
+    @media (max-width: 700px) { .orb { transform: scale(0.7); } }
 
     .scroll-hint { position: absolute; bottom: 2.2rem; right: 2.5rem; display: flex; align-items: center; gap: 0.6rem; z-index: 3; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); }
     .scroll-hint .bar { width: 1px; height: 34px; background: linear-gradient(var(--accent), transparent); animation: scrollbar 1.6s ease-in-out infinite; }
@@ -92,7 +108,7 @@
     .ftab:hover { transform: translateY(-16px); }
     .ftab-body { position: absolute; inset: 0; background: var(--c); border-radius: 18px 18px 0 0; box-shadow: 0 -10px 24px rgba(20,6,10,0.28), inset 0 1px 0 rgba(255,255,255,0.22); }
     .ftab-body::after { content: ''; position: absolute; left: 0; right: 0; top: 34px; height: 1px; background: rgba(0,0,0,0.07); box-shadow: 0 1px 0 rgba(255,255,255,0.18); }
-    .ftab-label { position: absolute; top: -46px; left: var(--x); height: 48px; padding: 0 3.4rem; display: flex; align-items: center; isolation: isolate; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+    .ftab-label { position: absolute; top: -50px; left: var(--x); height: 52px; padding: 0 5.6rem; display: flex; align-items: center; isolation: isolate; font-size: 1rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
     .ftab-label::before { content: ''; position: absolute; inset: 0 0 -2px; z-index: -1; background: var(--c); border-radius: 16px 16px 0 0; transform: perspective(60px) rotateX(5deg); transform-origin: bottom; }
     .ftab-row { position: relative; display: flex; align-items: center; gap: 1.5rem; padding: 0.55rem 2.5rem 0; height: 34px; }
     .ftab-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.12em; opacity: 0.6; }
@@ -134,7 +150,7 @@
     }
     /* cursor-camera */
     html, body { cursor: url('img/cursor/camera.svg') 16 18, auto; }
-    a, button, [onclick], .folder-item, .category-panel, .masonry-item, .lightbox-prev, .lightbox-next, .lightbox-close { cursor: url('img/cursor/camera-click.svg') 16 18, pointer !important; }
+    a, button, [onclick], .folder-item, .orb, .masonry-item, .lightbox-prev, .lightbox-next, .lightbox-close { cursor: url('img/cursor/camera-click.svg') 16 18, pointer !important; }
   </style>
 </head>
 <body>
@@ -158,6 +174,21 @@
     <a href="#about" class="hero-cta">Explorar
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </a>
+
+    <div class="orbit" aria-hidden="false">
+    <a class="orb orb-proj" href="khadda.html" data-ring="0"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/b7851b3a-4335-4353-a13c-e50ed9f87e0b" alt="" loading="lazy" /><div class="mfront"><span>Khadda</span></div></div></a>
+    <a class="orb orb-proj" href="sosbike.html" data-ring="0"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/a6796bf5-b0df-4989-b637-780d7dc8af02" alt="" loading="lazy" /><div class="mfront"><span>S.O.S Bike</span></div></div></a>
+    <a class="orb orb-proj" href="campana-tfc.html" data-ring="0"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/af8e51cc-2f05-4f0d-9ab0-427c2e801298" alt="" loading="lazy" /><div class="mfront"><span>Campaña TFC</span></div></div></a>
+    <a class="orb orb-foto" href="retratos-urbanos.html" data-ring="0"><div class="mfolder"><img class="mcard" src="img/artistica/artistica-9588.jpg" alt="" loading="lazy" /><div class="mfront"><span>Retratos urbanos</span></div></div></a>
+    <a class="orb orb-foto" href="tiziana-1-anio.html" data-ring="0"><div class="mfolder"><img class="mcard" src="img/tiziana/tiziana-9629.jpg" alt="" loading="lazy" /><div class="mfront"><span>Tiziana 1 año</span></div></div></a>
+    <a class="orb orb-foto" href="grito-de-gol.html" data-ring="1"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/0518d252-8ee7-47b9-87ac-26b6df1f1d58" alt="" loading="lazy" /><div class="mfront"><span>Grito de gol</span></div></div></a>
+    <a class="orb orb-foto" href="campeon-tfc.html" data-ring="1"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/990fc3a6-9593-4661-83d0-76f3306c757e" alt="" loading="lazy" /><div class="mfront"><span>Campeón TFC</span></div></div></a>
+    <a class="orb orb-foto" href="nacional-plaza.html" data-ring="1"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/056a6d14-627a-40a9-98c3-cbad53b7e34d" alt="" loading="lazy" /><div class="mfront"><span>Nacional</span></div></div></a>
+    <a class="orb orb-foto" href="fotografia.html" data-ring="1"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/03d12323-4525-43d2-b7e2-15b762734d12" alt="" loading="lazy" /><div class="mfront"><span>Campeón Sudamericana</span></div></div></a>
+    <a class="orb orb-foto" href="nacional-penarol.html" data-ring="1"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/76b2d234-6b70-466a-b7ec-10e3e2df946f" alt="" loading="lazy" /><div class="mfront"><span>Peñarol</span></div></div></a>
+    <a class="orb orb-foto" href="atenas-tacuarembo.html" data-ring="1"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/4a80bcc0-d4e2-4d25-b865-f3cfc4ae6512" alt="" loading="lazy" /><div class="mfront"><span>Tacuarembó vs San Carlos</span></div></div></a>
+    <a class="orb orb-foto" href="tbo-huracan.html" data-ring="1"><div class="mfolder"><img class="mcard" src="https://github.com/user-attachments/assets/2b689080-f01e-4115-af0e-9d7b2d14e913" alt="" loading="lazy" /><div class="mfront"><span>Tbo vs Huracán</span></div></div></a>
+    </div>
 
     <svg class="mark mark-viewfinder" viewBox="0 0 200 200">
       <path d="M4 40 V4 H40"/><path d="M160 4 H196 V40"/><path d="M196 160 V196 H160"/><path d="M40 196 H4 V160"/>
@@ -221,12 +252,12 @@
     </div>
     <p class="pm-gallery-intro">Explorá por categoría.</p>
     <div class="ftabs">
-      <a class="ftab" href="proyectos.html" style="--c:#E8DEC9;--ink:#221D18;--x:54%;--xm:38%;">
+      <a class="ftab" href="proyectos.html" style="--c:#E8DEC9;--ink:#221D18;--x:52%;--xm:38%;">
         <div class="ftab-body"></div>
         <span class="ftab-label">( Proyectos )</span>
         <div class="ftab-row"><span class="ftab-num">01</span><span class="ftab-desc">Branding, identidad visual y estrategia de contenido para clubes y marcas.</span><span class="ftab-cta">Explorar ↗</span></div>
       </a>
-      <a class="ftab" href="fotografia.html" style="--c:#D6A9B0;--ink:#3A0F1A;--x:24%;--xm:14%;">
+      <a class="ftab" href="fotografia.html" style="--c:#D6A9B0;--ink:#3A0F1A;--x:22%;--xm:14%;">
         <div class="ftab-body"></div>
         <span class="ftab-label">( Fotografía deportiva )</span>
         <div class="ftab-row"><span class="ftab-num">02</span><span class="ftab-desc">Galerías por partido — la velocidad, el contacto, la emoción del fútbol.</span><span class="ftab-cta">Explorar ↗</span></div>
@@ -236,7 +267,7 @@
         <span class="ftab-label">( Fotografía artística )</span>
         <div class="ftab-row"><span class="ftab-num">03</span><span class="ftab-desc">Retrato, moda y ciudad — una mirada más libre, con tiempo para buscar la luz.</span><span class="ftab-cta">Explorar ↗</span></div>
       </a>
-      <a class="ftab" href="diseno-ux-ui.html" style="--c:#7A2436;--ink:#F1EADC;--x:40%;--xm:26%;">
+      <a class="ftab" href="diseno-ux-ui.html" style="--c:#7A2436;--ink:#F1EADC;--x:36%;--xm:26%;">
         <div class="ftab-body"></div>
         <span class="ftab-label">( Diseño UX/UI )</span>
         <div class="ftab-row"><span class="ftab-num">04</span><span class="ftab-desc">Interfaces y prototipos pensados desde la experiencia. Próximamente.</span><span class="ftab-cta">Explorar ↗</span></div>
@@ -293,6 +324,43 @@
         d.style.translate = `${x*depth}px ${y*depth}px`;
       });
     });
+
+    // carpetas en órbita alrededor del nombre
+    (function () {
+      const hero = document.querySelector('.hero');
+      const orbs = Array.from(document.querySelectorAll('.orb'));
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const rings = [
+        { rx: 0.30, ry: 0.30, tilt: -10, speed: 0.000105, dir: 1 },
+        { rx: 0.44, ry: 0.41, tilt: 8,   speed: 0.00007,  dir: -1 }
+      ];
+      const groups = [0, 1].map(r => orbs.filter(o => o.dataset.ring == r));
+      let paused = false, elapsed = 0, last = performance.now();
+      orbs.forEach(o => { o.addEventListener('mouseenter', () => paused = true); o.addEventListener('mouseleave', () => paused = false); });
+      function frame(now) {
+        if (!paused && !reduce) elapsed += now - last;
+        last = now;
+        const W = hero.clientWidth, Hh = hero.clientHeight, small = W < 700;
+        groups.forEach((g, r) => {
+          const R = rings[r], tilt = R.tilt * Math.PI / 180;
+          g.forEach((o, i) => {
+            if (small && r === 1 && i >= 4) { o.style.display = 'none'; return; } else { o.style.display = ''; }
+            const n = small && r === 1 ? Math.min(g.length, 4) : g.length;
+            const a = (i / n) * Math.PI * 2 + R.dir * R.speed * elapsed + r * 0.4;
+            const ex = Math.cos(a) * R.rx * W * (small ? 1.05 : 1), ey = Math.sin(a) * R.ry * Hh;
+            const x = ex * Math.cos(tilt) - ey * Math.sin(tilt), y = ex * Math.sin(tilt) + ey * Math.cos(tilt);
+            const depth = (Math.sin(a) + 1) / 2;          // 0 = atrás, 1 = adelante
+            const s = (0.68 + 0.4 * depth) * (small ? 0.62 : 1);
+            o.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
+            o.style.opacity = (0.45 + 0.55 * depth).toFixed(2);
+            o.style.zIndex = depth > 0.5 ? 4 : 1;
+            o.style.filter = depth < 0.35 ? 'blur(1px)' : 'none';
+          });
+        });
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
   </script>
 </body>
 </html>

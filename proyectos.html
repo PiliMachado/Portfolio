@@ -26,30 +26,43 @@
     .page-desc { font-size: 0.95rem; color: var(--gray); max-width: 520px; line-height: 1.7; }
 
     .pm-projects-wrap { padding: 3.5rem 2.5rem 6rem; }
-    .pm-projects-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-    .pm-project-card { cursor: pointer; border: 0.5px solid var(--border); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; grid-column: span 1; }
-    .pm-project-card.wide { grid-column: 1 / -1; }
-    .pm-project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(34,29,24,0.18); }
-    .pm-project-visual { background: var(--accent); padding: 1.75rem; position: relative; overflow: hidden; aspect-ratio: 16/9; display: flex; flex-direction: column; justify-content: space-between; }
-    .pm-project-tag { font-size: 7px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.75); }
-    .pm-project-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: #fff; letter-spacing: -0.5px; line-height: 0.85; position: relative; z-index: 2; }
-    .pm-project-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); line-height: 1; }
-    .pm-project-view { position: absolute; bottom: 1rem; right: 1rem; z-index: 2; font-size: 7px; letter-spacing: 2px; color: rgba(255,255,255,0.7); text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); padding: 5px 10px; }
-    .pm-project-footer { padding: 0.9rem 1.1rem; border-top: 0.5px solid var(--border); background: var(--surface); }
-    .pm-project-footer-title { font-size: 0.8rem; color: var(--white); letter-spacing: 0.05em; margin-bottom: 0.25rem; }
-    .pm-project-footer-sub { font-size: 0.68rem; color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase; }
-
+    .pm-projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 3.5rem; row-gap: 5rem; max-width: 1150px; margin: 0 auto; padding-top: 9rem; }
+    /* carpetas grandes de proyecto */
+    .pfolder { position: relative; height: 470px; cursor: pointer; }
+    .pcard { position: absolute; bottom: 150px; width: 40%; aspect-ratio: 4 / 5; object-fit: cover; background: #FBF7F0; border: 5px solid #FBF7F0; border-radius: 16px; box-shadow: 0 8px 22px rgba(34,29,24,0.18); transition: transform 0.55s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.4s ease; z-index: 1; }
+    .pcard-l { left: 4%; transform: rotate(-12deg); }
+    .pcard-r { right: 4%; transform: rotate(12deg); }
+    .pcard-c { left: 30%; bottom: 165px; transform: rotate(-2deg); z-index: 2; background: var(--accent); display: flex; flex-direction: column; justify-content: space-between; padding: 1.1rem; box-sizing: border-box; overflow: hidden; }
+    .pcard-c .ptag { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+    .pcard-c .plogo { font-family: 'Bebas Neue', sans-serif; font-size: 2.3rem; line-height: 0.88; color: #fff; }
+    .pcard-c .plogo span { color: var(--gold); }
+    .pfront { position: absolute; left: 0; right: 0; bottom: 0; height: 300px; z-index: 3;
+      -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300' preserveAspectRatio='none'><path d='M24 0 H190 C204 0 210 7 216 16 L222 26 C227 34 233 38 246 38 H476 Q500 38 500 62 V276 Q500 300 476 300 H24 Q0 300 0 276 V24 Q0 0 24 0 Z'/></svg>") 0 0 / 100% 100% no-repeat; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300' preserveAspectRatio='none'><path d='M24 0 H190 C204 0 210 7 216 16 L222 26 C227 34 233 38 246 38 H476 Q500 38 500 62 V276 Q500 300 476 300 H24 Q0 300 0 276 V24 Q0 0 24 0 Z'/></svg>") 0 0 / 100% 100% no-repeat;
+      background: linear-gradient(165deg, rgba(122,36,54,0.28) 0%, rgba(122,36,54,0.6) 55%, rgba(84,22,37,0.88) 100%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%); transition: transform 0.35s ease; }
+    .pfront::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.05) 35%, rgba(255,255,255,0) 60%); }
+    .pfront-text { position: absolute; left: 1.75rem; right: 1.75rem; bottom: 1.6rem; color: #fff; }
+    .pfront-kicker { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+    .pfront-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; line-height: 0.95; letter-spacing: 0.02em; margin-top: 0.4rem; }
+    .pfront-sub { font-size: 0.8rem; color: rgba(255,255,255,0.78); margin-top: 0.35rem; }
+    .pfront-cta { position: absolute; right: 1.75rem; top: 3.6rem; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,0.4); padding: 6px 12px; border-radius: 999px; }
+    .pfolder:hover .pcard-c { transform: translateY(-190px) scale(1.35) rotate(0deg); z-index: 5; box-shadow: 0 22px 46px rgba(34,29,24,0.38); }
+    .pfolder:hover .pcard-l { transform: translate(8px, 26px) rotate(-7deg); }
+    .pfolder:hover .pcard-r { transform: translate(-8px, 26px) rotate(7deg); }
+    .pfolder:hover .pfront { transform: translateY(4px); }
+    .pm-projects-grid > .pfolder:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 1.75rem); justify-self: center; }
     .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
     .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
     .pm-footer-copy { font-size: 0.68rem; color: rgba(34,29,24,0.4); letter-spacing: 0.05em; }
 
     @media (max-width: 800px) {
-      .pm-projects-grid { grid-template-columns: 1fr; }
-      .pm-project-card.wide { grid-column: span 1; }
+      .pm-projects-grid { grid-template-columns: 1fr; row-gap: 9rem; }
+      .pm-projects-grid > .pfolder:last-child:nth-child(odd) { width: 100%; }
+      .pfolder { height: 400px; } .pfront { height: 240px; } .pcard { bottom: 120px; } .pcard-c { bottom: 130px; }
     }
     /* cursor-camera */
     html, body { cursor: url('img/cursor/camera.svg') 16 18, auto; }
-    a, button, [onclick], .folder-item, .category-panel, .masonry-item, .lightbox-prev, .lightbox-next, .lightbox-close { cursor: url('img/cursor/camera-click.svg') 16 18, pointer !important; }
+    a, button, [onclick], .folder-item, .pfolder, .masonry-item, .lightbox-prev, .lightbox-next, .lightbox-close { cursor: url('img/cursor/camera-click.svg') 16 18, pointer !important; }
   </style>
 </head>
 <body>
@@ -70,83 +83,24 @@
 
   <div class="pm-projects-wrap">
     <div class="pm-projects-grid">
-
-      <!-- CARD KHADDA -->
-      <div class="pm-project-card" onclick="window.location.href='khadda.html'">
-        <div class="pm-project-visual">
-          <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
-            <path d="M12 12 V32 H32" stroke="#fff" stroke-width="1" opacity="0.4" fill="none"/>
-            <path d="M368 12 H388 V32" stroke="#fff" stroke-width="1" opacity="0.4" fill="none"/>
-            <path d="M388 193 V213 H368" stroke="#fff" stroke-width="1" opacity="0.4" fill="none"/>
-            <path d="M32 213 H12 V193" stroke="#fff" stroke-width="1" opacity="0.4" fill="none"/>
-            <circle cx="330" cy="55" r="22" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.5"/>
-          </svg>
-          <div class="pm-project-tag">Identidad visual · Marca</div>
-          <div class="pm-project-logo">KHA<span style="color:var(--gold);">/</span>DDA</div>
-          <div class="pm-project-view">Ver proyecto ↗</div>
-        </div>
-        <div class="pm-project-footer">
-          <div class="pm-project-footer-title">Proyecto de identidad visual · Khadda</div>
-          <div class="pm-project-footer-sub">Universidad Católica del Uruguay</div>
-        </div>
+      <div class="pfolder" onclick="window.location.href='khadda.html'">
+        <img class="pcard pcard-l" src="https://github.com/user-attachments/assets/c33ee940-6853-4e70-b65f-9c7b292df796" alt="" loading="lazy" />
+        <img class="pcard pcard-r" src="https://github.com/user-attachments/assets/b7851b3a-4335-4353-a13c-e50ed9f87e0b" alt="" loading="lazy" />
+        <div class="pcard pcard-c"><span class="ptag">Identidad visual · Marca</span><span class="plogo">KHA<span>/</span>DDA</span></div>
+        <div class="pfront"><div class="pfront-text"><div class="pfront-kicker">Universidad Católica del Uruguay</div><div class="pfront-title">Khadda</div><div class="pfront-sub">Proyecto de identidad visual</div></div><span class="pfront-cta">Ver proyecto ↗</span></div>
       </div>
-
-      <!-- CARD S.O.S BIKE -->
-      <div class="pm-project-card" onclick="window.location.href='sosbike.html'">
-        <div class="pm-project-visual">
-          <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
-            <circle cx="330" cy="60" r="38" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.3"/>
-            <circle cx="330" cy="60" r="24" fill="none" stroke="#fff" stroke-width="0.6" opacity="0.22"/>
-            <path d="M330 12 V26 M330 94 V108 M282 60 H296 M364 60 H378" stroke="#fff" stroke-width="0.6" opacity="0.3" fill="none"/>
-            <path d="M20 130 H180" stroke="var(--gold)" stroke-width="0.8" opacity="0.4" fill="none"/>
-            <circle cx="20" cy="130" r="2.5" fill="var(--gold)" opacity="0.7"/>
-            <circle cx="180" cy="130" r="2.5" fill="var(--gold)" opacity="0.7"/>
-          </svg>
-          <div>
-            <div class="pm-project-tag">Gestión de redes · Branding · Estrategia</div>
-          </div>
-          <div style="position:relative;z-index:2;">
-            <div class="pm-project-logo">S.O.S<span style="color:var(--gold);"> /</span><br>BIKE</div>
-          </div>
-          <div style="position:absolute;top:1.25rem;right:1.25rem;z-index:2;text-align:right;">
-            <div class="pm-project-stat-num">1.333</div>
-            <div style="font-size:6px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:2px;">seg · 3 meses</div>
-          </div>
-          <div class="pm-project-view">Ver proyecto ↗</div>
-        </div>
-        <div class="pm-project-footer">
-          <div class="pm-project-footer-title">Branding & estadísticas para emprendimientos</div>
-          <div class="pm-project-footer-sub">S.O.S Bike · Montevideo, Uruguay</div>
-        </div>
+      <div class="pfolder" onclick="window.location.href='sosbike.html'">
+        <img class="pcard pcard-l" src="https://github.com/user-attachments/assets/a6796bf5-b0df-4989-b637-780d7dc8af02" alt="" loading="lazy" />
+        <img class="pcard pcard-r" src="https://github.com/user-attachments/assets/8d31e26d-da45-4c5f-a601-fc8590ff45ca" alt="" loading="lazy" />
+        <div class="pcard pcard-c"><span class="ptag">Gestión de redes · Branding</span><span class="plogo">S.O.S<span> /</span><br>BIKE</span></div>
+        <div class="pfront"><div class="pfront-text"><div class="pfront-kicker">S.O.S Bike · Montevideo, Uruguay</div><div class="pfront-title">S.O.S Bike</div><div class="pfront-sub">Branding & estadísticas para emprendimientos</div></div><span class="pfront-cta">Ver proyecto ↗</span></div>
       </div>
-
-      <!-- CARD CAMPAÑA TFC -->
-      <div class="pm-project-card wide" onclick="window.location.href='campana-tfc.html'">
-        <div class="pm-project-visual" style="aspect-ratio:32/9;">
-          <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 800 225" preserveAspectRatio="xMidYMid slice">
-            <path d="M12 12 V32 H32 M768 12 H788 V32 M788 193 V213 H768 M32 213 H12 V193" stroke="#fff" stroke-width="1" opacity="0.35" fill="none"/>
-            <circle cx="680" cy="55" r="26" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.4"/>
-            <circle cx="680" cy="55" r="14" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.35"/>
-          </svg>
-          <div style="position:relative;z-index:2;">
-            <div class="pm-project-tag">Tacuarembó FC · Caso de estudio</div>
-          </div>
-          <div style="position:relative;z-index:2;">
-            <div class="pm-project-tag" style="margin-bottom:8px;">Redes sociales · Estrategia · Sin presupuesto</div>
-            <div class="pm-project-logo">Lanzamiento<span style="color:var(--gold);"> /</span> en 48H</div>
-          </div>
-          <div style="position:absolute;top:1.25rem;right:1.25rem;z-index:2;text-align:right;">
-            <div class="pm-project-stat-num">81.8K</div>
-            <div style="font-size:6px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:2px;">views · 3 publicaciones</div>
-          </div>
-          <div class="pm-project-view">Ver proyecto ↗</div>
-        </div>
-        <div class="pm-project-footer">
-          <div class="pm-project-footer-title">Campaña de lanzamiento de camiseta</div>
-          <div class="pm-project-footer-sub">Tacuarembó Fútbol Club</div>
-        </div>
+      <div class="pfolder" onclick="window.location.href='campana-tfc.html'">
+        <img class="pcard pcard-l" src="https://github.com/user-attachments/assets/af8e51cc-2f05-4f0d-9ab0-427c2e801298" alt="" loading="lazy" />
+        <img class="pcard pcard-r" src="https://github.com/user-attachments/assets/f7c5e98b-6661-49bd-b724-051c4a8d49bc" alt="" loading="lazy" />
+        <div class="pcard pcard-c"><span class="ptag">Tacuarembó FC · Caso de estudio</span><span class="plogo" style="font-size:1.75rem;">Lanzamiento<span> /</span><br>en 48H</span></div>
+        <div class="pfront"><div class="pfront-text"><div class="pfront-kicker">Tacuarembó Fútbol Club</div><div class="pfront-title">Campaña TFC</div><div class="pfront-sub">Campaña de lanzamiento de camiseta</div></div><span class="pfront-cta">Ver proyecto ↗</span></div>
       </div>
-
     </div>
   </div>
 
