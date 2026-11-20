@@ -135,6 +135,9 @@
       .pm-nav-links { display: none; }
       .pm-nav, .hero, .pm-section { padding-left: 1.25rem; padding-right: 1.25rem; }
     }
+    /* cursor-camera */
+    html, body { cursor: url('img/cursor/camera.svg') 16 18, auto; }
+    a, button, [onclick], .folder-item, .category-panel, .masonry-item, .lightbox-prev, .lightbox-next, .lightbox-close { cursor: url('img/cursor/camera-click.svg') 16 18, pointer !important; }
   </style>
 </head>
 <body>
@@ -241,8 +244,18 @@
         <div class="category-panel-overlay"></div>
         <div class="category-panel-num">02</div>
         <div class="category-panel-content">
-          <div class="category-panel-title">Fotografía</div>
+          <div class="category-panel-title">Fotografía<br>deportiva</div>
           <p class="category-panel-desc">Galerías por partido — la velocidad, el contacto, la emoción del fútbol.</p>
+          <span class="category-panel-cta">Explorar ↗</span>
+        </div>
+      </div>
+      <div class="category-panel" onclick="window.location.href='fotografia-artistica.html'">
+        <div class="category-panel-bg" style="background-image:url('img/artistica/artistica-9588.jpg'); background-position: center 30%;"></div>
+        <div class="category-panel-overlay"></div>
+        <div class="category-panel-num">03</div>
+        <div class="category-panel-content">
+          <div class="category-panel-title">Fotografía<br>artística</div>
+          <p class="category-panel-desc">Retrato, moda y ciudad — una mirada más libre, con tiempo para buscar la luz.</p>
           <span class="category-panel-cta">Explorar ↗</span>
         </div>
       </div>
@@ -256,7 +269,7 @@
           </svg>
         </div>
         <div class="category-panel-overlay"></div>
-        <div class="category-panel-num">03</div>
+        <div class="category-panel-num">04</div>
         <div class="category-panel-content">
           <div class="category-panel-title">Diseño UX/UI</div>
           <p class="category-panel-desc">Interfaces y prototipos pensados desde la experiencia. Próximamente.</p>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fotografía artística — Pilar Machado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-padding-top: 80px; }
+    :root { --black: #F1EADC; --surface: #E8DEC9; --white: #221D18; --accent: #7A2436; --gold: #A0793D; --gray: #75695A; --border: rgba(34,29,24,0.14); }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+
+    .pm-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(241,234,220,0.85); backdrop-filter: blur(10px); z-index: 100; }
+    .pm-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .pm-logo span { color: var(--accent); }
+    .pm-back { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .pm-back:hover { color: var(--accent); }
+
+    .page-header { padding: 4rem 2.5rem 2rem; border-bottom: 0.5px solid var(--border); }
+    .page-header-top { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1rem; }
+    .page-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: 0.04em; line-height: 1; }
+    .page-line { flex: 1; height: 0.5px; background: var(--border); margin-left: 1rem; }
+    .page-desc { font-size: 0.95rem; color: var(--gray); max-width: 520px; line-height: 1.7; }
+
+    .pm-gallery-wrap { padding: 2rem 2.5rem 6rem; overflow: visible; }
+    .folder-row { display: flex; gap: 2.5rem; justify-content: center; align-items: flex-start; padding: 9rem 0 0.5rem; overflow: visible; flex-wrap: wrap; }
+    .folder-item { width: 160px; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; cursor: pointer; position: relative; }
+    .folder-wrap { position: relative; width: 160px; height: 128px; overflow: visible; }
+    .folder-tab { position: absolute; top: 0; left: 8%; width: 38%; height: 18%; background: #9C5064; border-radius: 5px 5px 0 0; z-index: 1; }
+    .folder-front { position: absolute; bottom: 0; left: 0; right: 0; top: 12%; background: var(--accent); border-radius: 3px 6px 6px 6px; z-index: 2; transition: transform 0.3s ease; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15), 0 2px 10px rgba(122,36,54,0.25); }
+    .folder-photo { position: absolute; bottom: 50%; left: 50%; transform: translateX(-50%) translateY(40%) scale(0.9); width: 220px; height: 270px; object-fit: cover; border-radius: 4px; z-index: 10; transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease; opacity: 0; pointer-events: none; box-shadow: 0 0 0 rgba(0,0,0,0); }
+    .folder-item:hover .folder-photo { opacity: 1; transform: translateX(-50%) translateY(-55%) scale(1.05); box-shadow: 0 16px 36px rgba(34,29,24,0.35); }
+    .folder-item:hover .folder-front { transform: scaleY(0.85); transform-origin: bottom; }
+    .folder-name { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-align: center; transition: color 0.2s; line-height: 1.3; min-height: 2.4rem; }
+    .folder-item:hover .folder-name { color: var(--accent); }
+
+    .pm-footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .pm-footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gray); }
+    .pm-footer-copy { font-size: 0.68rem; color: rgba(34,29,24,0.4); letter-spacing: 0.05em; }
+    /* cursor-camera */
+    html, body { cursor: url('img/cursor/camera.svg') 16 18, auto; }
+    a, button, [onclick], .folder-item, .category-panel, .masonry-item, .lightbox-prev, .lightbox-next, .lightbox-close { cursor: url('img/cursor/camera-click.svg') 16 18, pointer !important; }
+  </style>
+</head>
+<body>
+
+  <nav class="pm-nav">
+    <a href="index.html" class="pm-logo">P<span>.</span>M</a>
+    <a href="index.html#foto" class="pm-back">← Volver al portfolio</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-top">
+      <span class="page-num">03</span>
+      <h1 class="page-title">Fotografía artística</h1>
+      <div class="page-line"></div>
+    </div>
+    <p class="page-desc">Retrato, moda y ciudad — una mirada más libre, con tiempo para buscar la luz.</p>
+  </div>
+
+  <div class="pm-gallery-wrap">
+    <div class="folder-row">
+      <div class="folder-item" onclick="window.location.href='retratos-urbanos.html'" style="cursor:pointer;">
+        <div class="folder-wrap"><div class="folder-body"><div class="folder-tab"></div><div class="folder-front"></div><img class="folder-photo" src="img/artistica/artistica-9588.jpg" alt="Retratos urbanos · Montevideo" /></div></div>
+        <span class="folder-name">Retratos urbanos · Montevideo</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pm-footer">
+    <span class="pm-footer-name">Pilar Machado</span>
+    <span class="pm-footer-copy">Fotografía & Comunicación Digital — 2025</span>
+  </footer>
+
+</body>
+</html>
