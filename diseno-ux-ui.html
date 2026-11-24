@@ -41,24 +41,24 @@
     /* UX/UI — carpetas de proyecto con el logo asomando */
     .ux-wrap { flex: 1; padding: 11rem 2.5rem 6rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 520px)); justify-content: center; column-gap: 3.5rem; row-gap: 11rem; }
     .uxf { position: relative; height: 430px; text-decoration: none; display: block; }
-    .uxf-logo { position: absolute; left: 50%; bottom: 120px; width: 62%; aspect-ratio: 4 / 3; transform: translateX(-50%) rotate(-3deg); background: #fff; border-radius: 18px; border: 5px solid #FBF7F0; box-shadow: 0 10px 26px rgba(15,43,69,0.16); display: flex; align-items: center; justify-content: center; z-index: 1; transition: transform 0.6s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.4s ease; }
+    .uxf-logo { position: absolute; left: 50%; bottom: 120px; width: 62%; aspect-ratio: 4 / 3; transform: translateX(-50%) rotate(-3deg); background: #fff; border-radius: 18px; border: 5px solid #FBF7F0; box-shadow: 0 10px 26px rgba(34,29,24,0.16); display: flex; align-items: center; justify-content: center; z-index: 1; transition: transform 0.6s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.4s ease; }
     .uxf-logo img { width: 84%; height: 84%; object-fit: contain; }
     .nx-mark { display: flex; align-items: center; gap: 0.6rem; }
     .nx-mark svg { width: 74px; height: 46px; }
     .nx-mark b { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 3rem; letter-spacing: -0.03em; color: #17679C; }
     .uxf-front { position: absolute; left: 0; right: 0; bottom: 0; height: 280px; z-index: 3;
       -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300' preserveAspectRatio='none'><path d='M24 0 H190 C204 0 210 7 216 16 L222 26 C227 34 233 38 246 38 H476 Q500 38 500 62 V276 Q500 300 476 300 H24 Q0 300 0 276 V24 Q0 0 24 0 Z'/></svg>") 0 0 / 100% 100% no-repeat; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300' preserveAspectRatio='none'><path d='M24 0 H190 C204 0 210 7 216 16 L222 26 C227 34 233 38 246 38 H476 Q500 38 500 62 V276 Q500 300 476 300 H24 Q0 300 0 276 V24 Q0 0 24 0 Z'/></svg>") 0 0 / 100% 100% no-repeat;
-      background: linear-gradient(165deg, rgba(91,189,235,0.30) 0%, rgba(23,103,156,0.62) 55%, rgba(15,43,69,0.88) 100%);
+      background: linear-gradient(165deg, rgba(122,36,54,0.28) 0%, rgba(122,36,54,0.6) 55%, rgba(84,22,37,0.88) 100%);
       -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%); transition: transform 0.35s ease; }
     .uxf-front::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 35%, rgba(255,255,255,0) 60%); }
     .uxf-text { position: absolute; left: 1.75rem; right: 1.75rem; bottom: 1.6rem; color: #fff; }
     .uxf-kicker { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
     .uxf-sub { font-size: 0.85rem; color: rgba(255,255,255,0.82); margin-top: 0.4rem; }
     .uxf-cta { position: absolute; right: 1.75rem; top: 3.6rem; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,0.45); padding: 6px 12px; border-radius: 999px; transition: background 0.3s, color 0.3s; }
-    .uxf-name { position: absolute; left: 0; right: 0; top: calc(100% + 1.2rem); text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; letter-spacing: 0.08em; color: #17679C; opacity: 0; transform: translateY(-10px); transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s; }
-    .uxf:hover .uxf-logo { transform: translate(-50%, -165px) rotate(0deg) scale(1.12); box-shadow: 0 24px 50px rgba(15,43,69,0.28); z-index: 5; }
+    .uxf-name { position: absolute; left: 0; right: 0; top: calc(100% + 1.2rem); text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; letter-spacing: 0.08em; color: var(--accent); opacity: 0; transform: translateY(-10px); transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s; }
+    .uxf:hover .uxf-logo { transform: translate(-50%, -165px) rotate(0deg) scale(1.12); box-shadow: 0 24px 50px rgba(34,29,24,0.3); z-index: 5; }
     .uxf:hover .uxf-front { transform: translateY(4px); }
-    .uxf:hover .uxf-cta { background: #FFC83D; border-color: #FFC83D; color: #0F2B45; }
+    .uxf:hover .uxf-cta { background: #F1EADC; border-color: #F1EADC; color: var(--accent); }
     .uxf:hover .uxf-name { opacity: 1; transform: none; }
     @media (max-width: 900px) { .ux-wrap { grid-template-columns: minmax(0, 520px); padding-top: 9rem; } .uxf { height: 360px; } .uxf-front { height: 230px; } .uxf-logo { bottom: 95px; } .nx-mark b { font-size: 2.2rem; } }
   </style>
