@@ -788,15 +788,15 @@ const mEls = missions.map(([t, d], i) => {
 mEls[0].classList.add('open');
 function updM() { const d = mEls.filter(m => m.classList.contains('done')).length; $('#mProg').style.width = (d / mEls.length * 100) + '%'; $('#doneMsg').classList.toggle('show', d === mEls.length); }
 
-/* carrete de pantallas — REEMPLAZAR: exportá cada pantalla de tu figma.site con estos nombres en img/nexar/ */
+/* carrete de pantallas (img/nexar/) */
 const shots = [
   ['inicio.jpg', 'Inicio', 'Buscador y nueve categorías. La promesa en una línea: espacios y actividades para personas mayores en Uruguay.'],
   ['resultados.jpg', 'Resultados con filtros', 'Costo, tipo, institución, día y zona. Cada filtro activo se ve como un chip que se puede quitar.'],
   ['mapa.jpg', 'Mapa', 'La misma búsqueda, ubicada en la ciudad: qué hay cerca de casa.'],
-  ['detalle.jpg', 'Ficha de actividad', 'Descripción, lugar, horario y costo. Sello de verificación, comentarios de otros mediadores, Guardar y Chatear.'],
+  ['registro.jpg', 'Registro', 'Para inscribirse se crea la cuenta en una ventana emergente, sin salir de la actividad: nombre, celular, correo y contraseña.'],
   ['pago.jpg', 'Inscripción y pago', 'El flujo que se corrigió entre la primera y la segunda ronda de testeo.'],
   ['guardadas.jpg', 'Perfil y guardadas', 'Las actividades guardadas, las que están en curso y las ya realizadas.'],
-  ['portal.jpg', 'Portal de instituciones', 'Cada institución carga sus actividades y ve sus métricas. Astur las modera antes de publicarlas.']
+  ['confirmacion.jpg', 'Confirmación', '«¡Listo, ya sos parte!»: queda claro que la persona ya está inscripta, con el día, la hora y el lugar de la actividad.']
 ];
 const reel = $('#reel');
 shots.forEach(([f, t, d], i) => {
@@ -820,11 +820,11 @@ $$('#tabs button').forEach(b => b.addEventListener('click', () => {
   const r = $('#' + b.dataset.r); void r.offsetWidth; r.classList.add('on');
 }));
 
-/* ---------- 08: piezas (REEMPLAZAR: img/nexar/pieza-*.jpg) ---------- */
+/* ---------- 08: piezas (img/nexar/pieza-*.jpg) ---------- */
 const pieces = [
-  ['pieza-1.jpg', 'Nunca es tarde.', 'Carrusel · Instagram', '#17679C', '#fff'],
+  ['pieza-1.jpg', '1 de cada 6 personas se ven afectadas por la soledad', 'Carrusel · Instagram', '#17679C', '#fff'],
   ['pieza-2.jpg', 'Encontrá tu actividad en 4 pasos', 'Carrusel · Instagram', '#FFC83D', '#0F2B45'],
-  ['pieza-3.jpg', 'Talleres gratis en Malvín', 'Carrusel · Instagram', '#5BBDEB', '#0F2B45'],
+  ['pieza-3.jpg', 'Mi hija me pasó NEXAR por WhatsApp', 'Carrusel · Instagram', '#5BBDEB', '#0F2B45'],
   ['pieza-4.jpg', 'Fundación Astur presenta NEXAR', 'Carrusel · Instagram', '#0F2B45', '#fff'],
   ['pieza-5.jpg', 'Afiche con QR', 'Para personas de 60 a 65', '#E3F4FC', '#0F2B45'],
   ['pieza-6.jpg', 'Afiche con QR', 'Para familiares y mediadores', '#FFF2C6', '#0F2B45']
