@@ -63,6 +63,18 @@
     /* cursor-camera */
     html, body { cursor: url('img/cursor/camera.svg') 16 18, auto; }
     a, button, [onclick], .folder-item, .pfolder, .masonry-item, .lightbox-prev, .lightbox-next, .lightbox-close { cursor: url('img/cursor/camera-click.svg') 16 18, pointer !important; }
+
+    /* REFERENCIAS */
+    .refs { padding: 3.5rem 2.5rem 4.5rem; border-top: 0.5px solid var(--border); max-width: 1150px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+    .refs-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.8rem; }
+    .refs-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.05em; color: var(--accent); line-height: 1; }
+    .refs-line { flex: 1; height: 0.5px; background: var(--border); }
+    .refs-list { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .ref { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.5rem 1.1rem 1.1rem; border: 0.5px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.35); min-width: 290px; text-decoration: none; color: inherit; transition: border-color 0.25s, transform 0.25s; }
+    .ref:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .ref-ini { width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: #F1EADC; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.06em; flex-shrink: 0; }
+    .ref-name { font-size: 1rem; font-weight: 500; }
+    .ref-tel { font-size: 0.85rem; color: var(--gray); margin-top: 0.15rem; letter-spacing: 0.03em; }
   </style>
 </head>
 <body>
@@ -103,6 +115,13 @@
       </div>
     </div>
   </div>
+
+  <section class="refs">
+    <div class="refs-head"><h2 class="refs-title">Referencias</h2><div class="refs-line"></div></div>
+    <div class="refs-list">
+      <a class="ref" href="tel:+59899268091"><span class="ref-ini">DP</span><span><div class="ref-name">Diego Pereira</div><div class="ref-tel">099 268 091</div></span></a>
+    </div>
+  </section>
 
   <footer class="pm-footer">
     <span class="pm-footer-name">Pilar Machado</span>
